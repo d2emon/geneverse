@@ -1,10 +1,12 @@
 #!python3
 from flask import Flask, jsonify, make_response, url_for
+from flask_cors import CORS
 
 from data import generate_thing, list_generators, thing_meta
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 def make_public_generator(gen):

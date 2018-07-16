@@ -1,9 +1,11 @@
 click==6.7
 Flask==1.0.2
+Flask-Cors==3.0.6
 generator-pack==0.1.11
 itsdangerous==0.24
 Jinja2==2.10
 MarkupSafe==1.0
 Menu==3.1.0
 num2words==0.5.6
+six==1.11.0
 Werkzeug==0.14.1
