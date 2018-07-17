@@ -80,7 +80,7 @@ export default {
         icon: 'bubble_chart',
         title: 'Inspire'
       }],
-      miniVariant: false,
+      miniVariant: true,
       right: true,
       rightDrawer: false,
       title: 'Vuetify.js'
