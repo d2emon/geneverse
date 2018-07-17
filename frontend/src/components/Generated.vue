@@ -89,10 +89,16 @@ export default {
   }),
   methods: {
     generate (generator) {
+      generator = generator || 'multiverse'
+      /*
       if (generator) {
         console.log(generator)
         this.uri = rootUrl + generator
+      } else {
+        this.uri = rootUrl + 'multiverse'
       }
+      */
+      this.uri = rootUrl + generator
 
       axios.get(this.uri)
       .then(response => {

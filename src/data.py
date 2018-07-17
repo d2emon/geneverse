@@ -2,24 +2,6 @@ from nested.data import clean_things, THINGS
 from nested.item import Item
 
 
-tasks = [
-    {
-        'id': 1,
-        'title': u'Buy groceries',
-        'description': u'Milk, Cheese, Pizza, Fruit, Tylenol',
-        'done': False
-    },
-    {
-        'id': 2,
-        'title': u'Learn Python',
-        'description': u'Need to find a good Python tutorial on the web',
-        'done': False
-    }
-]
-
-clean_things()
-
-
 def item_to_dict(item):
     return {
         'id': item.id,
