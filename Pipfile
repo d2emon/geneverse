@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-cors = "*"
+generator-pack = {git = "https://github.com/d2emon/generator-pack.git", ref = "dev"}
 
 [dev-packages]
 
