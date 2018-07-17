@@ -50,6 +50,7 @@
                                         </v-flex>
                                     </v-card-title>
                                     <v-card-actions>
+                                        <v-btn flat :to="card.link">Go</v-btn>
                                         <v-btn flat @click="cardClick(card)">Enter</v-btn>
                                         <v-spacer></v-spacer>
                                         <v-btn icon>
@@ -75,17 +76,24 @@
 <script>
 import axios from 'axios'
 
+const rootUrl = 'http://localhost:5000/api/v1.0/generate/'
+
 export default {
   name: 'Generated',
   data: () => ({
-    uri: 'http://localhost:5000/api/v1.0/generate/multiverse',
+    uri: rootUrl + 'multiverse',
     current: {
       title: 'UNTITLED'
     },
     cards: []
   }),
   methods: {
-    generate () {
+    generate (generator) {
+      if (generator) {
+        console.log(generator)
+        this.uri = rootUrl + generator
+      }
+
       axios.get(this.uri)
       .then(response => {
         let data = response.data
@@ -105,7 +113,8 @@ export default {
             title: item.name,
             flex: 6,
             data: item,
-            uri: item.uri
+            uri: item.uri,
+            link: '/generate/' + item.generator
           }
           this.cards.push(card)
         })
@@ -133,7 +142,13 @@ export default {
     }
   },
   mounted () {
-    this.generate()
+    this.generate(this.$route.params.generator_id)
+  },
+  watch: {
+    '$route.params.generator_id': function (generator) {
+      console.log(this)
+      this.generate(generator)
+    }
   }
 }
 </script>

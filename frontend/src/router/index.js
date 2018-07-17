@@ -8,6 +8,10 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/generate/multiverse'
+    },
+    {
+      path: '/generate/:generator_id',
       name: 'Generated',
       component: Generated
     }
