@@ -114,6 +114,7 @@ export default {
             flex: 6,
             data: item,
             uri: item.uri,
+            imagefile: item.imagefile,
             link: '/generate/' + item.generator
           }
           this.cards.push(card)
@@ -133,7 +134,7 @@ export default {
     },
     cardImage (card) {
       // image: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
-      return '/static/' + card.data.generator + '.jpg'
+      return '/static/' + card.imagefile
     },
     cardClick (card) {
       console.log('Card Clicked', card)

@@ -20,21 +20,22 @@ tasks = [
 clean_things()
 
 
-def generate_thing(gen):
-    item = Item(gen)
-    item.grow()
+def item_to_dict(item):
     return {
         'id': item.id,
         'name': item.name,
-        'children': [
-            {
-                'id': child.id,
-                'name': child.name,
-                'generator': child.type.name,
-            }
-            for child in item.children
-        ],
+        'imagefile': item.image + '.jpg',
+        'generator': item.type.name,
     }
+
+
+def generate_thing(gen):
+    item = Item(gen)
+    item.grow()
+
+    res = item_to_dict(item)
+    res["children"] = [item_to_dict(child) for child in item.children]
+    return res
 
 
 def thing_meta(gen):
