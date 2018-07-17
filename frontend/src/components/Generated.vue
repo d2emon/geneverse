@@ -12,6 +12,10 @@
                 </v-toolbar>
 
                 <v-card>
+                    <v-card-title>
+                        <div style="max-height: 200px; overflow: auto;">{{current}}</div>
+                    </v-card-title>
+
                     <v-container
                         fluid
                         grid-list-md
@@ -72,7 +76,7 @@
 import axios from 'axios'
 
 export default {
-  name: 'Generated.vue',
+  name: 'Generated',
   data: () => ({
     uri: 'http://localhost:5000/api/v1.0/generate/multiverse',
     current: {
@@ -91,7 +95,8 @@ export default {
         console.log(parent)
         console.log(children)
         this.current = {
-          title: parent.name
+          title: parent.name,
+          data: parent
         }
         this.cards = []
         children.forEach((item, id) => {
@@ -112,7 +117,6 @@ export default {
       let f = 3
       this.cards.forEach(card => {
         let flex = (Math.floor(Math.random() * (row / f)) + 1) * f
-        console.log(flex)
         card.flex = flex
         row -= flex
         if (row <= 0) row = 12
