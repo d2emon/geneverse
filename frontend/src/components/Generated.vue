@@ -1,6 +1,18 @@
 <template>
     <v-container fluid>
         <v-layout column align-center>
+          <v-flex xs12>
+            <v-breadcrumbs divider="/">
+              <v-breadcrumbs-item
+                v-for="item in breadcrumbs"
+                :key="item.text"
+                :disabled="item.disabled"
+                :to="item.to"
+              >
+                {{ item.text }}
+              </v-breadcrumbs-item>
+            </v-breadcrumbs>
+          </v-flex>
             <v-flex xs12 sm6>
                 <v-toolbar color="indigo" dark>
                     <v-toolbar-side-icon></v-toolbar-side-icon>
@@ -85,11 +97,17 @@ export default {
     current: {
       title: 'UNTITLED'
     },
+    breadcrumbs: [],
     cards: []
   }),
   methods: {
     generate (generator) {
       generator = generator || 'multiverse'
+      this.breadcrumbs.push({
+        text: generator,
+        to: '/generate/' + generator,
+        disabled: false
+      })
       /*
       if (generator) {
         console.log(generator)
