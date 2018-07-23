@@ -63,11 +63,7 @@
                                     </v-card-title>
                                     <v-card-actions>
                                         <v-btn flat :to="card.link">Go</v-btn>
-                                        <v-btn flat @click="cardClick(card)">Enter</v-btn>
                                         <v-spacer></v-spacer>
-                                        <v-btn icon>
-                                            <v-icon>favorite</v-icon>
-                                        </v-btn>
                                         <v-btn icon>
                                             <v-icon>bookmark</v-icon>
                                         </v-btn>
@@ -150,7 +146,8 @@ export default {
       let row = 12
       let f = 3
       this.cards.forEach(card => {
-        let flex = (Math.floor(Math.random() * (row / f)) + 1) * f
+        // let flex = (Math.floor(Math.random() * (row / f)) + 1) * f
+        let flex = f
         card.flex = flex
         row -= flex
         if (row <= 0) row = 12
@@ -159,11 +156,6 @@ export default {
     cardImage (card) {
       // image: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
       return '/static/' + card.imagefile
-    },
-    cardClick (card) {
-      console.log('Card Clicked', card)
-      this.uri = card.uri
-      this.generate()
     }
   },
   mounted () {
