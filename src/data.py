@@ -4,7 +4,7 @@ from nested.item import Item
 
 def item_to_dict(item):
     return {
-        'id': item.id,
+        # 'id': item.id,
         'name': item.name,
         'imagefile': item.image + '.jpg',
         'generator': item.type.name,
@@ -12,8 +12,7 @@ def item_to_dict(item):
 
 
 def generate_thing(gen):
-    item = Item(gen)
-    item.grow()
+    item = Item.generate(gen)
 
     res = item_to_dict(item)
     res["children"] = [item_to_dict(child) for child in item.children]
@@ -21,9 +20,9 @@ def generate_thing(gen):
 
 
 def thing_meta(gen):
-    item = Item(gen)
+    item = Item.generate(gen)
     return {
-        'id': item.id,
+        # 'id': item.id,
         'name': item.name,
         'name_generators': item.type.namegen.data,
         'generators': [{
