@@ -4,18 +4,17 @@
       <v-flex xs12>
         <h1>Space</h1>
       </v-flex>
-      <v-flex xs6 ref="space">
-        <div class="star-field" @click="play">
-            <Starfield
-              style="width: 100%; height: 100%;"
-              :stars="this.stars"
-              :depth="this.depth"
-              :starSize="4"
-              :animate="this.animating"
-            />
-        </div>
+      <v-flex xs6 @click="play" ref="space">
+        <Starfield
+          class="star-field"
+          :stars="this.stars"
+          :height="this.height"
+          :depth="this.depth"
+          :star-size="4"
+          :animate="this.animating"
+        />
       </v-flex>
-      <v-flex xs6>
+      <v-flex xs6 ref="sponge">
         <MengerSponge
            style="width: 100%;"
            :iterations="16"
@@ -42,6 +41,7 @@ export default {
   },
   data: () => ({
     depth: 1000,
+    height: null,
 
     animating: false
   }),
@@ -50,6 +50,8 @@ export default {
   },
   mounted () {
     this.$store.dispatch('stars/load', { count: 500 })
+    console.log(this.$refs.space)
+    this.height = this.$refs.space.offsetWidth
   }
 }
 </script>
@@ -59,8 +61,7 @@ h1 {
   text-align: center;
 }
 .star-field {
-  height: 400px;
+  width: 100%;
   background-color: black;
-  text-align: center;
 }
 </style>

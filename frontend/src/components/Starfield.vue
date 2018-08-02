@@ -28,7 +28,7 @@ export default {
       let x0 = this.canvas.width / 2
       let y0 = this.canvas.height / 2
       let distance = star.z - this.pos
-      if (distance <= 0) distance += this.depth
+      while (distance <= 0) distance += this.depth
       let modifier = 1 - distance / this.depth
 
       return {
@@ -65,8 +65,8 @@ export default {
     this.canvas = this.$refs.starfield
     this.context = this.canvas.getContext('2d')
 
-    if (this.width) this.canvas.width = this.width
-    if (this.height) this.canvas.height = this.height
+    this.canvas.width = this.width || this.canvas.offsetWidth
+    this.canvas.height = this.height || this.canvas.offsetHeight
 
     this.pos = this.initialPos
 

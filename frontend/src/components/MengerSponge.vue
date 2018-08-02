@@ -49,7 +49,7 @@ export default {
     this.canvas = this.$refs.menger
     this.context = this.canvas.getContext('2d')
 
-    if (this.size) this.canvas.width = this.size
+    this.canvas.width = this.size || this.canvas.offsetWidth
 
     this.draw()
   },
