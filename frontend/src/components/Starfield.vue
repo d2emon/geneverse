@@ -10,7 +10,7 @@ export default {
     width: { type: Number, default: 400 },
     height: { type: Number, default: 400 },
     depth: { type: Number, default: 400 },
-    starSize: { type: Number, default: 8 },
+    starSize: { type: Number, default: 1 },
     starStyle: { type: String, default: '#ffffff' },
     initialPos: { type: Number, default: 0 },
     animate: { type: Boolean, default: false },
