@@ -2,8 +2,7 @@
 from flask import Flask, jsonify, make_response, url_for
 from flask_cors import CORS
 
-from data import generate_thing, list_generators, thing_meta
-
+from .data import generate_thing, list_generators, thing_meta
 
 app = Flask(__name__)
 CORS(app)
@@ -51,8 +50,10 @@ def get_meta(gen):
         'meta': thing_meta(gen),
     })
 
+
 @app.errorhandler(404)
 def not_found(error):
+    print(error)
     return make_response(jsonify({'error': 'Not found'}), 404)
 
 

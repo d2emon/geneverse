@@ -1,4 +1,4 @@
-from nested.data import clean_things, THINGS
+# from nested.data import clean_things, THINGS
 from nested.item import Item
 
 
@@ -34,6 +34,7 @@ def thing_meta(gen):
 
 
 def list_generators():
-    global THINGS
+    from nested.data import THINGS
+    # global THINGS
     res = [{"name": thing} for thing in THINGS]
     return res
