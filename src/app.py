@@ -1,12 +1,13 @@
 #!python3
-from flask import Flask, jsonify, make_response, url_for
+from flask import Flask, request, jsonify, make_response, url_for
 from flask_cors import CORS
 
 from data import generate_thing, list_generators, thing_meta
+from stars import Star
+
 
 app = Flask(__name__)
 CORS(app)
-
 
 def make_public_generator(gen):
     res = gen
@@ -41,6 +42,13 @@ def get_generated(gen):
         'result': make_public_item(generate_thing(gen)),
     })
 
+
+@app.route('/api/v1.0/stars', methods=['GET'])
+def get_stars():
+    count = int(request.args.get('count', 200))
+    return jsonify({
+        'stars': [Star().as_dict() for i in range(count)],
+    })
 
 @app.route('/api/v1.0/meta/<gen>', methods=['GET'])
 def get_meta(gen):
