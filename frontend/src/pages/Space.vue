@@ -1,6 +1,8 @@
 <template>
   <v-container fluid>
+
     <h1>Space</h1>
+
     <div class="star-field" ref="space" @click="play">
       <Starfield
         :stars="this.stars"
@@ -11,16 +13,22 @@
         :animate="this.animating"
       />
     </div>
+    <MengerSponge
+       :size="this.width"
+       :iterations="16"
+    />
   </v-container>
 </template>
 
 <script>
 import Starfield from '@/components/Starfield'
+import MengerSponge from '@/components/MengerSponge'
 
 export default {
   name: 'Space',
   components: {
-    Starfield
+    Starfield,
+    MengerSponge
   },
   computed: {
     stars () { return this.$store.state.stars.stars }

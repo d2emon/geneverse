@@ -80,7 +80,6 @@ export default {
   updated () {
     this.draw()
   }
-
 }
 </script>
 
