@@ -7,8 +7,8 @@ export default {
   name: 'Starfield',
   props: {
     stars: Array,
-    width: { type: Number, default: 400 },
-    height: { type: Number, default: 400 },
+    width: Number,
+    height: Number,
     depth: { type: Number, default: 400 },
     starSize: { type: Number, default: 1 },
     starStyle: { type: String, default: '#ffffff' },
@@ -25,8 +25,8 @@ export default {
   }),
   methods: {
     projectStar (star) {
-      let x0 = this.width / 2
-      let y0 = this.height / 2
+      let x0 = this.canvas.width / 2
+      let y0 = this.canvas.height / 2
       let distance = star.z - this.pos
       if (distance <= 0) distance += this.depth
       let modifier = 1 - distance / this.depth
@@ -65,8 +65,8 @@ export default {
     this.canvas = this.$refs.starfield
     this.context = this.canvas.getContext('2d')
 
-    this.canvas.width = this.width
-    this.canvas.height = this.height
+    if (this.width) this.canvas.width = this.width
+    if (this.height) this.canvas.height = this.height
 
     this.pos = this.initialPos
 

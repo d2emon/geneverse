@@ -1,22 +1,29 @@
 <template>
   <v-container fluid>
-
-    <h1>Space</h1>
-
-    <div class="star-field" ref="space" @click="play">
-      <Starfield
-        :stars="this.stars"
-        :width="this.width"
-        :height="this.height"
-        :depth="this.depth"
-        :starSize="4"
-        :animate="this.animating"
-      />
+    <v-layout row wrap>
+      <v-flex xs12>
+        <h1>Space</h1>
+      </v-flex>
+      <v-flex xs6 ref="space">
+        <div class="star-field" @click="play">
+            <Starfield
+              style="width: 100%; height: 100%;"
+              :stars="this.stars"
+              :depth="this.depth"
+              :starSize="4"
+              :animate="this.animating"
+            />
+        </div>
+      </v-flex>
+      <v-flex xs6>
+        <MengerSponge
+           style="width: 100%;"
+           :iterations="16"
+        />
+      </v-flex>
+    </v-layout>
+    <div>
     </div>
-    <MengerSponge
-       :size="this.width"
-       :iterations="16"
-    />
   </v-container>
 </template>
 
@@ -34,8 +41,6 @@ export default {
     stars () { return this.$store.state.stars.stars }
   },
   data: () => ({
-    width: 400,
-    height: 400,
     depth: 1000,
 
     animating: false
@@ -45,14 +50,15 @@ export default {
   },
   mounted () {
     this.$store.dispatch('stars/load', { count: 500 })
-    this.width = this.$refs.space.offsetWidth
   }
 }
 </script>
 
 <style scoped>
+h1 {
+  text-align: center;
+}
 .star-field {
-  width: 100%;
   height: 400px;
   background-color: black;
   text-align: center;
