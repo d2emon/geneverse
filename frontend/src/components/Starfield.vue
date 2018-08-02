@@ -5,72 +5,79 @@
 <script>
 export default {
   name: 'Starfield',
-  props: [
-    'stars',
-    'width',
-    'height'
-  ],
+  props: {
+    stars: Array,
+    width: { type: Number, default: 400 },
+    height: { type: Number, default: 400 },
+    depth: { type: Number, default: 400 },
+    starSize: { type: Number, default: 8 },
+    starStyle: { type: String, default: '#ffffff' },
+    initialPos: { type: Number, default: 0 },
+    animate: { type: Boolean, default: false },
+    speed: { type: Number, default: 50 },
+    interval: { type: Number, default: 100 }
+  },
   data: () => ({
-    context: null
+    canvas: null,
+    context: null,
+
+    pos: 0
   }),
   methods: {
     projectStar (star) {
-      /*
-      const starSize = (star) => {
-        let z = star.z - this.pos
-        // if (z < 0) return 0
-        if (z < 0) z += 600
-        return 8 * (1 - z / this.width)
-      }
-      */
-      // let z = star.z - this.pos
-      // if (z < 0) z += 600
+      let x0 = this.width / 2
+      let y0 = this.height / 2
+      let distance = star.z - this.pos
+      if (distance <= 0) distance += this.depth
+      let modifier = 1 - distance / this.depth
 
-      // let sx = star.x * 600 / z + this.width / 2
-      // let sy = star.y * 600 / z + this.height / 2
-
-      // let sx = star.x + this.width / 2
-      // let sy = star.y + this.height / 2
-
-      // console.log(star.z, z, this.pos)
-      // console.log(star.x, sx)
-      // console.log(star.y, sy)
-      // console.log(starSize(star))
-
-      console.log(8 * (star.z / 600))
       return {
-        x: star.x + 300,
-        y: star.y + 300,
-        size: 8 // * (star.z / 600)
+        x: star.x * modifier + x0,
+        y: star.y * modifier + y0,
+        size: this.starSize * modifier
       }
     },
     draw () {
-      this.context.fillStyle = '#000000'
-      this.context.fillRect(0, 0, this.width, this.height)
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
-      this.context.fillStyle = '#ffffff'
-
-      console.log(this)
-      console.log(this.stars)
+      this.context.fillStyle = this.starStyle
       this.stars.forEach(star => {
-        console.log(star)
-
         let projection = this.projectStar(star)
+        if (projection.size < 0) return
+
         this.context.beginPath()
         this.context.arc(projection.x, projection.y, projection.size, 0, 180)
         this.context.fill()
       })
+    },
+    move () {
+      this.pos += this.speed
+      if (this.pos >= this.depth) this.pos = this.initialPos
+      this.draw()
     }
   },
-  mounted () {
-    this.context = this.$refs.starfield.getContext('2d')
-    this.$refs.starfield.width = this.width
-    this.$refs.starfield.height = this.height
-
-    // this.pos = 0
-    // this.draw()
+  watch: {
+    width: function (value) { this.canvas.width = value },
+    height: function (value) { this.canvas.height = value },
+    stars: function (value) { this.draw() }
   },
-  update () {
+  mounted () {
+    this.canvas = this.$refs.starfield
+    this.context = this.canvas.getContext('2d')
+
+    this.canvas.width = this.width
+    this.canvas.height = this.height
+
+    this.pos = this.initialPos
+
+    this.draw()
+
+    setInterval(() => {
+      if (!this.animate) return
+      this.move()
+    }, this.interval)
+  },
+  updated () {
     this.draw()
   }
 
