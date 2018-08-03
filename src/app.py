@@ -1,11 +1,13 @@
 #!python3
-from io import BytesIO
+import math
+
 from flask import Flask, request, jsonify, make_response, url_for, send_file
 from flask_cors import CORS
 
 from data import generate_thing, list_generators, thing_meta
-from genimage import genimage
 from stars import Star
+from genimage import image
+from gennoise import gennoise
 
 
 app = Flask(__name__)
@@ -24,11 +26,18 @@ def make_public_item(item):
     return res
 
 
-def image_stream(img):
-    io = BytesIO()
-    img.save(io, 'PNG', quality=70)
-    io.seek(0)
-    return io
+def image_filter(x, y, value):
+    x0 = 256
+    y0 = 256
+    maxr = 256
+
+    x = x - x0
+    y = y - y0
+    r = math.sqrt(x ** 2 + y ** 2)
+    if r > maxr:
+        return 0
+    d = 1 - (r / maxr)
+    return value * d
 
 
 @app.route('/')
@@ -38,8 +47,8 @@ def index():
 
 @app.route('/img<id>.png')
 def get_img(id):
-    img = genimage(512, 512, 64.0, 4)
-    return send_file(image_stream(img), mimetype='image/jpeg')
+    data = gennoise(512, 512, 64.0, 4, filter_noise=image_filter)
+    return send_file(image(data), mimetype='image/jpeg')
 
 
 @app.route('/api/v1.0/list', methods=['GET'])
