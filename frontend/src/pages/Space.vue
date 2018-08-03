@@ -5,7 +5,7 @@
         <h1>Space</h1>
       </v-flex>
       <v-flex xs6 @click="play" ref="space">
-        <img src="http://localhost:5000/img1.png" class="filter-image" ref="filter" />
+        <img src="http://localhost:5000/img-1024.png" class="filter-image" ref="filter" />
         <Starfield
           class="star-field"
           :stars="this.stars"

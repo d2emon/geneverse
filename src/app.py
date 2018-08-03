@@ -26,18 +26,34 @@ def make_public_item(item):
     return res
 
 
-def image_filter(x, y, value):
-    x0 = 256
-    y0 = 256
-    maxr = 256
+def image_filter(w, h):
+    def f(x, y, value):
+        x0 = w / 2
+        y0 = h / 2
+        maxr = x0
 
-    x = x - x0
-    y = y - y0
-    r = math.sqrt(x ** 2 + y ** 2)
-    if r > maxr:
-        return 0
-    d = 1 - (r / maxr)
-    return value * d
+        x = x - x0
+        y = y - y0
+        r = math.sqrt(x ** 2 + y ** 2)
+        if r > maxr:
+            return 0
+        d = 1 - (r / maxr)
+        return value * d
+    return f
+
+
+def colorify(size):
+    color_noise = gennoise(size + 128, size + 128, 128.0)
+    def f(x, y):
+        # r = (color_noise[x, y][0] + color_noise[x + 128, y][0]) / 2
+        # g = red_noise[x, y][0] * blue_noise[x, y][0] * white_noise[x, y][0]
+        # b = (color_noise[x, y][0] + color_noise[x, y + 128][0]) / 2
+        # g = (r + b) / 2
+        r = 128 + color_noise[x + 128, y][0] / 2
+        g = 64 + color_noise[x, y + 128][0] / 4
+        b = 128 + color_noise[x + 128, y + 128][0] / 2
+        return r, g, b
+    return f
 
 
 @app.route('/')
@@ -45,9 +61,13 @@ def index():
     return "Hello, World!"
 
 
-@app.route('/img<id>.png')
-def get_img(id):
-    data = gennoise(512, 512, 64.0, 4, filter_noise=image_filter)
+@app.route('/img-<int:size>.png')
+def get_img(size):
+    freq = size / 4
+    octaves = int(size / 64)
+    if octaves < 1:
+        octaves = 1
+    data = gennoise(size, size, freq, octaves, filter_noise=image_filter(size, size), colorify=colorify(size))
     return send_file(image(data), mimetype='image/jpeg')
 
 
