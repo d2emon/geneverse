@@ -1,8 +1,10 @@
 #!python3
-from flask import Flask, request, jsonify, make_response, url_for
+from io import BytesIO
+from flask import Flask, request, jsonify, make_response, url_for, send_file
 from flask_cors import CORS
 
 from data import generate_thing, list_generators, thing_meta
+from genimage import genimage
 from stars import Star
 
 
@@ -22,9 +24,22 @@ def make_public_item(item):
     return res
 
 
+def image_stream(img):
+    io = BytesIO()
+    img.save(io, 'PNG', quality=70)
+    io.seek(0)
+    return io
+
+
 @app.route('/')
 def index():
     return "Hello, World!"
+
+
+@app.route('/img<id>.png')
+def get_img(id):
+    img = genimage(512, 512, 64.0, 4)
+    return send_file(image_stream(img), mimetype='image/jpeg')
 
 
 @app.route('/api/v1.0/list', methods=['GET'])
