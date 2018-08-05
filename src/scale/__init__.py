@@ -34,6 +34,6 @@ def all():
     }
     for i in range(MIN_SCALE, MAX_SCALE, 3):
         scale_text = "10^{} - 10^{}".format(i, i + 2)
-        size = sizes.get(i, "?") + "м"
+        size = sizes.get(i + 1, "?") + "м"
         items = list(scale(i))
         print("{}\t{}\t{}".format(size, scale_text, items))
