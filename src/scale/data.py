@@ -1,4 +1,5 @@
 from .scalable import Scalable
+from .starships import STARSHIPS
 
 ITEMS = [
     Scalable("Планковская длина", 1.6, -35),
@@ -45,5 +46,4 @@ ITEMS = [
     Scalable("Антарес", 1.25, 9),
 
     Scalable("Ланиакея", 5, 24),
-
-]
+] + STARSHIPS
