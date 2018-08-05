@@ -14,6 +14,7 @@
           value="true"
           v-for="(item, i) in items"
           :key="i"
+          :to="item.to"
         >
           <v-list-tile-action>
             <v-icon v-html="item.icon"></v-icon>
@@ -76,11 +77,24 @@ export default {
       clipped: false,
       drawer: false,
       fixed: false,
-      items: [{
-        icon: 'bubble_chart',
-        title: 'Inspire'
-      }],
-      miniVariant: true,
+      items: [
+        {
+          icon: 'format_list_bulleted',
+          title: 'Nested',
+          to: '/generate/multiverse'
+        },
+        {
+          icon: 'work',
+          title: 'Challenges',
+          to: '/challenges'
+        },
+        {
+          icon: 'star',
+          title: 'Space',
+          to: '/space'
+        }
+      ],
+      miniVariant: false,
       right: true,
       rightDrawer: false,
       title: 'Geneverse'
