@@ -1,8 +1,8 @@
 <template>
   <v-container fluid>
-    <v-layout row wrap class="space">
+    <v-layout row wrap>
       <v-flex xs12>
-        <v-card>
+        <v-card class="space">
           <v-card-title primary-title>
             <div class="space-card-title">
               <h3 class="headline mb-0">Space</h3>
@@ -10,23 +10,20 @@
             <div>Description of the ...</div>
           </v-card-title>
 
-          <v-card-media
-            src="/static/back/space-back.jpg"
-            height="1000px"
-          >
+          <div class="clusters">
             <div
               v-for="(cluster, i) in clusters"
               :key="'cluster-' + i"
-              :style="'position: absolute; left:' + cluster.x + 'px;top:' + cluster.y + 'px;opacity: 0.5;'"
+              :style="'position: absolute; left:' + cluster.x + 'px;top:' + cluster.y + 'px;'"
             >
               <router-link to="/generate/supercluster">
                 <img
-                  src="http://localhost:5000/img-16.png"
+                  :src="'http://localhost:5000/empty-img-32-' + i + '.png?' + Math.random()"
                   :title="JSON.stringify({id: i, cluster: cluster})"
                 />
               </router-link>
             </div>
-          </v-card-media>
+          </div>
 
           <v-card-actions>
             <v-btn flat color="orange">Share</v-btn>
@@ -66,16 +63,18 @@ export default {
 <style scoped>
 .space {
   background-color: #000000;
-  background-image: url("/static/back/space-back.jpg");
+  /* background-image: url("/static/back/space-back.jpg"); */
   text-align: center;
+  position: relative;
+  color: white;
 }
 .space-card-title {
   width: 100%;
 }
 .clusters {
   position: relative;
-  height: 1000px;
-  width: 1000px;
+  height: 1032px;
+  width: 1032px;
   margin: 0 auto;
 }
 </style>
