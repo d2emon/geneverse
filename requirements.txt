@@ -4,7 +4,6 @@ git+https://github.com/d2emon/generator-pack.git@dev
 click==6.7
 Flask==1.0.2
 Flask-Cors==3.0.6
-generator-pack==0.1.11
 itsdangerous==0.24
 Jinja2==2.10
 MarkupSafe==1.0
