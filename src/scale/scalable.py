@@ -9,4 +9,4 @@ class Scalable:
         self.scale = scale
 
     def __repr__(self):
-        return "{} ({} * 10^{}m)".format(self.name, self.size, self.scale)
+        return "{} ({}*10^{}m)".format(self.name, self.size, self.scale)
