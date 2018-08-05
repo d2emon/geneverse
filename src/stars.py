@@ -1,6 +1,19 @@
 import random
 
 
+class Generated:
+    names = ['UNNAMED']
+
+    def __init__(self, id, name=None):
+        self.id = id or random.randint(0, 1024)
+
+        random.seed(self.id)
+        self.name = name or random.choice(self.names).capitalize()
+
+    def as_dict(self):
+        return {'name': self.name}
+
+
 class Location:
     def __init__(self, item, x, y, z, id=None):
         self.id = id or random.random()
@@ -18,7 +31,7 @@ class Location:
         }
 
 
-class Multiverse:
+class Multiverse(Generated):
     names = [
         "multiverse", "lasagnaverse", "doughnutverse", "towelverse", "baconverse", "sharkverse", "nestedverse",
         "tastyverse", "upverse", "downverse", "layerverse", "clusterverse", "metaverse", "quantiverse", "paraverse",
@@ -29,10 +42,7 @@ class Multiverse:
     ]
 
     def __init__(self, id=None, name=None, width=8, height=8, depth=8):
-        self.id = id or random.randint(0, 1024)
-
-        random.seed(self.id)
-        self.name = name or random.choice(self.names).capitalize()
+        Generated.__init__(self, id, name)
         self.width = width
         self.height = height
         self.depth = depth
@@ -63,17 +73,30 @@ class Multiverse:
         }
 
 
-class Universe:
-    def __init__(self, x=0, y=0, z=0):
-        self.x = x
-        self.y = y
-        self.z = z
+class Universe(Generated):
+    names = ['Universe']
+
+    def __init__(self, id=None, name=None, width=8, height=8, depth=8):
+        Generated.__init__(self, id, name)
+        self.width = width
+        self.height = height
+        self.depth = depth
+
+        self.clusters = [Location(
+            Supercluster,
+            x=random.randrange(self.width),
+            y=random.randrange(self.height),
+            z=random.randrange(self.depth),
+        ) for i in range(random.randint(10, 30))]
 
     def as_dict(self):
         return {
-            'x': self.x,
-            'y': self.y,
-            'z': self.z,
+            'id': self.id,
+            'name': self.name,
+            'width': self.width,
+            'height': self.height,
+            'depth': self.depth,
+            'clusters': [cluster.as_dict() for cluster in self.clusters],
         }
 
 
