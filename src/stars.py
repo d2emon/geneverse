@@ -52,7 +52,6 @@ class Multiverse:
             z=random.randrange(self.depth),
         ) for i in range(10, random.randint(10, 30))]
 
-
     def as_dict(self):
         return {
             'id': self.id,
@@ -76,6 +75,10 @@ class Universe:
             'y': self.y,
             'z': self.z,
         }
+
+
+class Supercluster(Generated):
+    names = ['Supercluster']
 
 
 class Star:
