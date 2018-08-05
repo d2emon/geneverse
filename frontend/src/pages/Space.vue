@@ -2,39 +2,37 @@
   <v-container fluid>
     <v-layout row wrap class="space">
       <v-flex xs12>
-        <h1>Space</h1>
-      </v-flex>
-      <v-flex xs12>
-        <div class="clusters">
-          <div
-            v-for="(cluster, i) in clusters"
-            :key="'cluster-' + i"
-            :style="'position: absolute; left:' + cluster.x + 'px;top:' + cluster.y + 'px;opacity: 0.5;'"
+        <v-card>
+          <v-card-title primary-title>
+            <div class="space-card-title">
+              <h3 class="headline mb-0">Space</h3>
+            </div>
+            <div>Description of the ...</div>
+          </v-card-title>
+
+          <v-card-media
+            src="/static/back/space-back.jpg"
+            height="1000px"
           >
-            <router-link to="/generate/supercluster">
-              <img
-                src="http://localhost:5000/img-16.png"
-                :title="JSON.stringify({id: i, cluster: cluster})"
-              />
-            </router-link>
-          </div>
-        </div>
-      </v-flex>
-      <v-flex xs6 @click="play" ref="space">
-        <Starfield
-          class="star-field"
-          :stars="this.stars"
-          :height="this.height"
-          :depth="this.depth"
-          :star-size="4"
-          :animate="this.animating"
-        />
-      </v-flex>
-      <v-flex xs6 ref="sponge">
-        <MengerSponge
-           style="width: 100%;"
-           :iterations="16"
-        />
+            <div
+              v-for="(cluster, i) in clusters"
+              :key="'cluster-' + i"
+              :style="'position: absolute; left:' + cluster.x + 'px;top:' + cluster.y + 'px;opacity: 0.5;'"
+            >
+              <router-link to="/generate/supercluster">
+                <img
+                  src="http://localhost:5000/img-16.png"
+                  :title="JSON.stringify({id: i, cluster: cluster})"
+                />
+              </router-link>
+            </div>
+          </v-card-media>
+
+          <v-card-actions>
+            <v-btn flat color="orange">Share</v-btn>
+            <v-btn flat color="orange">Explore</v-btn>
+          </v-card-actions>
+        </v-card>
       </v-flex>
     </v-layout>
     <div>
@@ -43,15 +41,8 @@
 </template>
 
 <script>
-import Starfield from '@/components/Starfield'
-import MengerSponge from '@/components/MengerSponge'
-
 export default {
   name: 'Space',
-  components: {
-    Starfield,
-    MengerSponge
-  },
   computed: {
     stars () { return this.$store.state.stars.stars },
     clusters () { return this.$store.state.stars.clusters }
@@ -67,41 +58,19 @@ export default {
   },
   mounted () {
     this.$store.dispatch('stars/load', { count: 500 })
-    console.log(this.$refs.space)
-    this.height = this.$refs.space.offsetWidth
-    /*
-    let rect = this.$refs.space.getBoundingClientRect()
-    this.$refs.filter.style.top = rect.top
-    this.$refs.filter.style.left = rect.left
-    this.$refs.filter.style.width = this.height
-    this.$refs.filter.style.height = this.height
-    */
-
     this.$store.dispatch('stars/loadClusters')
   }
 }
 </script>
 
 <style scoped>
-.space h1 {
-  /* text-align: center; */
-  color: #ffffff;
-}
-.star-field {
-  width: 100%;
-  /* background-color: black; */
-}
-/*
-.filter-image {
-  position: absolute;
-  z-index: 100;
-  opacity: 0.5;
-}
-*/
 .space {
   background-color: #000000;
   background-image: url("/static/back/space-back.jpg");
   text-align: center;
+}
+.space-card-title {
+  width: 100%;
 }
 .clusters {
   position: relative;
