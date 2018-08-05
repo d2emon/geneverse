@@ -1,7 +1,7 @@
 from .data import ITEMS
 
 
-MIN_SCALE = -36
+MIN_SCALE = -37 # -36
 MAX_SCALE = 30
 
 

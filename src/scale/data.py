@@ -1,7 +1,8 @@
 from .scalable import Scalable
 from .starships import STARSHIPS
+from .worlds import WORLDS
 
-ITEMS = STARSHIPS + [
+ITEMS = STARSHIPS + WORLDS + [
     Scalable("Планковская длина", 1.6, -35),
     Scalable("Обозреваемая вселенная", 8.8, 26),
 
