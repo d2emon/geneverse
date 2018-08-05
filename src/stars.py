@@ -50,7 +50,7 @@ class Multiverse:
             x=random.randrange(self.width),
             y=random.randrange(self.height),
             z=random.randrange(self.depth),
-        ) for i in range(10, random.randint(10, 30))]
+        ) for i in range(random.randint(10, 30))]
 
 
     def as_dict(self):
