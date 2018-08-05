@@ -2,7 +2,7 @@ import math
 
 from flask import send_file
 
-from . import app
+from ..app import app
 
 from genimage import image
 from gennoise import gennoise
