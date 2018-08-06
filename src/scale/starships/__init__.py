@@ -7,6 +7,7 @@ from .startrack import StarTrack
 Babylon5 = [
     Starship("Star Fury", 10, "Babylon5"),
     Starship("Whitestar", 476, "Babylon5"),
+    Starship("Ворлонский разрушитель планет", 5000, "Babylon5"),
 ]
 
 Halo = [
@@ -53,6 +54,7 @@ V = [
 StarGate = [
     Starship("Apaphis", 3325, "StarGate"),
     Starship("Anubis", 5500, "StarGate"),
+    Starship("Корабль-улей рейфов", 5500, "StarGate"),
 ]
 
 EveOnline = [
@@ -73,10 +75,29 @@ Lexx = [
 
 IndependenceDay =[
     Starship("City Destroyer Invasion Mothership", 24000, "Independence Day"),
+    Starship("Пчеломатка", 4500000, "Independence Day"),
 ]
 
 Oblivion = [
     Starship("TET", 100000, "Oblivion"),
+]
+
+Biggest = [
+    # Куб боргов
+    Starship("Корабли Визитеров", 3200, "Визитеры"),
+    # Корабль-улей рейфов
+    # Ворлонский разрушитель планет
+    # Lexx
+    # Разрушитель "Палач"
+    Starship("Хайлайнер", 20000, "Дюна"),
+    # Ви-Джер,
+    Starship("Мобильная крепость зентради", 600000, "Макрос"),
+    # Пчеломатка
+
+    Starship("Элизиум", 60000, "Элизиум"),
+    # Тэт
+    # Звезда смерти
+    # Гуррен Лаган
 ]
 
 STARSHIPS = StarWars\
