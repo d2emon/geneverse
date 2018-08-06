@@ -1,10 +1,8 @@
-import random
-
 from flask import request, jsonify
 
 from ..app import app
 
-from stars import Multiverse, Universe, Supercluster, Galaxy, Star
+from space import Multiverse, Universe, Supercluster, Galaxy, Star
 
 
 @app.route('/api/v1.0/multiverse', methods=['GET'])
