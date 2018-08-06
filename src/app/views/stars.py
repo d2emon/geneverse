@@ -1,10 +1,8 @@
-import random
-
 from flask import request, jsonify
 
 from ..app import app
 
-from stars import Multiverse, Universe, Supercluster, Star
+from space import Multiverse, Universe, Supercluster, Galaxy, Star
 
 
 @app.route('/api/v1.0/multiverse', methods=['GET'])
@@ -24,6 +22,20 @@ def get_universe(id=None):
 @app.route('/api/v1.0/cluster', methods=['GET'])
 @app.route('/api/v1.0/cluster-<id>', methods=['GET'])
 def get_cluster(id=None):
+    cluster = Supercluster(id)
+    return jsonify({'cluster': cluster.as_dict()})
+
+
+@app.route('/api/v1.0/galaxy', methods=['GET'])
+@app.route('/api/v1.0/galaxy-<id>', methods=['GET'])
+def get_galaxy(id=None):
+    galaxy = Galaxy(id)
+    return jsonify({'galaxy': galaxy.as_dict()})
+
+
+@app.route('/api/v1.0/nebula', methods=['GET'])
+@app.route('/api/v1.0/nebula-<id>', methods=['GET'])
+def get_nebula(id=None):
     cluster = Supercluster(id)
     return jsonify({'cluster': cluster.as_dict()})
 

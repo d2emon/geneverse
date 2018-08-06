@@ -1,9 +1,11 @@
+import math
 from .scalable import Scalable
 
 
 class World(Scalable):
-    def __init__(self, name, size, scale=3):
-        Scalable.__init__(self, name, size, scale)
+    def __init__(self, name, size, scale=0):
+        scale = (scale + 6) / 2
+        Scalable.__init__(self, name, math.sqrt(size), scale=scale)
 
 
 WORLDS = [
@@ -31,5 +33,5 @@ WORLDS = [
     World("Fuel", 14400),
     World("Guild Wars NightFall", 38850),
     World("The Elder Scrolls II: Daggerfall", 161600),
-    World("Minecraft", 4, 12),
+    World("Minecraft", 40, 8),
 ]
