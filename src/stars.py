@@ -16,7 +16,7 @@ class Generated:
 
 class Location:
     def __init__(self, item, x, y, z, id=None):
-        self.id = id or random.random()
+        self.id = id or random.randrange(1024)
         self.item = item
         self.x = x
         self.y = y
@@ -60,6 +60,7 @@ class Multiverse(Generated):
             x=random.randrange(self.width),
             y=random.randrange(self.height),
             z=random.randrange(self.depth),
+            id=random.randrange(1024),
         ) for i in range(10, random.randint(10, 30))]
 
     def as_dict(self):
