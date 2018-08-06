@@ -46,4 +46,6 @@ ITEMS = STARSHIPS + WORLDS + SKYSCRAPERS + [
     Scalable("Антарес", 1.25, 12),
 
     Scalable("Ланиакея", 5, 27),
+
+    Scalable("Солнце", 1.4, 9),
 ]

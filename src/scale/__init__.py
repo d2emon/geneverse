@@ -32,8 +32,30 @@ def all():
         21: "З",
         24: "И",
     }
+    comments = {
+        -24: "?",
+        -21: "?",
+        -18: "?",
+        -15: "?",
+        -12: "?",
+        -9: "?",
+        -6: "?",
+        -3: "Насекомое",
+        0: "Человек",
+        3: "Город",
+        6: "Планета",
+        9: "Звезда",
+        12: "Система",
+        15: "Квазар",
+        18: "Туманность",
+        21: "Рукав",
+        24: "Галактика",
+        27: "Кластер",
+        30: "Вселенная",
+    }
     for i in range(MIN_SCALE, MAX_SCALE, 3):
         scale_text = "10^{} - 10^{}".format(i, i + 2)
         size = sizes.get(i + 1, "?") + "м"
+        comment = comments.get(i + 1, "?")
         items = list(scale(i))
-        print("{}\t{}\t{}".format(size, scale_text, items))
+        print("{}\t{}\t{}\t{}".format(comment, size, scale_text, items))
