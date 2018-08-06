@@ -2,23 +2,13 @@ from .starship import Starship
 
 from .starwars import StarWars
 from .startrack import StarTrack
+from .halo import Halo
 
 
 Babylon5 = [
     Starship("Star Fury", 10, "Babylon5"),
     Starship("Whitestar", 476, "Babylon5"),
     Starship("Ворлонский разрушитель планет", 5000, "Babylon5"),
-]
-
-Halo = [
-    Starship("UNSC Pelican", 30, "Halo"),
-    Starship("UNSC Frigate", 490, "Halo"),
-    Starship("Covenant Battlecruiser", 1782, "Halo"),
-    Starship("Covenant Assault Carrier", 5346, "Halo"),
-    Starship("UNSC Infinity", 5600, "Halo"),
-    Starship("High Charity", 464000, "Halo"),
-    Starship("Halo", 10000000, "Halo"),
-    Starship("The Ark", 127530000, "Halo"),
 ]
 
 Interstellar = [
