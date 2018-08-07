@@ -2,10 +2,12 @@ from .scalable import Scalable
 from .starships import STARSHIPS
 from .worlds import WORLDS
 from .structures import SKYSCRAPERS
+from .military import MILITARY
 
 ITEMS = STARSHIPS\
     + WORLDS\
     + SKYSCRAPERS\
+    + MILITARY\
     + [
         Scalable("Планковская длина", 1.6, -35),
         Scalable("Обозреваемая вселенная", 8.8, 26),
