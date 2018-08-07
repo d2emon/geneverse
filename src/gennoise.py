@@ -20,7 +20,7 @@ def white(x, y):
     return 255, 255, 255
 
 
-def gennoise(w=256, h=256, freq=16.0, octaves=4, colorify=None, filter_noise=None):
+def gennoise(w=256, h=256, freq=16.0, octaves=4, colorify=None, filter_noise=None, offsetx=0, offsety=0):
     if colorify is None:
         colorify = white
 
@@ -30,7 +30,7 @@ def gennoise(w=256, h=256, freq=16.0, octaves=4, colorify=None, filter_noise=Non
     data = numpy.zeros((w, h, 3), dtype=numpy.uint8)
     for y in range(w):
         for x in range(h):
-            gray = point(x, y, freq, octaves)
+            gray = point(x + offsetx, y + offsety, freq, octaves)
             filtered = filter_noise(x, y, gray)
             data[x, y] = [filtered * c for c in colorify(x, y)]
     return data

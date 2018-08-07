@@ -5,7 +5,7 @@ from PIL import Image
 
 def image(data):
     img = Image.fromarray(data, 'RGB')
-
+    """
     img = img.convert("RGBA")
     data = img.getdata()
 
@@ -17,6 +17,7 @@ def image(data):
             a = 256
         newData.append((r, g, b, a))
     img.putdata(newData)
+    """
 
     io = BytesIO()
     img.save(io, 'PNG', quality=70)

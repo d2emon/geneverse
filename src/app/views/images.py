@@ -66,11 +66,12 @@ def get_img(size):
 
 
 @app.route('/empty-img-<int:size>.png')
-def get_empty_img(size):
+@app.route('/empty-img-<int:size>-<int:id>.png')
+def get_empty_img(size, id=0):
     freq = size
     octaves = int(size / 128)
     if octaves < 1:
         octaves = 1
     # data = gennoise(size, size, freq, octaves, filter_noise=image_filter(size, size), colorify=colorify(size))
-    data = gennoise(size, size, freq, octaves, filter_noise=empty_image_filter(size, size))
+    data = gennoise(size, size, freq, octaves, filter_noise=empty_image_filter(size, size), offsetx=id*128, offsety=id*17)
     return send_file(image(data), mimetype='image/jpeg')
