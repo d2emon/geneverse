@@ -1,0 +1,37 @@
+from .starship import Starship
+
+
+EveOnline = [
+    Starship("Heron", 35, "EVE Online"),
+    Starship("Minmatar Shuttle", 24, "EVE Online"),
+    Starship("Amar Shuttle", 33, "EVE Online"),
+    Starship("Vigil", 24, "EVE Online"),
+    Starship("Maulus", 37, "EVE Online"),
+    Starship("Tormentor", 42, "EVE Online"),
+    Starship("Velator", 37, "EVE Online"),
+    Starship("Tormentor", 42, "EVE Online"),
+    Starship("Bantam", 49, "EVE Online"),
+    Starship("Slasher", 47, "EVE Online"),
+    Starship("Executioneer", 50, "EVE Online"),
+    Starship("Magnatte", 48, "EVE Online"),
+    Starship("Galente Shuttle", 52, "EVE Online"),
+    Starship("Tristan", 52, "EVE Online"),
+    Starship("Griffin", 62, "EVE Online"),
+    Starship("Slicer", 54, "EVE Online"),
+    Starship("Rifter", 58, "EVE Online"),
+    Starship("Concord Frigate", 60, "EVE Online"),
+    Starship("Rifter", 58, "EVE Online"),
+    Starship("Merlin", 64, "EVE Online"),
+    Starship("Comet", 64, "EVE Online"),
+    Starship("Reaper", 63, "EVE Online"),
+    Starship("Hookbill", 70, "EVE Online"),
+    Starship("Ibis", 64, "EVE Online"),
+    Starship("Condor", 64, "EVE Online"),
+    Starship("Caldari Shuttle", 66, "EVE Online"),
+    Starship("Burst", 77, "EVE Online"),
+
+    Starship("Hel", 4266, "EVE Online"),
+    Starship("Avatar", 13774, "EVE Online"),
+    Starship("Erebus", 14764, "EVE Online"),
+    Starship("Ranarok", 18127, "EVE Online"),
+]
