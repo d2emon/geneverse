@@ -3,6 +3,7 @@ from .starship import Starship
 from .starwars import StarWars
 from .startrack import StarTrack
 from .halo import Halo
+from .eve import EveOnline
 
 
 Babylon5 = [
@@ -45,13 +46,6 @@ StarGate = [
     Starship("Apaphis", 3325, "StarGate"),
     Starship("Anubis", 5500, "StarGate"),
     Starship("Корабль-улей рейфов", 5500, "StarGate"),
-]
-
-EveOnline = [
-    Starship("Hel", 4266, "EVE Online"),
-    Starship("Avatar", 13774, "EVE Online"),
-    Starship("Erebus", 14764, "EVE Online"),
-    Starship("Ranarok", 18127, "EVE Online"),
 ]
 
 Wh40k = [
