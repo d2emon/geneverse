@@ -1,9 +1,4 @@
-from .scalable import Scalable
-
-
-class Structure(Scalable):
-    def __init__(self, name, size, scale=1):
-        Scalable.__init__(self, name, size, scale)
+from .structures import Structure
 
 
 class Skyscraper(Structure):
