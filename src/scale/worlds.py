@@ -33,5 +33,5 @@ WORLDS = [
     World("Fuel", 14400),
     World("Guild Wars NightFall", 38850),
     World("The Elder Scrolls II: Daggerfall", 161600),
-    World("Minecraft", 40, 8),
+    World("Minecraft", 40, 8), # 6.4 7
 ]
