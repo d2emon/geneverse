@@ -139,35 +139,35 @@ SOTU = [
     Scalable("Жираф", 6, 0),
     Scalable("Тирранозавр Рекс", 7, 0),
     Scalable("Лунный Модуль Аполло", 9, 0),
-    Scalable("Сагуаро", 1.4, 1),
-    Scalable("Дом", 1.5, 1),
-    Scalable("Дуб", 1.5, 1),
+    Scalable("Сагуаро", 14, 0),
+    Scalable("Дом", 15, 0),
+    Scalable("Дуб", 15, 0),
 
-    Scalable("Amphilicoelias fragilimus", 6, 1),
+    Scalable("Amphilicoelias fragilimus", 60, 0),
 
-    Scalable("Синий Кит", 3, 1),
+    Scalable("Синий Кит", 30, 0),
 
-    Scalable("Redwood Tree", 1, 2),
+    Scalable("Redwood Tree", 0.1, 3),
 
-    Scalable("Боинг 747", 6.5, 1),
-    Scalable("Статуя Свободы", 9.3, 1),
-    Scalable("МКС", 1.08, 2),
-    Scalable("Сатурн V", 1.1, 2),
-    Scalable("Футбольное поле", 1.097, 2),
-    Scalable("Титаник", 2.7, 2),
+    Scalable("Боинг 747", 65, 0),
+    Scalable("Статуя Свободы", 93, 0),
+    Scalable("МКС", 0.108, 3),
+    Scalable("Сатурн V", 0.11, 3),
+    Scalable("Футбольное поле", 0.1097, 3),
+    Scalable("Титаник", 0.27, 3),
 
-    Scalable("Gateway Arc", 1.92, 2),
+    Scalable("Gateway Arc", 0.192, 3),
 
-    Scalable("Эйфелева Башня", 3.2, 2),
-    Scalable("Пирамиды в Гизе", 1.5, 2),
-    Scalable("Монумент Вашингтона", 1.69, 2),
-    Scalable("Дамба Гувера", 2.2, 2),
+    Scalable("Эйфелева Башня", 0.32, 3),
+    Scalable("Пирамиды в Гизе", 0.15, 3),
+    Scalable("Монумент Вашингтона", 0.169, 3),
+    Scalable("Дамба Гувера", 0.22, 3),
 
-    Scalable("Half Dome", 4.1, 2),
+    Scalable("Half Dome", 0.41, 3),
 
-    Scalable("Ватикан", 8, 2),
+    Scalable("Ватикан", 0.8, 3),
     # Бурж Халифа
-    Scalable("Водопад Анхель", 9.79, 2),
+    Scalable("Водопад Анхель", 0.979, 3),
 
     Scalable("Boeing Everett Factory", 1, 3),
 
@@ -180,25 +180,25 @@ SOTU = [
     Scalable("Palm Jebel Ali", 8, 3),
 
     Scalable("Большой Адронный Коллайдер", 8.6, 3),
-    Scalable("Комета Галлея", 1.1, 4),
-    Scalable("Деймос", 1.3, 4),
+    Scalable("Комета Галлея", 11, 3),
+    Scalable("Деймос", 13, 3),
     Scalable("Эверест", 8.8, 3),
-    Scalable("Марианская Впадина", 1.09, 4),
-    Scalable("Фобос", 2.3, 4),
-    Scalable("Марафон", 4.22, 4),
-    Scalable("Нейтронная Звезда", 2.4, 4),
-    Scalable("Род Айленд", 7.5, 4),
+    Scalable("Марианская Впадина", 10.9, 3),
+    Scalable("Фобос", 23, 3),
+    Scalable("Марафон", 42.2, 3),
+    Scalable("Нейтронная Звезда", 24, 3),
+    Scalable("Род Айленд", 75, 3),
 
-    Scalable("Nix", 8, 4),
+    Scalable("Nix", 80, 3),
 
-    Scalable("Гидра", 1, 5),
+    Scalable("Гидра", 0.1, 6),
 
-    Scalable("Dysnomia", 1.5, 5),
+    Scalable("Dysnomia", 0.15, 6),
 
-    Scalable("Бруней", 1.2, 5),
-    Scalable("Западная Вирджиния", 4, 5),
-    Scalable("Великий Каньон", 4.5, 5),
-    Scalable("Руанда", 2.4, 5),
+    Scalable("Бруней", 0.12, 6),
+    Scalable("Западная Вирджиния", 0.4, 6),
+    Scalable("Великий Каньон", 0.45, 6),
+    Scalable("Руанда", 0.24, 6),
     Scalable("Италия", 1.1, 6),
     Scalable("Калифорния", 1.2, 6),
     Scalable("Техас", 1.2, 6),
@@ -228,25 +228,25 @@ SOTU = [
     Scalable("Венера", 12, 6),
     Scalable("Азия", 8, 6),
 
-    Scalable("Сириус B", 20, 7),
+    Scalable("Сириус B", 200, 6),
     Scalable("Нептун", 49, 6),
     Scalable("Уран", 51, 6),
     Scalable("Сатурн", 123, 6),
     Scalable("Юпитер", 140, 6),
 
-    Scalable("Gliese 229B", 1.1, 8),
-    Scalable("Wolf 359", 1.5, 8),
-    Scalable("TrES-4", 2.3, 8),
+    Scalable("Gliese 229B", 0.11, 9),
+    Scalable("Wolf 359", 0.15, 9),
+    Scalable("TrES-4", 0.23, 9),
 
-    Scalable("Проксима Центавра", 200, 6),
-    Scalable("От Земли До Луны", 3.8, 8),
+    Scalable("Проксима Центавра", 0.2, 9),
+    Scalable("От Земли До Луны", 0.38, 9),
 
-    Scalable("Luyten's Star", 4.2, 8),
-    Scalable("Kapteyn's Star", 4.2, 8),
+    Scalable("Luyten's Star", 0.42, 9),
+    Scalable("Kapteyn's Star", 0.42, 9),
 
     Scalable("Солнце", 1.4, 9),
 
-    Scalable("Gliese 229A", 9.6, 8),
+    Scalable("Gliese 229A", 0.96, 9),
 
     Scalable("Альфа Центавра B", 1, 9),
     Scalable("Альфа Центавра A", 1.5, 9),
@@ -255,29 +255,29 @@ SOTU = [
     Scalable("Вега", 3.8, 9),
     Scalable("Процион", 2.9, 9),
     Scalable("Регул", 5.8, 9),
-    Scalable("Поллукс", 1.1, 10),
+    Scalable("Поллукс", 11, 9),
     Scalable("Спика", 9.6, 9),
-    Scalable("Суммарная высота человечества", 1, 10),
-    Scalable("Капелла", 1.7, 10),
+    Scalable("Суммарная высота человечества", 10, 9),
+    Scalable("Капелла", 17, 9),
 
-    Scalable("Albireo", 2.2, 10),
+    Scalable("Albireo", 22, 9),
 
     Scalable("Арктур", 36, 9),
-    Scalable("Полярная", 4, 10),
+    Scalable("Полярная", 40, 9),
     Scalable("Альдебаран", 64, 9),
-    Scalable("Альнитак", 8.4, 10),
-    Scalable("Расстояние от Земли до Солнца", 1.5, 11),
+    Scalable("Альнитак", 84, 9),
+    Scalable("Расстояние от Земли до Солнца", 0.15, 12),
     Scalable("Ригель", 97, 9),
 
-    Scalable("Gacrux", 1.6, 11),
+    Scalable("Gacrux", 0.16, 12),
 
-    Scalable("Денеб", 3.1, 11),
+    Scalable("Денеб", 0.31, 12),
 
-    Scalable("La Superba", 4.2, 11),
-    Scalable("R Doradus", 5.2, 11),
-    Scalable("Pistol Star", 4.7, 11),
-    Scalable("Антарес", 9.7, 11),
-    Scalable("S Doradus", 7.7, 11),
+    Scalable("La Superba", 0.42, 12),
+    Scalable("R Doradus", 0.52, 12),
+    Scalable("Pistol Star", 0.47, 12),
+    Scalable("Антарес", 0.97, 12),
+    Scalable("S Doradus", 0.77, 12),
 
     Scalable("Бетельгейзе", 1.3, 12),
     Scalable("Мю Цефея", 1.9, 12),
@@ -291,15 +291,15 @@ SOTU = [
     Scalable("V354 Cephei", 2.1, 12),
 
     Scalable("Расстояние от Нептуна до Солнца", 4.5, 12),
-    Scalable("Пояс Койпера", 1.5, 13),
-    Scalable("Расстояние от Вояджера 1 до Земли", 1.7, 13),
-    Scalable("Световой День", 2.6, 13),
+    Scalable("Пояс Койпера", 15, 12),
+    Scalable("Расстояние от Вояджера 1 до Земли", 17, 12),
+    Scalable("Световой День", 26, 12),
 
-    Scalable("Homunculus Nebula", 2, 13),
+    Scalable("Homunculus Nebula", 20, 12),
 
-    Scalable("Расстояние от Седны до Солнца", 1.4, 14),
+    Scalable("Расстояние от Седны до Солнца", 0.14, 15),
 
-    Scalable("Stingray Nebula", 7, 14),
+    Scalable("Stingray Nebula", 0.7, 15),
     Scalable("Gomez's Hamburger", 2.5, 15),
 
     Scalable("Туманность Кошачий Глаз", 2.5, 15),
@@ -309,34 +309,34 @@ SOTU = [
 
     Scalable("Световой Год", 9.46, 15),
 
-    Scalable("Rotten Egg Nebula", 1.4, 16),
-    Scalable("Ant Nebula", 2, 16),
-    Scalable("Eskimo Nebula", 2, 16),
-    Scalable("Ring Nebula", 1.7, 16),
+    Scalable("Rotten Egg Nebula", 14, 15),
+    Scalable("Ant Nebula", 20, 15),
+    Scalable("Eskimo Nebula", 20, 15),
+    Scalable("Ring Nebula", 17, 15),
 
-    Scalable("Облако Оорта", 2, 16),
-    Scalable("Парсек", 3.3, 16),
-    Scalable("Туманность Улитка", 3, 16),
+    Scalable("Облако Оорта", 20, 15),
+    Scalable("Парсек", 33, 15),
+    Scalable("Туманность Улитка", 30, 15),
 
-    Scalable("Boomerang Nebula", 2.1, 16),
+    Scalable("Boomerang Nebula", 21, 15),
 
-    Scalable("Туманность Конская Голова", 2, 16),
-    Scalable("Расстояние от Солнца до Проксимы Центавра", 4.2, 16),
+    Scalable("Туманность Конская Голова", 20, 15),
+    Scalable("Расстояние от Солнца до Проксимы Центавра", 42, 15),
 
-    Scalable("Cone Nebula", 8, 16),
-    Scalable("Bubble Nebula", 7, 16),
+    Scalable("Cone Nebula", 80, 15),
+    Scalable("Bubble Nebula", 70, 15),
 
-    Scalable("Крабовидная Туманность", 11, 16),
+    Scalable("Крабовидная Туманность", 11, 15),
 
-    Scalable("The Pillars of Creation", 1, 17),
+    Scalable("The Pillars of Creation", 0.1, 18),
 
-    Scalable("Туманность Ориона", 2.5, 17),
+    Scalable("Туманность Ориона", 0.25, 18),
 
-    Scalable("The Spire", 2, 17),
-    Scalable("North America Nebula", 4, 17),
-    Scalable("Great Nebula in Carina", 6, 17),
-    Scalable("Eagle Nebula", 7, 17),
-    Scalable("Cave Nebula", 7, 17),
+    Scalable("The Spire", 0.2, 18),
+    Scalable("North America Nebula", 0.4, 18),
+    Scalable("Great Nebula in Carina", 0.6, 18),
+    Scalable("Eagle Nebula", 0.7, 18),
+    Scalable("Cave Nebula", 0.7, 18),
     Scalable("Rosette Nebula", 1, 18),
 
     Scalable("Омега Центавра", 1.5, 18),
@@ -345,19 +345,19 @@ SOTU = [
     Scalable("Bernard's Loop", 3, 18),
     Scalable("Messier 54", 3, 18),
     Scalable("Tarantula Nebula", 6, 18),
-    Scalable("Leo II Dwarf Galaxy", 2, 19),
-    Scalable("Canis Major Dwarf Galaxy", 5, 19),
+    Scalable("Leo II Dwarf Galaxy", 20, 18),
+    Scalable("Canis Major Dwarf Galaxy", 50, 18),
 
-    Scalable("Малое Магелланово Облако", 7, 19),
+    Scalable("Малое Магелланово Облако", 70, 18),
 
-    Scalable("Sagittarius Dwarf Galaxy", 1, 20),
-    Scalable("Canis Venatici Dwarf Galaxy I", 6.5, 19),
+    Scalable("Sagittarius Dwarf Galaxy", 0.1, 21),
+    Scalable("Canis Venatici Dwarf Galaxy I", 65, 18),
 
-    Scalable("Большое Магелланово Облако", 1.4, 20),
+    Scalable("Большое Магелланово Облако", 0.14, 21),
 
-    Scalable("NGC 3310", 2.2, 20),
-    Scalable("Sombrero Galaxy", 5, 20),
-    Scalable("Triangulum Galaxy", 5, 20),
+    Scalable("NGC 3310", 0.22, 21),
+    Scalable("Sombrero Galaxy", 0.5, 21),
+    Scalable("Triangulum Galaxy", 0.5, 21),
 
     Scalable("Млечный Путь", 1.2, 21),
 
@@ -373,29 +373,29 @@ SOTU = [
 
     Scalable("NGC 4889", 5, 21),
 
-    Scalable("Расстояние до Галактики Андромеды", 2, 22),
+    Scalable("Расстояние до Галактики Андромеды", 20, 21),
 
-    Scalable("Abell 2029", 6, 22),
-    Scalable("IC 1101", 5, 22),
+    Scalable("Abell 2029", 60, 21),
+    Scalable("IC 1101", 50, 21),
 
-    Scalable("Местная группа галактик", 1, 23),
+    Scalable("Местная группа галактик", 0.1, 24),
 
-    Scalable("Fornax Cluster", 2, 23),
+    Scalable("Fornax Cluster", 0.2, 24),
 
-    Scalable("Скопление Девы", 3, 23),
+    Scalable("Скопление Девы", 0.3, 24),
 
     Scalable("Virgo Supercluster", 1.1, 24),
 
     Scalable("Супервойд Эридана", 5, 24),
     Scalable("Расстояние до Великого Аттрактора", 2.5, 24),
 
-    Scalable("Pisces-Cetus Supercluster Complex", 1, 25),
+    Scalable("Pisces-Cetus Supercluster Complex", 10, 24),
     Scalable("Distance to the Shapley Supercluster", 6.5, 24),
-    Scalable("Sloan Great Wall", 1.3, 25),
+    Scalable("Sloan Great Wall", 13, 24),
 
-    Scalable("Гигапарсек", 3.3, 25),
-    Scalable("Distance to the Hubble Deep Field", 1.27, 26),
+    Scalable("Гигапарсек", 33, 24),
+    Scalable("Distance to the Hubble Deep Field", 0.127, 27),
 
-    Scalable("Обозреваемая вселенная", 9.3, 26),
+    Scalable("Обозреваемая вселенная", 0.93, 27),
     Scalable("Вселенная", 1.6, 27),
 ]
