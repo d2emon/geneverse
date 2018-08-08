@@ -291,5 +291,111 @@ SOTU = [
     Scalable("V354 Cephei", 2.1, 12),
 
     Scalable("Расстояние от Нептуна до Солнца", 4.5, 12),
-    # 12
+    Scalable("Пояс Койпера", 1.5, 13),
+    Scalable("Расстояние от Вояджера 1 до Земли", 1.7, 13),
+    Scalable("Световой День", 2.6, 13),
+
+    Scalable("Homunculus Nebula", 2, 13),
+
+    Scalable("Расстояние от Седны до Солнца", 1.4, 14),
+
+    Scalable("Stingray Nebula", 7, 14),
+    Scalable("Gomez's Hamburger", 2.5, 15),
+
+    Scalable("Туманность Кошачий Глаз", 2.5, 15),
+
+    Scalable("Hourglass Nebula", 3, 15),
+    Scalable("Blinking Nebula", 4.5, 15),
+
+    Scalable("Световой Год", 9.46, 15),
+
+    Scalable("Rotten Egg Nebula", 1.4, 16),
+    Scalable("Ant Nebula", 2, 16),
+    Scalable("Eskimo Nebula", 2, 16),
+    Scalable("Ring Nebula", 1.7, 16),
+
+    Scalable("Облако Оорта", 2, 16),
+    Scalable("Парсек", 3.3, 16),
+    Scalable("Туманность Улитка", 3, 16),
+
+    Scalable("Boomerang Nebula", 2.1, 16),
+
+    Scalable("Туманность Конская Голова", 2, 16),
+    Scalable("Расстояние от Солнца до Проксимы Центавра", 4.2, 16),
+
+    Scalable("Cone Nebula", 8, 16),
+    Scalable("Bubble Nebula", 7, 16),
+
+    Scalable("Крабовидная Туманность", 11, 16),
+
+    Scalable("The Pillars of Creation", 1, 17),
+
+    Scalable("Туманность Ориона", 2.5, 17),
+
+    Scalable("The Spire", 2, 17),
+    Scalable("North America Nebula", 4, 17),
+    Scalable("Great Nebula in Carina", 6, 17),
+    Scalable("Eagle Nebula", 7, 17),
+    Scalable("Cave Nebula", 7, 17),
+    Scalable("Rosette Nebula", 1, 18),
+
+    Scalable("Омега Центавра", 1.5, 18),
+
+    Scalable("Lagoon Nebula", 1.1, 18),
+    Scalable("Bernard's Loop", 3, 18),
+    Scalable("Messier 54", 3, 18),
+    Scalable("Tarantula Nebula", 6, 18),
+    Scalable("Leo II Dwarf Galaxy", 2, 19),
+    Scalable("Canis Major Dwarf Galaxy", 5, 19),
+
+    Scalable("Малое Магелланово Облако", 7, 19),
+
+    Scalable("Sagittarius Dwarf Galaxy", 1, 20),
+    Scalable("Canis Venatici Dwarf Galaxy I", 6.5, 19),
+
+    Scalable("Большое Магелланово Облако", 1.4, 20),
+
+    Scalable("NGC 3310", 2.2, 20),
+    Scalable("Sombrero Galaxy", 5, 20),
+    Scalable("Triangulum Galaxy", 5, 20),
+
+    Scalable("Млечный Путь", 1.2, 21),
+
+    Scalable("Andromeda Galaxy", 1.5, 21),
+    Scalable("Pinwheel Galaxy", 1.7, 21),
+    Scalable("Cartwheel Galaxy", 1.5, 21),
+    Scalable("Whirlpool Galaxy", 1.8, 21),
+    Scalable("NGC 1232", 2.2, 21),
+    Scalable("Tadpole Galaxy", 3, 21),
+    Scalable("Virgo A", 2.5, 21),
+
+    Scalable("Расстояние которое прошла Земля относительно Солнца", 4.5, 21),
+
+    Scalable("NGC 4889", 5, 21),
+
+    Scalable("Расстояние до Галактики Андромеды", 2, 22),
+
+    Scalable("Abell 2029", 6, 22),
+    Scalable("IC 1101", 5, 22),
+
+    Scalable("Местная группа галактик", 1, 23),
+
+    Scalable("Fornax Cluster", 2, 23),
+
+    Scalable("Скопление Девы", 3, 23),
+
+    Scalable("Virgo Supercluster", 1.1, 24),
+
+    Scalable("Супервойд Эридана", 5, 24),
+    Scalable("Расстояние до Великого Аттрактора", 2.5, 24),
+
+    Scalable("Pisces-Cetus Supercluster Complex", 1, 25),
+    Scalable("Distance to the Shapley Supercluster", 6.5, 24),
+    Scalable("Sloan Great Wall", 1.3, 25),
+
+    Scalable("Гигапарсек", 3.3, 25),
+    Scalable("Distance to the Hubble Deep Field", 1.27, 26),
+
+    Scalable("Обозреваемая вселенная", 9.3, 26),
+    Scalable("Вселенная", 1.6, 27),
 ]
