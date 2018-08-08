@@ -9,7 +9,7 @@ def scale(scale_from, scale_to=None, items=ITEMS):
     if scale_to is None:
         scale_to = scale_from + 3
 
-    return filter(lambda i: i.scale in range(scale_from, scale_to), items)
+    return filter(lambda i: i.width.scale in range(scale_from, scale_to), items)
 
 
 def all():

@@ -1,16 +1,27 @@
-from .scalable import Scalable
+from .scalable import Scalable, Distance
 
 parsec = 3.26
+
+
+class LightYears(Distance):
+    default_scale = 15
+    light_year = 9.46
+
+    def __init__(self, name, size, scale=0):
+        size *= LightYears.light_year
+        scale += LightYears.default_scale
+        Distance.__init__(self, name, size, scale)
 
 
 class LightYearsSized(Scalable):
     default_scale = 15
     light_year = 9.46
 
-    def __init__(self, name, size, scale=0):
+    def __init__(self, name, width, scale=0, length=None):
         scale += LightYearsSized.default_scale
-        size *= self.light_year
-        Scalable.__init__(self, name, size, scale)
+        width *= self.light_year
+        length = length and length * self.light_year
+        Scalable.__init__(self, name, width=width, length=length, scale=scale)
 
 
 class Cluster(LightYearsSized):
@@ -392,27 +403,25 @@ SOTU = [
     Scalable("Расстояние которое прошла Земля относительно Солнца", 4.5, 21),
 
     Galaxy("NGC 4889", 239, 3),
-    LightYearsSized("Расстояние до Галактики Андромеды", 2.537, 6),
-    LightYearsSized("Расстояние до Abell 2029", 1.027, 9),
+    LightYears("Галактики Андромеды", 2.537, 6),
+    LightYears("Abell 2029", 1.027, 9),
     Cluster("Abell 2029", 8, 6),  # 50 galaxies
     Galaxy("IC 1101", 6, 6),  # 100 000 000 000 000 Stars
     Cluster("Местная группа галактик", 10, 6),  # 50 galaxies
-    LightYearsSized("Расстояние до Скопления Печи", 62, 6),
+    LightYears("Скопления Печи", 62, 6),
     Cluster("Скопление Печи", 10, 6),  # 58 galaxies
-    LightYearsSized("Расстояние до Скопления Девы", 59, 6),
+    LightYears("Скопления Девы", 59, 6),
     Cluster("Скопление Девы", 2.2 * parsec, 6),  # 2000 galaxies
     LightYearsSized("Сверхскопление Девы", 200, 6),  # 100 clusters + 30 galaxies
-    LightYearsSized("Сверхпустота Эридана (длина)", 10, 9),
-    LightYearsSized("Сверхпустота Эридана (ширина)", 1, 9),
-    LightYearsSized("Расстояние до Великого Аттрактора", 250, 6),
-    LightYearsSized("Комплекс сверхскоплений Рыб-Кита (длина)", 1, 9),
-    LightYearsSized("Комплекс сверхскоплений Рыб-Кита (ширина)", 150, 6),
-    LightYearsSized("Расстояние до Сверхскопления Шепли", 650, 6),
-    LightYearsSized("Расстояние до Великой стены Слоуна", 1.2, 9),
+    LightYearsSized("Сверхпустота Эридана", width=1, length=10, scale=9),
+    LightYears("Великого Аттрактора", 250, 6),
+    LightYearsSized("Комплекс сверхскоплений Рыб-Кита", width=1, length=0.150, scale=9),
+    LightYears("Сверхскопления Шепли", 650, 6),
+    LightYears("Великой стены Слоуна", 1.2, 9),
     LightYearsSized("Великая стена Слоуна", 1.37, 9),
     LightYearsSized("Гигапарсек", parsec, 9),
 
-    Scalable("Расстояние до HDF", 0.127, 27),  # ?
+    Distance("HDF", 0.127, 27),  # ?
 
     LightYearsSized("Обозреваемая вселенная", 28 * parsec, 9),
     Scalable("Вселенная", 1.6, 27),
