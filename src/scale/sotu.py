@@ -1,5 +1,25 @@
 from .scalable import Scalable
 
+parsec = 3.26
+
+
+class LightYearsSized(Scalable):
+    default_scale = 15
+    light_year = 9.46
+
+    def __init__(self, name, size, scale=0):
+        scale += LightYearsSized.default_scale
+        size *= self.light_year
+        Scalable.__init__(self, name, size, scale)
+
+
+class Cluster(LightYearsSized):
+    pass
+
+
+class Galaxy(LightYearsSized):
+    pass
+
 
 SOTU = [
     Scalable("Планковская длина", 1.6, -35),
@@ -307,7 +327,7 @@ SOTU = [
     Scalable("Hourglass Nebula", 3, 15),
     Scalable("Blinking Nebula", 4.5, 15),
 
-    Scalable("Световой Год", 9.46, 15),
+    LightYearsSized("Световой Год", 1),
 
     Scalable("Rotten Egg Nebula", 14, 15),
     Scalable("Ant Nebula", 20, 15),
@@ -315,7 +335,7 @@ SOTU = [
     Scalable("Ring Nebula", 17, 15),
 
     Scalable("Облако Оорта", 20, 15),
-    Scalable("Парсек", 33, 15),
+    LightYearsSized("Парсек", parsec),
     Scalable("Туманность Улитка", 30, 15),
 
     Scalable("Boomerang Nebula", 21, 15),
@@ -371,31 +391,29 @@ SOTU = [
 
     Scalable("Расстояние которое прошла Земля относительно Солнца", 4.5, 21),
 
-    Scalable("NGC 4889", 5, 21),
+    Galaxy("NGC 4889", 239, 3),
+    LightYearsSized("Расстояние до Галактики Андромеды", 2.537, 6),
+    LightYearsSized("Расстояние до Abell 2029", 1.027, 9),
+    Cluster("Abell 2029", 8, 6),  # 50 galaxies
+    Galaxy("IC 1101", 6, 6),  # 100 000 000 000 000 Stars
+    Cluster("Местная группа галактик", 10, 6),  # 50 galaxies
+    LightYearsSized("Расстояние до Скопления Печи", 62, 6),
+    Cluster("Скопление Печи", 10, 6),  # 58 galaxies
+    LightYearsSized("Расстояние до Скопления Девы", 59, 6),
+    Cluster("Скопление Девы", 2.2 * parsec, 6),  # 2000 galaxies
+    LightYearsSized("Сверхскопление Девы", 200, 6),  # 100 clusters + 30 galaxies
+    LightYearsSized("Сверхпустота Эридана (длина)", 10, 9),
+    LightYearsSized("Сверхпустота Эридана (ширина)", 1, 9),
+    LightYearsSized("Расстояние до Великого Аттрактора", 250, 6),
+    LightYearsSized("Комплекс сверхскоплений Рыб-Кита (длина)", 1, 9),
+    LightYearsSized("Комплекс сверхскоплений Рыб-Кита (ширина)", 150, 6),
+    LightYearsSized("Расстояние до Сверхскопления Шепли", 650, 6),
+    LightYearsSized("Расстояние до Великой стены Слоуна", 1.2, 9),
+    LightYearsSized("Великая стена Слоуна", 1.37, 9),
+    LightYearsSized("Гигапарсек", parsec, 9),
 
-    Scalable("Расстояние до Галактики Андромеды", 20, 21),
+    Scalable("Расстояние до HDF", 0.127, 27),  # ?
 
-    Scalable("Abell 2029", 60, 21),
-    Scalable("IC 1101", 50, 21),
-
-    Scalable("Местная группа галактик", 0.1, 24),
-
-    Scalable("Fornax Cluster", 0.2, 24),
-
-    Scalable("Скопление Девы", 0.3, 24),
-
-    Scalable("Virgo Supercluster", 1.1, 24),
-
-    Scalable("Супервойд Эридана", 5, 24),
-    Scalable("Расстояние до Великого Аттрактора", 2.5, 24),
-
-    Scalable("Pisces-Cetus Supercluster Complex", 10, 24),
-    Scalable("Distance to the Shapley Supercluster", 6.5, 24),
-    Scalable("Sloan Great Wall", 13, 24),
-
-    Scalable("Гигапарсек", 33, 24),
-    Scalable("Distance to the Hubble Deep Field", 0.127, 27),
-
-    Scalable("Обозреваемая вселенная", 0.93, 27),
+    LightYearsSized("Обозреваемая вселенная", 28 * parsec, 9),
     Scalable("Вселенная", 1.6, 27),
 ]

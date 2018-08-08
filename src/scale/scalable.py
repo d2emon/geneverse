@@ -1,5 +1,11 @@
 class Scalable:
     def __init__(self, name, size, scale=1):
+        while size < 1:
+            if size <= 0:
+                break
+            scale -= 1
+            size *= 10
+
         while size > 10:
             scale += 1
             size /= 10
