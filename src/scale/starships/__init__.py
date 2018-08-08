@@ -4,6 +4,7 @@ from .starwars import StarWars
 from .startrack import StarTrack
 from .halo import Halo
 from .eve import EveOnline
+from .masseffect import MassEffect
 
 
 Babylon5 = [
@@ -22,16 +23,6 @@ NASA = [
 
 SpaceOdyssey = [
     Starship("Discovery One", 140, "2001 Space Odyssey"),
-]
-
-MassEffect = [
-    Starship("SSV Normandy SR-1", 155, "Mass Effect"),
-    Starship("Collector Cruiser", 1890, "Mass Effect"),
-    Starship("Destiny Ascension", 1900, "Mass Effect"),
-    Starship("Reaper", 2000, "Mass Effect"),
-    Starship("Collector Base", 11800, "Mass Effect"),
-    Starship("Mass Relay", 15000, "Mass Effect"),
-    Starship("Citadel", 44700, "Mass Effect"),
 ]
 
 BattlestarGalactica = [
