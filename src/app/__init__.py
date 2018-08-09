@@ -1,4 +1,4 @@
-#!python3
+#!/usr/bin/env python
 from flask import jsonify, make_response
 
 from .app import app
@@ -17,4 +17,4 @@ def not_found(error):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True)  # pragma: no cover

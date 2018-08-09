@@ -2,8 +2,7 @@ from flask import url_for, jsonify
 
 from ..app import app
 
-
-from data import generate_thing, list_generators, thing_meta
+from d2data import generate_thing, thing_meta, list_generators
 
 
 def make_public_generator(gen):
@@ -39,6 +38,5 @@ def get_generated(gen):
 def get_meta(gen):
     gen = gen.replace('_', ' ')
     return jsonify({
-        'generator': gen,
         'meta': thing_meta(gen),
     })
