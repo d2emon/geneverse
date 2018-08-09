@@ -1,19 +1,19 @@
 from .data import ITEMS
 
 
-MIN_SCALE = -37 # -36
+MIN_SCALE = -36
 MAX_SCALE = 30
 
 
-def scale(scale_from, scale_to=None, items=ITEMS):
+def in_scale(scale_from, scale_to=None, items=ITEMS):
     if scale_to is None:
-        scale_to = scale_from + 3
-
+        scale_to = scale_from + 2
+        scale_from = scale_from - 1
     return filter(lambda i: i.width.scale in range(scale_from, scale_to), items)
 
 
-def all():
-    sizes = {
+def metric(scale):
+    metrics = {
         -24: "и",
         -21: "з",
         -18: "а",
@@ -32,7 +32,11 @@ def all():
         21: "З",
         24: "И",
     }
-    comments = {
+    return metrics.get(scale, "?") + "м"
+
+
+def compared(scale):
+    compares = {
         -24: "?",
         -21: "?",
         -18: "Кварк",
@@ -52,9 +56,4 @@ def all():
         24: "Кластер",
         27: "Вселенная",
     }
-    for i in range(MIN_SCALE, MAX_SCALE, 3):
-        scale_text = "10^{} - 10^{}".format(i, i + 2)
-        size = sizes.get(i + 1, "?") + "м"
-        comment = comments.get(i + 1, "?")
-        items = list(scale(i))
-        print("{}\t{}\t{}\t{}".format(comment, size, scale_text, items))
+    return compares.get(scale, "?")
