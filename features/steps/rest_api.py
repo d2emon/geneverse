@@ -2,9 +2,10 @@ import json
 
 from behave import *
 
-from views import USERS
-
 use_step_matcher("re")
+
+
+USERS = {}
 
 
 @given("some users are in the system")
