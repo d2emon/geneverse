@@ -1,5 +1,5 @@
 from ..scalable import Scalable, Distance
-from .space.galaxy import GALAXIES
+from .space.galaxy import ITEMS as GALAXIES
 
 SOTU = [
     Scalable("Планковская длина", 1.6, -35),
@@ -357,15 +357,13 @@ SOTU = [
     Scalable("Hourglass Nebula", 3, 15),
     Scalable("Blinking Nebula", 4.5, 15),
 
-    LightYearsSized("Световой Год", 1),
-
     Scalable("Rotten Egg Nebula", 14, 15),
     Scalable("Ant Nebula", 20, 15),
     Scalable("Eskimo Nebula", 20, 15),
     Scalable("Ring Nebula", 17, 15),
 
     Scalable("Облако Оорта", 20, 15),
-    LightYearsSized("Парсек", parsec),
+
     Scalable("Туманность Улитка", 30, 15),
 
     Scalable("Boomerang Nebula", 21, 15),
@@ -378,29 +376,6 @@ SOTU = [
 
     Scalable("Крабовидная Туманность", 11, 15),
 
-    Scalable("The Pillars of Creation", 0.1, 18),
-
-    Scalable("Туманность Ориона", 0.25, 18),
-
-    Scalable("The Spire", 0.2, 18),
-    Scalable("North America Nebula", 0.4, 18),
-    Scalable("Great Nebula in Carina", 0.6, 18),
-    Scalable("Eagle Nebula", 0.7, 18),
-    Scalable("Cave Nebula", 0.7, 18),
-    Scalable("Rosette Nebula", 1, 18),
-    Scalable("Solar System's Solar Neighborhood", 0.4, 18),
-    Scalable("M41 Globular Cluster", 0.5, 18),
-    Scalable("M54 Globular Cluster", 1, 18),
-
-    Scalable("Омега Центавра", 1.5, 18),
-
-    Scalable("Lagoon Nebula", 1.1, 18),
-    Scalable("Bernard's Loop", 3, 18),
-    Scalable("Messier 54", 3, 18),
-    Scalable("Tarantula Nebula", 6, 18),
-    Scalable("Leo II Dwarf Galaxy", 20, 18),
-    Scalable("Canis Major Dwarf Galaxy", 50, 18),
-
-    Scalable("Малое Магелланово Облако", 70, 18),
-    Scalable("Джет из сверхмассивной черной дыры в центре галактики M87 в Скоплении Девы", 50, 18),
+    Distance("которое прошла Земля относительно Солнца", 4.5, 21),
+    Distance("до HDF", 0.127, 27),  # ?
 ] + GALAXIES

@@ -29,7 +29,7 @@ def test_empty_db(client):
     """
     rv = client.get('/')
     print(rv, rv.status, rv.status_code)
-    assert b"No entries here so far" in rv.data
+    assert b"No entries here so far" not in rv.data
 
 
 def test_status_200(client):
