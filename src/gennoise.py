@@ -1,4 +1,3 @@
-#!python3
 import numpy
 import math
 from noise import snoise2
