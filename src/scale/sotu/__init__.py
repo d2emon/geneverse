@@ -345,37 +345,6 @@ SOTU = [
 
     Scalable("Homunculus Nebula", 20, 12),
 
-    Scalable("Расстояние от Седны до Солнца", 0.14, 15),
-
-    Scalable("Stingray Nebula", 0.7, 15),
-    Scalable("Gomez's Hamburger", 2.5, 15),
-
-    Scalable("Расстояние от Проксимы Центавра до Альфы Центавра A", 1.5, 15),
-    Scalable("Облако Оорта", 1.5, 15),
-    Scalable("Туманность Кошачий Глаз", 2.5, 15),
-
-    Scalable("Hourglass Nebula", 3, 15),
-    Scalable("Blinking Nebula", 4.5, 15),
-
-    Scalable("Rotten Egg Nebula", 14, 15),
-    Scalable("Ant Nebula", 20, 15),
-    Scalable("Eskimo Nebula", 20, 15),
-    Scalable("Ring Nebula", 17, 15),
-
-    Scalable("Облако Оорта", 20, 15),
-
-    Scalable("Туманность Улитка", 30, 15),
-
-    Scalable("Boomerang Nebula", 21, 15),
-
-    Scalable("Туманность Конская Голова", 20, 15),
-    Scalable("Расстояние от Солнца до Проксимы Центавра", 42, 15),
-
-    Scalable("Cone Nebula", 80, 15),
-    Scalable("Bubble Nebula", 70, 15),
-
-    Scalable("Крабовидная Туманность", 11, 15),
-
     Distance("которое прошла Земля относительно Солнца", 4.5, 21),
     Distance("до HDF", 0.127, 27),  # ?
 ] + GALAXIES

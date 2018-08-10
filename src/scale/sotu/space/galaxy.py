@@ -142,6 +142,13 @@ SIZES = [
 ]
 
 NEBULAS = [
+    Nebula("Улитка", 2.5, distance=.65),
+    Nebula("Бумеранг", 2.2, distance=5),
+    Nebula("Конская Голова", 3.5, distance=1.5),
+    Nebula("Конус", 4, distance=2.7),
+    Nebula("Пузырь", 3.5, distance=11),
+    Nebula("Крабовидная", 11, distance=6.5),
+
     Nebula("Орел (Столпы Творения)", 4, distance=7),
     Nebula("Орел (Фея)", 10, distance=7),
 
@@ -198,6 +205,28 @@ CLUSTERS = [
 ]
 
 ITEMS = SIZES + NEBULAS + GALAXIES + CLUSTERS + [
+    Distance("от Седны до Солнца", 0.14, 15),
+    Distance("от Проксимы Центавра до Альфы Центавра A", 1.5, 15),
+    Distance("от Солнца до Проксимы Центавра", 42, 15),
+
+    Scalable("Stingray Nebula", 0.7, 15),
+    Scalable("Gomez's Hamburger", 2.5, 15),
+
+    Scalable("Облако Оорта", 1.5, 15),
+    Scalable("Туманность Кошачий Глаз", 2.5, 15),
+
+    Scalable("Hourglass Nebula", 3, 15),
+    Scalable("Blinking Nebula", 4.5, 15),
+
+    Scalable("Rotten Egg Nebula", 14, 15),
+    Scalable("Ant Nebula", 20, 15),
+    Scalable("Eskimo Nebula", 20, 15),
+    Scalable("Ring Nebula", 17, 15),
+
+    Scalable("Облако Оорта", 20, 15),
+
+    # ----
+
     Scalable("Джет из сверхмассивной черной дыры в центре галактики M87 в Скоплении Девы", 50, 18),
 
     LightYears("до Великого Аттрактора", 250, 6),
