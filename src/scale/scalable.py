@@ -37,4 +37,4 @@ class Distance(Scalable):
         Scalable.__init__(self, name, size, scale)
 
     def __repr__(self):
-        return "Расстояние до {} - {}".format(self.name, self.width)
+        return "Расстояние {} - {}".format(self.name, self.width)
