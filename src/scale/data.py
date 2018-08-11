@@ -6,6 +6,7 @@ from .worlds import WORLDS
 from .structures import SKYSCRAPERS
 from .structures import STRUCTURES
 from .military import MILITARY
+from .animals import ANIMALS
 
 ITEMS = SOTU\
     + STARSHIPS\
@@ -13,6 +14,7 @@ ITEMS = SOTU\
     + SKYSCRAPERS\
     + STRUCTURES\
     + MILITARY\
+    + ANIMALS\
     + [
         Scalable("Обозреваемая вселенная", 8.8, 26),
 
