@@ -20,7 +20,7 @@ class Star(Scalable):
         Scalable.__init__(self, name, size, scale)
 
 
-ANIMALS = [
+SOLAR = [
     Asteroid("Тунгусский метеорит", .1, 3),
 
     Asteroid("Gaspra", 34, 3),

@@ -7,6 +7,7 @@ from .structures import SKYSCRAPERS
 from .structures import STRUCTURES
 from .military import MILITARY
 from .animals import ANIMALS
+from .solar import SOLAR
 
 ITEMS = SOTU\
     + STARSHIPS\
@@ -15,6 +16,7 @@ ITEMS = SOTU\
     + STRUCTURES\
     + MILITARY\
     + ANIMALS\
+    + SOLAR\
     + [
         Scalable("Кеплер 22b", 30, 6),
         Scalable("UY Щита", 2.5, 12),
