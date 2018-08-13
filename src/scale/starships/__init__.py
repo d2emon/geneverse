@@ -5,6 +5,7 @@ from .startrack import StarTrack
 from .halo import Halo
 from .eve import EveOnline
 from .masseffect import MassEffect
+from .stargate import StarGate
 
 
 Babylon5 = [
@@ -31,12 +32,6 @@ BattlestarGalactica = [
 
 V = [
     Starship("V Mothership", 3200, "V"),
-]
-
-StarGate = [
-    Starship("Apaphis", 3325, "StarGate"),
-    Starship("Anubis", 5500, "StarGate"),
-    Starship("Корабль-улей рейфов", 5500, "StarGate"),
 ]
 
 Wh40k = [
