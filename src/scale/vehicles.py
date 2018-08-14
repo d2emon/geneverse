@@ -43,9 +43,4 @@ VEHICLES = [
     Vehicle("Oasis of the Seas", 362),
     Vehicle("Prelude FLNG", 488),
     Vehicle("Mauritania Railway", 2500),
-    Vehicle("Space Shuttle", 37),
-    Vehicle("Space Shuttle", 37),
-    Vehicle("Space Shuttle", 37),
-    Vehicle("Space Shuttle", 37),
-    Vehicle("Space Shuttle", 37),
 ]
