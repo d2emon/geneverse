@@ -8,6 +8,7 @@ from .structures import STRUCTURES
 from .military import MILITARY
 from .animals import ANIMALS
 from .solar import SOLAR
+from .vehicles import VEHICLES
 
 ITEMS = SOTU\
     + STARSHIPS\
@@ -15,6 +16,7 @@ ITEMS = SOTU\
     + SKYSCRAPERS\
     + STRUCTURES\
     + MILITARY\
+    + VEHICLES\
     + ANIMALS\
     + SOLAR\
     + [
