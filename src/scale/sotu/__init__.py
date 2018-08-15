@@ -1,5 +1,6 @@
 from ..scalable import Scalable, Distance
 from .space.galaxy import ITEMS as GALAXIES
+from .space.star_system import ITEMS as STAR_SYSTEM
 
 SOTU = [
     Scalable("Планковская длина", 1.6, -35),
@@ -240,8 +241,6 @@ SOTU = [
     Scalable("Калифорния", 1.2, 6),
     Scalable("Техас", 1.2, 6),
     Scalable("Церера", .95, 6),
-    Scalable("Плутон", 2.4, 6),
-    Scalable("Харон", 1.2, 6),
 
     Scalable("Quaoar", 1.3, 6),
 
@@ -259,92 +258,20 @@ SOTU = [
     Scalable("Луна", 3.5, 6),
     Scalable("Титан", 5.2, 6),
     Scalable("Титания", 1.6, 6),
-    Scalable("Меркурий", 4.9, 6),
     Scalable("США", 4.2, 6),
+    Scalable("Азия", 8, 6),
+
+    Scalable("Плутон", 2.4, 6),
+    Scalable("Харон", 1.2, 6),
+
+    Scalable("Меркурий", 4.9, 6),
     Scalable("Марс", 6.8, 6),
     Scalable("Земля", 12.7, 6),
     Scalable("Венера", 12, 6),
-    Scalable("Азия", 8, 6),
 
-    Scalable("Сириус B", 200, 6),
-    Scalable("Нептун", 49, 6),
-    Scalable("Уран", 51, 6),
-    Scalable("Сатурн", 123, 6),
-    Scalable("Юпитер", 140, 6),
-
-    Scalable("Gliese 229B", 0.11, 9),
-    Scalable("Wolf 359", 0.15, 9),
-    Scalable("TrES-4", 0.23, 9),
-
-    Scalable("Проксима Центавра", 0.2, 9),
-    Scalable("От Земли До Луны", 0.38, 9),
     Scalable("Самая длинная радиоволна", .1, 9),
-
-    Scalable("Luyten's Star", 0.42, 9),
-    Scalable("Kapteyn's Star", 0.42, 9),
-
-    Scalable("Солнце", 1.4, 9),
-
-    Scalable("Gliese 229A", 0.96, 9),
-
-    Scalable("Альфа Центавра B", 1, 9),
-    Scalable("Альфа Центавра A", 1.5, 9),
-    Scalable("Сириус A", 2.5, 9),
-    Scalable("Альтаир", 2.6, 9),
-    Scalable("Вега", 3.8, 9),
-    Scalable("Процион", 2.9, 9),
-    Scalable("Регул", 5.8, 9),
-    Scalable("Поллукс", 11, 9),
-    Scalable("Спика", 9.6, 9),
     Scalable("Суммарная высота человечества", 10, 9),
-    Scalable("Капелла", 17, 9),
-
-    Scalable("Albireo", 22, 9),
-    Scalable("VV Cephei B", 20, 9),
-
-    Scalable("Арктур", 36, 9),
-    Scalable("Полярная", 40, 9),
-    Scalable("Альдебаран", 64, 9),
-    Scalable("Альнитак", 84, 9),
-    Scalable("Расстояние от Меркурия до Солнца", 60, 9),
-    Scalable("Ригель", 97, 9),
-
-    Scalable("Расстояние от Земли до Солнца", 0.15, 12),
-
-    Scalable("Gacrux", 0.16, 12),
-
-    Scalable("Денеб", 0.31, 12),
-
-    Scalable("La Superba", 0.42, 12),
-    Scalable("R Doradus", 0.52, 12),
-    Scalable("Pistol Star", 0.47, 12),
-    Scalable("Антарес", 0.97, 12),
-    Scalable("S Doradus", 0.77, 12),
-    Scalable("V382 Carinei", 1, 12),
-    Scalable("V838 Monocerotis", 1.1, 12),
-
-    Scalable("Расстояние от Юпитера до Солнца", 0.78, 12),
-
-    Scalable("Бетельгейзе", 1.3, 12),
-    Scalable("Мю Цефея", 1.9, 12),
-
-    Scalable("WOH G64", 2.8, 12),
-    Scalable("VV Cephei A", 2.4, 12),
-
-    Scalable("VY Малых Псов", 3, 12),
-
-    Scalable("Herschel's Garnet Star", 1.9, 12),
-    Scalable("KY Cygni", 2, 12),
-    Scalable("V354 Cephei", 2.1, 12),
-
-    Scalable("Расстояние от Нептуна до Солнца", 4.5, 12),
-    Scalable("Расстояние от Плутона до Солнца", 5.9, 12),
-    Scalable("Пояс Койпера", 15, 12),
-    Scalable("Расстояние от Вояджера 1 до Земли", 17, 12),
-    Scalable("Световой День", 26, 12),
-
-    Scalable("Homunculus Nebula", 20, 12),
 
     Distance("которое прошла Земля относительно Солнца", 4.5, 21),
     Distance("до HDF", 0.127, 27),  # ?
-] + GALAXIES
+] + GALAXIES + STAR_SYSTEM
