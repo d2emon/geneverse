@@ -208,7 +208,7 @@ CLUSTERS = [
     Cluster("Печи", 10, galaxies=58, distance=62),
     Cluster("Девы", 2.2 * parsec, galaxies=2000, distance=59),
 
-    SuperCluster("Сверхскопление Девы", 0., clusters=100, galaxies=30),
+    SuperCluster("Сверхскопление Девы", .2, clusters=100, galaxies=30),
     SuperCluster("Сверхпустота Эридана", width=1, length=10),
     SuperCluster("Комплекс сверхскоплений Рыб-Кита", width=1, length=0.150),
     SuperCluster("Великая стена Слоуна", 1.37, distance=1.2),
@@ -216,8 +216,6 @@ CLUSTERS = [
 
 ITEMS = SIZES + NEBULAS + GALAXIES + CLUSTERS + [
     Distance("от Седны до Солнца", 0.14, 15),
-    Distance("от Проксимы Центавра до Альфы Центавра A", 1.5, 15),
-    Distance("от Солнца до Проксимы Центавра", 42, 15),
 
     # ----
 
@@ -228,4 +226,6 @@ ITEMS = SIZES + NEBULAS + GALAXIES + CLUSTERS + [
 
     LightYearsSized("Обозреваемая вселенная", 28 * parsec, 9),
     Scalable("Вселенная", 1.6, 27),
+
+    # LightYearsSized("Ланиакея", 0.52, 9),
 ]
