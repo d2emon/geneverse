@@ -25,12 +25,22 @@ class AUSized(Scalable):
 
 class SunSized(Scalable):
     default_scale = 9
-    sun = 0.696
+    sun = 0.696 * 2
 
     def __init__(self, name, width, scale=0, length=None):
         scale += self.default_scale
         width *= self.sun
         length = length and length * self.sun
+        Scalable.__init__(self, name, width=width, length=length, scale=scale)
+
+
+class PlanetSized(Scalable):
+    default_scale = 6
+
+    def __init__(self, name, width, scale=0, length=None):
+        scale += self.default_scale
+        width *= 2
+        length = length and length * 2
         Scalable.__init__(self, name, width=width, length=length, scale=scale)
 
 
@@ -98,10 +108,69 @@ class Star:
         return "{} ({}{})".format(name, size, distance)
 
 
+class GiantPlanet:
+    title = ""
+    distance_scale = 9
+
+    def __init__(self, name, width, letter=None, constellation=None, scale=0, distance=None, length=None):
+        self.name = self.title and "{} {}".format(self.title, name) or name
+        self.size = PlanetSized(self.name, width=width, scale=scale, length=length)
+        if distance is None:
+            self.distance = None
+        else:
+            self.distance = Distance("", distance, self.distance_scale)
+
+    @property
+    def width(self):
+        return self.size.width
+
+    @property
+    def length(self):
+        return self.size.length
+
+    def __repr__(self):
+        distance = self.distance and " -> {}".format(self.distance.width) or ''
+        size = str(self.size.width)
+        if self.size.length:
+            size = "{} x {}".format(size, self.size.length)
+
+        return "{} ({}{})".format(self.name, size, distance)
+
+
 ITEMS = [
+    GiantPlanet("Нептун", 24.6),
+    GiantPlanet("Уран", 25.3),
+    GiantPlanet("Сатурн", 58.2),
+    GiantPlanet("Юпитер", 69.9),
+    GiantPlanet("TrES-4 A b", 69.9 * 1.7),
+
+    Star("Вольф 359", .1, distance=.0078),
+    Star("Звезда Лейтена", .11, distance=.012),
+    Star("Звезда Каптейна", .291, distance=.013),
+    Star("Солнце", 1),
+    Star("Глизе 229 A", .69, distance=.018),
+    Star("Глизе 229 B", .047, distance=.018),
+    Star(None, 1.227, "α", "Центавра A", distance=.004),
+    Star(None, .865, "α", "Центавра B", distance=.004),
+    Star(None, .14, "Проксима", "Центавра", distance=.004),
+    Star("Сириус A", 1.7, "α", "Большого Пса", distance=.0086),
+    Star("Сириус B", 0.008, "α", "Большого Пса", distance=.0086),
+    Star("Альтаир", 1.7, "α", "Орла", distance=.017),
+    Star("Вега", 2.8, "α", "Лиры", distance=.0253),
+    Star("Процион", 1.86, "α", "Малого Пса", distance=.011),
+    Star("Регул", 4, "α", "Льва", distance=.077),
+    Star("Поллукс", 8, "β", "Близнецов", distance=.033),
+    Star("Спика", 7.8, "α", "Девы", distance=.26),
+    Star("Капелла", 12, "α", "Возничего", distance=.042),
+    Star("Альбирео", 100, "β", "Лебедя", distance=.385),
+    Star(None, 8, "VV", "Цефея B", distance=5),
+    Star("Арктур", 25.7, "α", "Волопаса", distance=0.036),
+    Star("Полярная звезда", 37.5, "α", "Малой Медведицы", distance=.447),
+    Star("Альдебаран", 43, "α", "Тельца", distance=.65),
+    Star("Альнитак", 20, "ζ", "Ориона", distance=.817),
+    Star("Ригель", 74, "β", "Ориона", distance=.86),
     Star("Гакрукс", 113, "γ", "Южного Креста", distance=.088),
     Star("Денеб", 210, "α", "Лебедя", distance=1.64),
-
     Star("La Superba", 215, "Y", "Гончих Псов", distance=.71),
     Star(None, 370, "R", "Золотой Рыбы", distance=.204),
     Star("Пистолет", 306, distance=25),
@@ -122,6 +191,8 @@ ITEMS = [
     SystemSized("Внутренний Край Облака Оорта", 50, scale=3),
     SystemSized("Внешний Край Облака Оорта", .2, scale=6),
 
+    Distance("от Земли до Луны", .38, 9),
+    Distance("от Меркурия до Солнца", 60, 9),
     Distance("от Земли до Солнца", 0.15, 12),
     Distance("от Юпитера до Солнца", 0.78, 12),
     Distance("от Нептуна до Солнца", 4.5, 12),

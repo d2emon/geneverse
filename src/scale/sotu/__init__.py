@@ -241,8 +241,6 @@ SOTU = [
     Scalable("Калифорния", 1.2, 6),
     Scalable("Техас", 1.2, 6),
     Scalable("Церера", .95, 6),
-    Scalable("Плутон", 2.4, 6),
-    Scalable("Харон", 1.2, 6),
 
     Scalable("Quaoar", 1.3, 6),
 
@@ -260,55 +258,19 @@ SOTU = [
     Scalable("Луна", 3.5, 6),
     Scalable("Титан", 5.2, 6),
     Scalable("Титания", 1.6, 6),
-    Scalable("Меркурий", 4.9, 6),
     Scalable("США", 4.2, 6),
+    Scalable("Азия", 8, 6),
+
+    Scalable("Плутон", 2.4, 6),
+    Scalable("Харон", 1.2, 6),
+
+    Scalable("Меркурий", 4.9, 6),
     Scalable("Марс", 6.8, 6),
     Scalable("Земля", 12.7, 6),
     Scalable("Венера", 12, 6),
-    Scalable("Азия", 8, 6),
 
-    Scalable("Сириус B", 200, 6),
-    Scalable("Нептун", 49, 6),
-    Scalable("Уран", 51, 6),
-    Scalable("Сатурн", 123, 6),
-    Scalable("Юпитер", 140, 6),
-
-    Scalable("Gliese 229B", 0.11, 9),
-    Scalable("Wolf 359", 0.15, 9),
-    Scalable("TrES-4", 0.23, 9),
-
-    Scalable("Проксима Центавра", 0.2, 9),
-    Scalable("От Земли До Луны", 0.38, 9),
     Scalable("Самая длинная радиоволна", .1, 9),
-
-    Scalable("Luyten's Star", 0.42, 9),
-    Scalable("Kapteyn's Star", 0.42, 9),
-
-    Scalable("Солнце", 1.4, 9),
-
-    Scalable("Gliese 229A", 0.96, 9),
-
-    Scalable("Альфа Центавра B", 1, 9),
-    Scalable("Альфа Центавра A", 1.5, 9),
-    Scalable("Сириус A", 2.5, 9),
-    Scalable("Альтаир", 2.6, 9),
-    Scalable("Вега", 3.8, 9),
-    Scalable("Процион", 2.9, 9),
-    Scalable("Регул", 5.8, 9),
-    Scalable("Поллукс", 11, 9),
-    Scalable("Спика", 9.6, 9),
     Scalable("Суммарная высота человечества", 10, 9),
-    Scalable("Капелла", 17, 9),
-
-    Scalable("Albireo", 22, 9),
-    Scalable("VV Cephei B", 20, 9),
-
-    Scalable("Арктур", 36, 9),
-    Scalable("Полярная", 40, 9),
-    Scalable("Альдебаран", 64, 9),
-    Scalable("Альнитак", 84, 9),
-    Scalable("Расстояние от Меркурия до Солнца", 60, 9),
-    Scalable("Ригель", 97, 9),
 
     Distance("которое прошла Земля относительно Солнца", 4.5, 21),
     Distance("до HDF", 0.127, 27),  # ?
