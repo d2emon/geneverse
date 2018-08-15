@@ -310,42 +310,6 @@ SOTU = [
     Scalable("Расстояние от Меркурия до Солнца", 60, 9),
     Scalable("Ригель", 97, 9),
 
-    Scalable("Расстояние от Земли до Солнца", 0.15, 12),
-
-    Scalable("Gacrux", 0.16, 12),
-
-    Scalable("Денеб", 0.31, 12),
-
-    Scalable("La Superba", 0.42, 12),
-    Scalable("R Doradus", 0.52, 12),
-    Scalable("Pistol Star", 0.47, 12),
-    Scalable("Антарес", 0.97, 12),
-    Scalable("S Doradus", 0.77, 12),
-    Scalable("V382 Carinei", 1, 12),
-    Scalable("V838 Monocerotis", 1.1, 12),
-
-    Scalable("Расстояние от Юпитера до Солнца", 0.78, 12),
-
-    Scalable("Бетельгейзе", 1.3, 12),
-    Scalable("Мю Цефея", 1.9, 12),
-
-    Scalable("WOH G64", 2.8, 12),
-    Scalable("VV Cephei A", 2.4, 12),
-
-    Scalable("VY Малых Псов", 3, 12),
-
-    Scalable("Herschel's Garnet Star", 1.9, 12),
-    Scalable("KY Cygni", 2, 12),
-    Scalable("V354 Cephei", 2.1, 12),
-
-    Scalable("Расстояние от Нептуна до Солнца", 4.5, 12),
-    Scalable("Расстояние от Плутона до Солнца", 5.9, 12),
-    Scalable("Пояс Койпера", 15, 12),
-    Scalable("Расстояние от Вояджера 1 до Земли", 17, 12),
-    Scalable("Световой День", 26, 12),
-
-    Scalable("Homunculus Nebula", 20, 12),
-
     Distance("которое прошла Земля относительно Солнца", 4.5, 21),
     Distance("до HDF", 0.127, 27),  # ?
 ] + GALAXIES + STAR_SYSTEM

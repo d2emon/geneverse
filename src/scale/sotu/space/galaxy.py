@@ -142,6 +142,7 @@ SIZES = [
 ]
 
 NEBULAS = [
+    Nebula("Гомункул", 0.29, distance=7.5),
     Nebula("Скат", 0.08, distance=18),
     Nebula("Гамбургер Гомеса", 0.25, distance=0.9),
     Nebula("Кошачий Глаз", 0.25, distance=3.3),
