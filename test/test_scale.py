@@ -21,3 +21,4 @@ def test_all_scales(scales):
             range="10^{: <3}-10^{: <3}".format(scale - 1, scale + 1),
             items=list(in_scale(scale))
         ))
+        assert scale is not None

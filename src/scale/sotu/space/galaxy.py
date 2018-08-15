@@ -142,6 +142,15 @@ SIZES = [
 ]
 
 NEBULAS = [
+    Nebula("Скат", 0.08, distance=18),
+    Nebula("Гамбургер Гомеса", 0.25, distance=0.9),
+    Nebula("Кошачий Глаз", 0.25, distance=3.3),
+    Nebula("Песочные Часы", 0.3, distance=8),
+    Nebula("Мерцающая", 0.45),
+    Nebula("Тухлое Яйцо", 1.4, distance=5),
+    Nebula("Муравей", 1, distance=8),
+    Nebula("Эскимос", .34, distance=3),
+    Nebula("Кольцо", 1.3, distance=2),
     Nebula("Улитка", 2.5, distance=.65),
     Nebula("Бумеранг", 2.2, distance=5),
     Nebula("Конская Голова", 3.5, distance=1.5),
@@ -208,22 +217,6 @@ ITEMS = SIZES + NEBULAS + GALAXIES + CLUSTERS + [
     Distance("от Седны до Солнца", 0.14, 15),
     Distance("от Проксимы Центавра до Альфы Центавра A", 1.5, 15),
     Distance("от Солнца до Проксимы Центавра", 42, 15),
-
-    Scalable("Stingray Nebula", 0.7, 15),
-    Scalable("Gomez's Hamburger", 2.5, 15),
-
-    Scalable("Облако Оорта", 1.5, 15),
-    Scalable("Туманность Кошачий Глаз", 2.5, 15),
-
-    Scalable("Hourglass Nebula", 3, 15),
-    Scalable("Blinking Nebula", 4.5, 15),
-
-    Scalable("Rotten Egg Nebula", 14, 15),
-    Scalable("Ant Nebula", 20, 15),
-    Scalable("Eskimo Nebula", 20, 15),
-    Scalable("Ring Nebula", 17, 15),
-
-    Scalable("Облако Оорта", 20, 15),
 
     # ----
 

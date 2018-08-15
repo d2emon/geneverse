@@ -1,5 +1,6 @@
 from ..scalable import Scalable, Distance
 from .space.galaxy import ITEMS as GALAXIES
+from .space.star_system import ITEMS as STAR_SYSTEM
 
 SOTU = [
     Scalable("Планковская длина", 1.6, -35),
@@ -347,4 +348,4 @@ SOTU = [
 
     Distance("которое прошла Земля относительно Солнца", 4.5, 21),
     Distance("до HDF", 0.127, 27),  # ?
-] + GALAXIES
+] + GALAXIES + STAR_SYSTEM
