@@ -2,15 +2,13 @@ import random
 
 from PIL import ImageDraw
 
+from basic_item import BasicItem
 from genimage import transparent_image
 
 
-class SpaceObject:
+class SpaceObject(BasicItem):
     def __init__(self, x, y, z=0, size=1, width=None):
-        self.x = x
-        self.y = y
-        self.z = z
-        self.size = size
+        super().__init__(self, x=x, y=y, z=z, size=size)
         self.width = width
 
 
@@ -20,9 +18,9 @@ class SuperVoid(SpaceObject):
 
     def get_filter(self):
         def f(item):
-            dx = self.x - item.x
-            dy = self.y - item.y
-            dz = self.z - item.z
+            dx = self.location.x - item.x
+            dy = self.location.y - item.y
+            dz = self.location.z - item.z
 
             if (dx ** 2 + dy ** 2 + dz ** 2) > self.size ** 2:
                 return True
