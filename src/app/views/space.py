@@ -1,5 +1,4 @@
 import random
-import math
 
 from flask import send_file
 
@@ -10,7 +9,10 @@ from spaceimage import Universe, SpaceWall, SuperCluster, draw_universe
 
 
 @app.route('/space/img-<int:size>.png')
-def get_space_img(size, scale=10):
+@app.route('/space/img-<int:size>s<int:seed>.png')
+def get_space_img(size, scale=10, seed=1):
+    random.seed(seed)
+
     u = Universe(size, size, size)
     # Slone's Wall
     u.clusters.append(SpaceWall(
@@ -33,6 +35,9 @@ def get_space_img(size, scale=10):
         z=0,
         size=int(.189 * scale),
     ))
+
+    for _ in range(random.randint(10, 30)):
+        u.add_cluster(size=10)
 
     # Eridan's Void
     u.add_void(
