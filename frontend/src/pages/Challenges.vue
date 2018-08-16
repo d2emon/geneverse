@@ -6,6 +6,7 @@
       </v-flex>
       <v-flex xs12>
         <div class="clusters">
+          <img src="http://localhost:5000/space/img-1024.png" />
           <div
             v-for="(cluster, i) in clusters"
             :key="'cluster-' + i"
@@ -101,6 +102,7 @@ export default {
 .space {
   background-color: #000000;
   background-image: url("/static/back/space-back.jpg");
+  background-repeat: repeat;
   text-align: center;
 }
 .clusters {
