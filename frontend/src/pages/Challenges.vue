@@ -6,6 +6,13 @@
       </v-flex>
       <v-flex xs12>
         <div class="clusters">
+          <img
+            src="http://localhost:5000/img-16.png"
+          />
+        </div>
+      </v-flex>
+      <v-flex xs12>
+        <div class="clusters">
           <div
             v-for="(cluster, i) in clusters"
             :key="'cluster-' + i"
