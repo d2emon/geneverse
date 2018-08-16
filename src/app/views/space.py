@@ -4,15 +4,13 @@ from flask import send_file
 
 from app import app
 
+from basic_item import BasicItem
 from genimage import universe, save_image
 
 
-class SpaceObject:
+class SpaceObject(BasicItem):
     def __init__(self, x, y, z=0, size=1):
-        self.x = x
-        self.y = y
-        self.z = z
-        self.size = size
+        super().__init__(self, x=x, y=y, z=z, size=size)
 
 
 class SuperVoid(SpaceObject):
