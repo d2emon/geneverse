@@ -32,16 +32,6 @@ def transparent_image(width, height):
     return img
 
 
-def universe(width=512, height=512, stars=()):
-    img = transparent_image(width, height)
-    draw = ImageDraw.Draw(img)
-    for star in stars:
-        dist = 1 - star.z / width
-        r = star.size * dist
-        draw.ellipse((star.x, star.y, star.x + r, star.y + r), fill=(star.brightness, star.brightness, star.brightness))
-    return img
-
-
 def save_image(img):
     io = BytesIO()
     img.save(io, 'PNG', quality=70)
