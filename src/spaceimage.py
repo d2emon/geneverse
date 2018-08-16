@@ -6,39 +6,41 @@ from basic_item import BasicItem
 from genimage import transparent_image
 
 
-class SpaceObject(BasicItem):
+class SpaceItem(BasicItem):
     def __init__(self, x, y, z=0, size=1, width=None):
-        super().__init__(self, x=x, y=y, z=z, size=size)
+        super().__init__(x=x, y=y, z=z, size=size)
         self.width = width
 
+    def bounds(self, dist):
+        height = self.size * dist
+        width = height
+        if self.width is not None:
+            width = self.width * dist
+        return self.left, self.top, self.left + width, self.top + height
 
-class SuperVoid(SpaceObject):
-    def __init__(self, x, y, z=0, size=255, width=None):
+
+class GlowingSpaceItem(SpaceItem):
+    def __init__(self, x, y, z=0, size=1, width=None, brightness=255):
         super().__init__(x, y, z, size, width)
+        self.brightness = brightness
 
+    @property
+    def color(self):
+        return self.brightness, self.brightness, self.brightness
+
+
+class SuperVoid(SpaceItem):
     def get_filter(self):
         def f(item):
-            dx = self.location.x - item.x
-            dy = self.location.y - item.y
-            dz = self.location.z - item.z
-
-            if (dx ** 2 + dy ** 2 + dz ** 2) > self.size ** 2:
-                return True
-            return False
+            return self.location.distance_to(item.location) > self.size
         return f
 
 
-class Star(SpaceObject):
-    def __init__(self, x, y, z=0, size=1, brightness=255):
-        super().__init__(x, y, z, size)
-        self.brightness = brightness
+class Star(GlowingSpaceItem):
+    pass
 
 
-class SuperCluster(SpaceObject):
-    def __init__(self, x, y, z=0, size=1, brightness=255, width=None):
-        super().__init__(x, y, z, size, width)
-        self.brightness = brightness
-
+class SuperCluster(GlowingSpaceItem):
     @classmethod
     def generate(cls, width=1024, height=1024, depth=1024, star_size=1):
         return cls(
@@ -99,12 +101,6 @@ def draw_universe(universe):
         clusters = filter(void.get_filter(), clusters)
 
     for cluster in clusters:
-        dist = 1 - cluster.z / universe.width
-        r1 = cluster.size * dist
-        r2 = r1
-        if cluster.width is not None:
-            r2 = cluster.width * dist
-        ellipse = (cluster.x, cluster.y, cluster.x + r1, cluster.y + r2)
-        color = (cluster.brightness, cluster.brightness, cluster.brightness)
-        draw.ellipse(ellipse, fill=color)
+        dist = 1 - cluster.location.z / universe.depth
+        draw.ellipse(cluster.bounds(dist), fill=cluster.color)
     return img
