@@ -204,7 +204,6 @@ SOTU = [
     Scalable("Boeing Everett Factory", 1, 3),
     Scalable("Stanford Linear Accelerator", 3, 3),
     Scalable("Uluru", 3, 3),
-    Scalable("Cruithne", 5, 3),
 
     Scalable("Центральный Парк", 4, 3),
     Scalable("AM Волна", 1, 3),
@@ -212,26 +211,11 @@ SOTU = [
     Scalable("Palm Jebel Ali", 8, 3),
 
     Scalable("Большой Адронный Коллайдер", 8.6, 3),
-    Scalable("Комета Галлея", 11, 3),
-    Scalable("Деймос", 13, 3),
     Scalable("Эверест", 8.8, 3),
     Scalable("Марианская Впадина", 10.9, 3),
-    Scalable("Фобос", 23, 3),
     Scalable("Марафон", 42.2, 3),
     Scalable("Нейтронная Звезда", 24, 3),
     Scalable("Род Айленд", 75, 3),
-
-    Scalable("Ganymed", 32, 3),
-    Scalable("Bianca", 54, 3),
-    Scalable("Belinda", 80, 3),
-    Scalable("Nix", 80, 3),
-
-    Scalable("Гидра", 0.1, 6),
-
-    Scalable("Dysnomia", 0.15, 6),
-    Scalable("Galatea", 0.16, 6),
-    Scalable("Nereid", 0.34, 6),
-    Scalable("Miranda", 0.47, 6),
 
     Scalable("Бруней", 0.12, 6),
     Scalable("Западная Вирджиния", 0.4, 6),
@@ -240,34 +224,10 @@ SOTU = [
     Scalable("Италия", 1.1, 6),
     Scalable("Калифорния", 1.2, 6),
     Scalable("Техас", 1.2, 6),
-    Scalable("Церера", .95, 6),
-
-    Scalable("Quaoar", 1.3, 6),
-
-    Scalable("Седна", 1.8, 6),
-
-    Scalable("Eris", 2.4, 6),
-
     Scalable("Большой Барьерный Риф", 2.6, 6),
     Scalable("Великая Китайская Стена", 8.85, 6),
-    Scalable("Тритон", 2.7, 6),
-    Scalable("Каллисто", 4.8, 6),
-    Scalable("Ганимед", 5.3, 6),
-    Scalable("Европа", 3.1, 6),
-    Scalable("Ио", 3.6, 6),
-    Scalable("Луна", 3.5, 6),
-    Scalable("Титан", 5.2, 6),
-    Scalable("Титания", 1.6, 6),
     Scalable("США", 4.2, 6),
     Scalable("Азия", 8, 6),
-
-    Scalable("Плутон", 2.4, 6),
-    Scalable("Харон", 1.2, 6),
-
-    Scalable("Меркурий", 4.9, 6),
-    Scalable("Марс", 6.8, 6),
-    Scalable("Земля", 12.7, 6),
-    Scalable("Венера", 12, 6),
 
     Scalable("Самая длинная радиоволна", .1, 9),
     Scalable("Суммарная высота человечества", 10, 9),
