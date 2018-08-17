@@ -37,11 +37,10 @@ class SunSized(Scalable):
 class PlanetSized(Scalable):
     default_scale = 6
 
-    def __init__(self, name, width, scale=0, length=None):
+    def __init__(self, name, width, scale=0):
         scale += self.default_scale
         width *= 2
-        length = length and length * 2
-        Scalable.__init__(self, name, width=width, length=length, scale=scale)
+        Scalable.__init__(self, name, width=width, scale=scale)
 
 
 class SystemSized:
@@ -108,13 +107,13 @@ class Star:
         return "{} ({}{})".format(name, size, distance)
 
 
-class GiantPlanet:
+class Planet:
     title = ""
     distance_scale = 9
 
-    def __init__(self, name, width, letter=None, constellation=None, scale=0, distance=None, length=None):
+    def __init__(self, name, width, scale=0, distance=None):
         self.name = self.title and "{} {}".format(self.title, name) or name
-        self.size = PlanetSized(self.name, width=width, scale=scale, length=length)
+        self.size = PlanetSized(self.name, width=width, scale=scale)
         if distance is None:
             self.distance = None
         else:
@@ -126,22 +125,73 @@ class GiantPlanet:
 
     @property
     def length(self):
-        return self.size.length
+        return self.size.width
 
     def __repr__(self):
         distance = self.distance and " -> {}".format(self.distance.width) or ''
         size = str(self.size.width)
-        if self.size.length:
-            size = "{} x {}".format(size, self.size.length)
-
         return "{} ({}{})".format(self.name, size, distance)
 
 
+class GiantPlanet(Planet):
+    distance_scale = 9
+
+
+class Moon(Planet):
+    distance_scale = 9
+
+    #  def __init__(self, name, width, scale=0, distance=None):
+    #     super().__init__(name, width / 2, scale, distance)
+
+
+class Asteroid(Planet):
+    pass
+
+
+class Comet(Asteroid):
+    pass
+
+
 ITEMS = [
-    GiantPlanet("Нептун", 24.6),
-    GiantPlanet("Уран", 25.3),
-    GiantPlanet("Сатурн", 58.2),
+    Comet("Комета Галлея", .011 / 2),
+
+    Moon("Деймос (Марс)", .012 / 2),
+    Moon("Фобос (Марс)", .022 / 2),
+    Moon("Белинда (Уран)", .045),
+    Moon("Никта (Плутон)", .040 / 2),
+    Moon("Гидра (Плутон)", .040),
+    Moon("Дисномия (Эрида)", .316 / 2),
+    Moon("Галатея (Нептун)", .088),
+    Moon("Нереида (Нептун)", .170),
+    Moon("Миранда (Уран)", .235),
+    Moon("Тритон (Нептун)", 1.353),
+    Moon("Каллисто (Юпитер)", 2.410),
+    Moon("Ганимед (Юпитер)", 2.634),
+    Moon("Европа (Юпитер)", 1.560),
+    Moon("Ио (Юпитер)", 1.821),
+    Moon("Луна", 1.737),
+    Moon("Титан (Уран)", 5.152 / 2),
+    Moon("Титания (Уран)", 1.576 / 2),
+    Moon("Харон (Плутон)", 1.212 / 2),
+
+    Planet("Меркурий", 2.439),
+    Planet("Венера", 6),
+    Planet("Земля", 6.371),
+    Planet("Марс", 3.389),
+    Asteroid("Круитни", .005 / 2),
+    Asteroid("Ганимед", .031 / 2),
+    Asteroid("Бианка", .060 / 2),
+    Asteroid("Нюкта", .00104),
+    Asteroid("Церера", .460),
     GiantPlanet("Юпитер", 69.9),
+    GiantPlanet("Сатурн", 58.2),
+    GiantPlanet("Уран", 25.3),
+    GiantPlanet("Нептун", 24.6),
+    Asteroid("Плутон", 1.187),
+    Asteroid("Эрида", 1.163),
+    Asteroid("Седна", .995 / 2),
+    Asteroid("Квавар", 1.110 / 2),
+
     GiantPlanet("TrES-4 A b", 69.9 * 1.7),
 
     Star("Вольф 359", .1, distance=.0078),
