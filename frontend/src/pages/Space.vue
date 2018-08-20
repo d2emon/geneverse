@@ -10,6 +10,11 @@
             <div>Description of the {{multiverse.name}}</div>
           </v-card-title>
 
+          <Multiverse
+            :name="multiverse.name"
+            :universes="multiverse.universes"
+          />
+
           <div class="universes">
             <Universe
               v-for="(universe, i) in multiverse.universes"
@@ -36,12 +41,14 @@
 </template>
 
 <script>
+import Multiverse from '../components/Multiverse'
 import Universe from '../components/Universe'
 
 export default {
   name: 'Space',
   components: {
-    Universe
+    Universe,
+    Multiverse
   },
   computed: {
     multiverse () { return this.$store.state.stars.multiverse }
