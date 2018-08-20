@@ -3,3 +3,9 @@ Accept: */*
 Cache-Control: no-cache
 
 ###
+
+GET http://localhost:5000//api/v1.0/multiverse
+Accept: */*
+Cache-Control: no-cache
+
+###

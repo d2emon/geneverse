@@ -4,19 +4,20 @@ import random
 class Generated:
     names = ['UNNAMED']
 
-    def __init__(self, id, name=None):
-        self.id = id or random.randint(0, 1024)
+    def __init__(self, item_id=None, name=None, description=""):
+        self.id = item_id or random.randint(0, 1024)
 
         random.seed(self.id)
         self.name = name or random.choice(self.names).capitalize()
+        self.description = description
 
     def as_dict(self):
         return {'name': self.name}
 
 
 class Location:
-    def __init__(self, item, x, y, z, id=None):
-        self.id = id or random.randrange(1024)
+    def __init__(self, item, x, y, z, location_id=None):
+        self.id = location_id or random.randrange(1024)
         self.item = item
         self.x = x
         self.y = y

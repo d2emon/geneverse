@@ -12,19 +12,9 @@ class Multiverse(Generated):
         "cookieverse", "grandmaverse"
     ]
 
-    def __init__(self, id=None, name=None, width=8, height=8, depth=8):
-        Generated.__init__(self, id, name)
-        self.width = width
-        self.height = height
-        self.depth = depth
+    def __init__(self, id=None, name=None, description=""):
+        super().__init__(id, name, description)
 
-        """
-        self.universes = [Location(
-            Universe,
-            x=random.randint(self.width),
-            y=random.randint(self.height),
-            z=random.randint(self.depth),
-        ) for i in random.randrange(10, 30)]
         """
         self.universes = [Location(
             Universe,
@@ -32,15 +22,15 @@ class Multiverse(Generated):
             y=random.randrange(self.height),
             z=random.randrange(self.depth),
             id=random.randrange(1024),
-        ) for i in range(10, random.randint(10, 30))]
+        ) for _ in range(random.randint(10, 30))]
+        """
+        self.universes = [Universe() for _ in range(random.randint(10, 30))]
 
     def as_dict(self):
         return {
             'id': self.id,
             'name': self.name,
-            'width': self.width,
-            'height': self.height,
-            'depth': self.depth,
+            'description': self.description,
             'universes': [universe.as_dict() for universe in self.universes],
         }
 
@@ -68,7 +58,7 @@ class Universe(Generated):
             'width': self.width,
             'height': self.height,
             'depth': self.depth,
-            'clusters': [cluster.as_dict() for cluster in self.clusters],
+            # 'clusters': [cluster.as_dict() for cluster in self.clusters],
         }
 
 
