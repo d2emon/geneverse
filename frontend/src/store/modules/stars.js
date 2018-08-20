@@ -6,13 +6,19 @@ const apiUrl = 'http://localhost:5000/api/v1.0'
 const state = {
   stars: [],
   clusters: [],
-  multiverse: {}
+  multiverse: {},
+  universe: {},
+
+  universes: []
 }
 
 const getters = {}
 
 const mutations = {
   setMultiverse: (state, multiverse) => { state.multiverse = multiverse },
+  setUniverse: (state, universe) => { state.universe = universe },
+
+  setUniverses: (state, universes) => { state.universes = universes },
   setStars: (state, stars) => { state.stars = stars },
   setClusters: (state, clusters) => { state.clusters = clusters }
 }
@@ -22,6 +28,15 @@ const actions = {
     axios.get(`${apiUrl}/multiverse`)
       .then(response => {
         context.commit('setMultiverse', response.data.multiverse)
+        context.commit('setUniverses', response.data.universes)
+      })
+  },
+  loadUniverse: (context, payload) => {
+    payload = payload || {}
+    axios.get(`${apiUrl}/universe-${payload.id}`)
+      .then(response => {
+        context.commit('setUniverse', response.data.universe)
+        context.commit('setClusters', response.data.clusters)
       })
   },
   loadStars: (context, payload) => {

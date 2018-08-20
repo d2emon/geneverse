@@ -38,8 +38,8 @@ class Multiverse(Generated):
 class Universe(Generated):
     names = ['Universe']
 
-    def __init__(self, id=None, name=None, width=8, height=8, depth=8):
-        Generated.__init__(self, id, name)
+    def __init__(self, id=None, name=None, width=512, height=512, depth=512, description=""):
+        super().__init__(id, name, description)
         self.width = width
         self.height = height
         self.depth = depth
@@ -55,6 +55,7 @@ class Universe(Generated):
         return {
             'id': self.id,
             'name': self.name,
+            'description': self.description,
             'width': self.width,
             'height': self.height,
             'depth': self.depth,

@@ -9,14 +9,20 @@ from space import Multiverse, Universe, Supercluster, Galaxy, Star
 @app.route('/api/v1.0/multiverse-<id>', methods=['GET'])
 def get_multiverse(id=None):
     multiverse = Multiverse(id)
-    return jsonify({'multiverse': multiverse.as_dict()})
+    return jsonify({
+        'multiverse': multiverse.as_dict(),
+        'universes': [universe.as_dict() for universe in multiverse.universes]
+    })
 
 
 @app.route('/api/v1.0/universe', methods=['GET'])
 @app.route('/api/v1.0/universe-<id>', methods=['GET'])
 def get_universe(id=None):
     universe = Universe(id)
-    return jsonify({'universe': universe.as_dict()})
+    return jsonify({
+        'universe': universe.as_dict(),
+        'clusters': [cluster.as_dict() for cluster in universe.clusters]
+    })
 
 
 @app.route('/api/v1.0/cluster', methods=['GET'])

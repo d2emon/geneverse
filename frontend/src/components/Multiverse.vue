@@ -7,23 +7,11 @@
     {{description}}
   </v-card-text>
 
-  <!-- div class="universes">
-    <Universe
-      v-for="(universe, i) in multiverse.universes"
-      :key="'universe-' + i"
-      :x="universe.x * 64"
-      :y="universe.y * 64"
-      :size="64"
-      :id="i"
-      :universe="universe"
-    />
-  </div -->
-
   <v-list one-line>
     <template v-for="universe in universes">
       <v-list-tile
         :key="universe.id"
-        to="/generate/universe"
+        :to="'/space/universe/' + universe.id"
         :title="JSON.stringify(universe)"
       >
         <v-list-tile-content>

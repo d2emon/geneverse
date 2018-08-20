@@ -1,14 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout row wrap>
-      <v-flex xs4>
-        <Multiverse
-          :name="multiverse.name"
-          :description="multiverse.description"
-          :universes="multiverse.universes"
-          :multiverse="multiverse"
-        />
-      </v-flex>
+      <router-view />
     </v-layout>
     <div>
     </div>

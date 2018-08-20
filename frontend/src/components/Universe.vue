@@ -5,7 +5,7 @@
   >
     <router-link :to="link">
       <img
-        :src="`http://localhost:5000/empty-img-${size}-${id}.png?${Math.random()}`"
+        :src="`http://localhost:5000/space/img-512s${universe.id}.png?${Math.random()}`"
         :title="JSON.stringify({id: id, universe: universe})"
       />
     </router-link>

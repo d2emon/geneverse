@@ -3,7 +3,9 @@ import Router from 'vue-router'
 import Generated from '@/components/Generated'
 import {
   Space,
-  Challenges
+  Challenges,
+  MultiversePage,
+  UniversePage
 } from '@/pages/'
 
 Vue.use(Router)
@@ -27,7 +29,23 @@ export default new Router({
     {
       path: '/space',
       name: 'Space',
-      component: Space
+      component: Space,
+      children: [
+        {
+          path: '',
+          redirect: '/space/multiverse'
+        },
+        {
+          path: 'multiverse',
+          name: 'Multiverse',
+          component: MultiversePage
+        },
+        {
+          path: 'universe/:id?',
+          name: 'Universe',
+          component: UniversePage
+        }
+      ]
     }
   ]
 })
