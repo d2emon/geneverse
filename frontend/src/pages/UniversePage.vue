@@ -6,9 +6,8 @@
           <h3 class="headline mb-0" v-text="universe.name" />
         </div>
         <div v-text="universe.description" />
+        <div>{{JSON.stringify(universe)}}</div>
       </v-card-title>
-
-      <div>{{JSON.stringify(universe)}}</div>
 
       <v-card-text>
         <div class="universes" :style="`background-image: url(http://localhost:5000/space/img-512s${universe.id}.png?${Math.random()});`">
@@ -18,18 +17,7 @@
             :size="64"
             :id="universe.id"
             :universe="universe"
-          />
-        </div>
-        <hr />
-        <div>{{JSON.stringify(clusters)}}</div>
-        <div class="clusters" :style="`background-image: url(http://localhost:5000/space/img-512s${universe.id}.png?${Math.random()});`">
-          <Cluster
-            v-for="(cluster, i) in clusters"
-            :key="'cluster-' + i"
-            :x="cluster.x"
-            :y="cluster.y"
-            :id="i"
-            :cluster="cluster"
+            :clusters="clusters"
           />
         </div>
       </v-card-text>
@@ -44,13 +32,11 @@
 
 <script>
 import Universe from '../components/Universe'
-import Cluster from '../components/Cluster'
 
 export default {
   name: 'UniversePage',
   components: {
-    Universe,
-    Cluster
+    Universe
   },
   computed: {
     universe () { return this.$store.state.stars.universe },

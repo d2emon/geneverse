@@ -37,3 +37,11 @@ def save_image(img):
     img.save(io, 'PNG', quality=70)
     io.seek(0)
     return io
+
+
+def draw_image(width, height, item):
+    img = transparent_image(width, height)
+    draw = ImageDraw.Draw(img)
+
+    item.draw(draw)
+    return save_image(img)

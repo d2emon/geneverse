@@ -4,8 +4,8 @@ from flask import send_file
 
 from app import app
 
-from genimage import save_image
-from spaceimage import Universe, SpaceWall, SuperCluster, draw_universe
+from genimage import draw_image
+from spaceimage import Universe, SpaceWall, SuperCluster
 
 
 @app.route('/space/img-<int:size>.png')
@@ -14,6 +14,7 @@ def get_space_img(size, scale=10, seed=1):
     random.seed(seed)
 
     u = Universe(size, size, size)
+    """
     # Slone's Wall
     u.clusters.append(SpaceWall(
         x=random.randrange(size),
@@ -38,6 +39,7 @@ def get_space_img(size, scale=10, seed=1):
 
     for _ in range(random.randint(10, 30)):
         u.add_cluster(size=10)
+    """
 
     # Eridan's Void
     u.add_void(
@@ -47,4 +49,18 @@ def get_space_img(size, scale=10, seed=1):
         size=255
     )
 
-    return send_file(save_image(draw_universe(u)), mimetype='image/jpeg')
+    return send_file(draw_image(size, size, u), mimetype='image/jpeg')
+
+
+@app.route('/space/cluster-img-<int:size>.png')
+@app.route('/space/cluster-img-<int:size>s<int:seed>.png')
+def get_cluster_img(size, scale=16, seed=1):
+    random.seed(seed)
+
+    cluster = SuperCluster(
+        x=0,
+        y=0,
+        z=0,
+        size=size,
+    )
+    return send_file(draw_image(scale, scale, cluster), mimetype='image/jpeg')

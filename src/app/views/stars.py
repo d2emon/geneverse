@@ -21,7 +21,7 @@ def get_universe(id=None):
     universe = Universe(id)
     return jsonify({
         'universe': universe.as_dict(),
-        'clusters': [cluster.as_dict() for cluster in universe.clusters]
+        'clusters': [cluster.as_dict() for cluster in universe.clusters],
     })
 
 

@@ -1,13 +1,16 @@
 <template>
   <div
     class="cluster"
-    :style="`left:${x}px;top:${y}px;`"
+    :style="style"
   >
-    <router-link :to="link">
+    <router-link
+      :to="link"
+      :title="JSON.stringify({id: id, cluster: cluster})"
+    >
       <img
-        :src="`http://localhost:5000/empty-img-8-${id}.png?${Math.random()}`"
-        :title="JSON.stringify({id: id, cluster: cluster})"
-      />
+        :src="image"
+      /><br />
+      <span class="cluster-title">{{ cluster.name }}</span>
     </router-link>
   </div>
 </template>
@@ -21,14 +24,20 @@ export default {
     'id',
     'cluster'
   ],
-  data: () => ({
-    link: '/generate/supercluster'
-  })
+  computed: {
+    style () { return `left:${this.x}px;top:${this.y}px;` },
+    image () { return `http://localhost:5000/space/cluster-img-${Math.round(this.cluster.size * 10)}s${this.cluster.id}.png?${Math.random()}` },
+    link () { return `/space/supercluster/${this.cluster.id}` }
+  }
 }
 </script>
 
 <style scoped>
 .cluster {
   position: absolute;
+}
+.cluster a {
+  color: white;
+  text-decoration: none;
 }
 </style>

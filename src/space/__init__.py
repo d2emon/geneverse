@@ -44,12 +44,14 @@ class Universe(Generated):
         self.height = height
         self.depth = depth
 
-        self.clusters = [Location(
-            Supercluster,
-            x=random.randrange(self.width),
-            y=random.randrange(self.height),
-            z=random.randrange(self.depth),
-        ) for i in range(random.randint(10, 30))]
+        self.clusters = [Supercluster(
+            location=Location(
+                Supercluster,
+                x=random.randrange(self.width),
+                y=random.randrange(self.height),
+                z=random.randrange(self.depth),
+            ),
+        ) for _ in range(random.randint(10, 30))]
 
     def as_dict(self):
         return {
@@ -66,27 +68,30 @@ class Universe(Generated):
 class Supercluster(Generated):
     names = ['Galactic Supercluster']
 
-    def __init__(self, id=None, name=None, width=8, height=8, depth=8):
+    def __init__(self, id=None, name=None, width=None, height=None, depth=None, location=None):
         Generated.__init__(self, id, name)
-        self.width = width
-        self.height = height
-        self.depth = depth
+        self.width = width or random.randrange(1, 16)
+        self.height = height or self.width
+        self.depth = depth or self.width
+        self.location = location
+        if self.location:
+            self.location.id = self.id
 
         self.galaxies = [Location(
             Galaxy,
             x=random.randrange(self.width),
             y=random.randrange(self.height),
             z=random.randrange(self.depth),
-        ) for i in range(random.randint(10, 30))]
+        ) for _ in range(random.randint(10, 30))]
 
     def as_dict(self):
         return {
             'id': self.id,
             'name': self.name,
-            'width': self.width,
-            'height': self.height,
+            'size': format(self.width / 10),
             'depth': self.depth,
-            'galaxies': [galaxy.as_dict() for galaxy in self.galaxies],
+            'location': self.location.as_dict(),
+            # 'galaxies': [galaxy.as_dict() for galaxy in self.galaxies],
         }
 
 

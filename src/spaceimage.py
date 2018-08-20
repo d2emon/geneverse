@@ -3,7 +3,7 @@ import random
 from PIL import ImageDraw
 
 from basic_item import BasicItem
-from genimage import transparent_image
+from genimage import transparent_image, draw_image
 
 
 class SpaceItem(BasicItem):
@@ -11,12 +11,12 @@ class SpaceItem(BasicItem):
         super().__init__(x=x, y=y, z=z, size=size)
         self.width = width
 
-    def bounds(self, dist):
-        height = self.size * dist
+    def bounds(self, left=0, top=0, size=1):
+        height = self.size * size
         width = height
         if self.width is not None:
-            width = self.width * dist
-        return self.left, self.top, self.left + width, self.top + height
+            width = self.width * size
+        return left, top, left + width, top + height
 
 
 class GlowingSpaceItem(SpaceItem):
@@ -27,6 +27,9 @@ class GlowingSpaceItem(SpaceItem):
     @property
     def color(self):
         return self.brightness, self.brightness, self.brightness
+
+    def draw(self, draw, left=0, top=0, size=1):
+        draw.ellipse(self.bounds(left=left, top=top, size=size), fill=self.color)
 
 
 class SuperVoid(SpaceItem):
@@ -91,16 +94,11 @@ class Universe:
             size=size,
         ))
 
+    def draw(self, draw):
+        clusters = self.clusters
+        for void in self.voids:
+            clusters = filter(void.get_filter(), clusters)
 
-def draw_universe(universe):
-    img = transparent_image(universe.width, universe.height)
-    draw = ImageDraw.Draw(img)
-
-    clusters = universe.clusters
-    for void in universe.voids:
-        clusters = filter(void.get_filter(), clusters)
-
-    for cluster in clusters:
-        dist = 1 - cluster.location.z / universe.depth
-        draw.ellipse(cluster.bounds(dist), fill=cluster.color)
-    return img
+        for cluster in clusters:
+            dist = 1 - cluster.location.z / self.depth
+            cluster.draw(draw, left=cluster.left, top=cluster.top, size=dist)
