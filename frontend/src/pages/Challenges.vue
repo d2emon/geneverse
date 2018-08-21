@@ -44,8 +44,8 @@
 </template>
 
 <script>
-import Starfield from '@/components/Starfield'
-import MengerSponge from '@/components/MengerSponge'
+import Starfield from '@/components/challenges/Starfield'
+import MengerSponge from '@/components/challenges/MengerSponge'
 
 export default {
   name: 'Challenges',
