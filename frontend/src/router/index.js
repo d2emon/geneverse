@@ -5,7 +5,8 @@ import {
   Space,
   Challenges,
   MultiversePage,
-  UniversePage
+  UniversePage,
+  SuperclusterPage
 } from '@/pages/'
 
 Vue.use(Router)
@@ -44,6 +45,11 @@ export default new Router({
           path: 'universe/:id?',
           name: 'Universe',
           component: UniversePage
+        },
+        {
+          path: 'supercluster/:id?',
+          name: 'Supercluster',
+          component: SuperclusterPage
         }
       ]
     }
