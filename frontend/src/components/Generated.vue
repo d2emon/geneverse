@@ -1,7 +1,7 @@
 <template>
-    <v-container fluid>
-        <v-layout column align-center>
-          <v-flex xs12>
+  <v-container fluid>
+    <v-layout column align-center>
+      <v-flex xs12>
             <v-breadcrumbs divider="/">
               <v-breadcrumbs-item
                 v-for="item in breadcrumbs"
@@ -12,73 +12,44 @@
                 {{ item.text }}
               </v-breadcrumbs-item>
             </v-breadcrumbs>
-          </v-flex>
-            <v-flex xs12 sm6>
-                <v-toolbar color="indigo" dark>
-                    <v-toolbar-side-icon></v-toolbar-side-icon>
-                    <v-toolbar-title>{{ current.title }}</v-toolbar-title>
-                    <v-spacer></v-spacer>
-                    <v-btn icon>
-                        <v-icon>search</v-icon>
-                    </v-btn>
-                </v-toolbar>
+      </v-flex>
+      <v-flex xs12 sm6>
+        <v-toolbar color="indigo" dark>
+          <v-toolbar-side-icon></v-toolbar-side-icon>
+          <v-toolbar-title>{{ current.title }}</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn icon>
+            <v-icon>search</v-icon>
+          </v-btn>
+        </v-toolbar>
 
-                <v-card>
-                    <v-card-title>
-                        <div style="max-height: 200px; overflow: auto;">{{current}}</div>
-                    </v-card-title>
+        <v-card>
+          <v-card-title>
+            <div style="max-height: 200px; overflow: auto;">{{current}}</div>
+          </v-card-title>
 
-                    <v-container
-                        fluid
-                        grid-list-md
-                    >
-                        <v-layout row wrap>
-                            <v-flex
-                                v-for="card in cards"
-                                v-bind="{ [`xs${card.flex}`]: true }"
-                                :key="card.id"
-                            >
-                                <v-card>
-                                    <v-card-media
-                                        :src="cardImage(card)"
-                                        height="200px"
-                                    >
-                                        <v-container
-                                            fill-height
-                                            fluid
-                                            pa-2
-                                        >
-                                            <v-layout fill-height>
-                                                <v-flex xs12 align-end flexbox>
-                                                    <span class="headline white--text" v-text="card.title"></span>
-                                                </v-flex>
-                                            </v-layout>
-                                        </v-container>
-                                    </v-card-media>
-                                    <v-card-title>
-                                        <h3 class="headline" xs12>{{card.title}}</h3>
-                                        <v-flex xs12 style="overflow: auto;">
-                                            {{card.data}}
-                                        </v-flex>
-                                    </v-card-title>
-                                    <v-card-actions>
-                                        <v-btn flat :to="card.link">Go</v-btn>
-                                        <v-spacer></v-spacer>
-                                        <v-btn icon>
-                                            <v-icon>bookmark</v-icon>
-                                        </v-btn>
-                                        <v-btn icon>
-                                            <v-icon>share</v-icon>
-                                        </v-btn>
-                                    </v-card-actions>
-                                </v-card>
-                            </v-flex>
-                        </v-layout>
-                    </v-container>
-                </v-card>
-            </v-flex>
-        </v-layout>
-    </v-container>
+          <v-list two-line avatar>
+            <template v-for="card in cards">
+              <v-list-tile
+                :key="card.id"
+                :to="card.link"
+                :title="JSON.stringify(card.data)"
+              >
+                <v-list-tile-avatar>
+                  <img :src="cardImage(card)" />
+                </v-list-tile-avatar>
+                <v-list-tile-content>
+                  <v-list-tile-title v-text="card.title"></v-list-tile-title>
+                  <v-list-tile-sub-title>{{card.data}}</v-list-tile-sub-title>
+                </v-list-tile-content>
+              </v-list-tile>
+            </template>
+          </v-list>
+
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
 </template>
 
 <script>
