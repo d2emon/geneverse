@@ -29,7 +29,10 @@ def get_universe(id=None):
 @app.route('/api/v1.0/cluster-<id>', methods=['GET'])
 def get_cluster(id=None):
     cluster = Supercluster(id)
-    return jsonify({'cluster': cluster.as_dict()})
+    return jsonify({
+        'cluster': cluster.as_dict(),
+        'galaxies': [galaxy.as_dict() for galaxy in cluster.galaxies],
+    })
 
 
 @app.route('/api/v1.0/galaxy', methods=['GET'])

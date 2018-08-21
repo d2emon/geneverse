@@ -55,6 +55,18 @@ class SuperCluster(GlowingSpaceItem):
         )
 
 
+class Galaxy(GlowingSpaceItem):
+    @classmethod
+    def generate(cls, width=1024, height=1024, depth=1024, star_size=1):
+        return cls(
+            x=random.randrange(width),
+            y=random.randrange(height),
+            z=random.randrange(depth),
+            size=random.randrange(star_size),
+            brightness=random.randrange(64, 255)
+        )
+
+
 class SpaceWall(SuperCluster):
     pass
 

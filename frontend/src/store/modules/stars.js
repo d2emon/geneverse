@@ -4,12 +4,15 @@ const apiUrl = 'http://localhost:5000/api/v1.0'
 // const api = process.env.API_BASE_URL
 
 const state = {
-  stars: [],
-  clusters: [],
   multiverse: {},
   universe: {},
+  cluster: {},
+  galaxy: {},
 
-  universes: []
+  universes: [],
+  clusters: [],
+  galaxies: [],
+  stars: []
 }
 
 const getters = {}
@@ -17,10 +20,13 @@ const getters = {}
 const mutations = {
   setMultiverse: (state, multiverse) => { state.multiverse = multiverse },
   setUniverse: (state, universe) => { state.universe = universe },
+  setCluster: (state, cluster) => { state.cluster = cluster },
+  setGalaxy: (state, galaxy) => { state.galaxy = galaxy },
 
   setUniverses: (state, universes) => { state.universes = universes },
-  setStars: (state, stars) => { state.stars = stars },
-  setClusters: (state, clusters) => { state.clusters = clusters }
+  setClusters: (state, clusters) => { state.clusters = clusters },
+  setGalaxies: (state, galaxies) => { state.galaxies = galaxies },
+  setStars: (state, stars) => { state.stars = stars }
 }
 
 const actions = {
@@ -39,6 +45,14 @@ const actions = {
         context.commit('setClusters', response.data.clusters)
       })
   },
+  loadCluster: (context, payload) => {
+    payload = payload || {}
+    axios.get(`${apiUrl}/cluster-${payload.id}`)
+      .then(response => {
+        context.commit('setCluster', response.data.cluster)
+        context.commit('setGalaxies', response.data.galaxies)
+      })
+  },
   loadStars: (context, payload) => {
     payload = payload || {}
 
@@ -51,26 +65,6 @@ const actions = {
       .then(response => {
         context.commit('setStars', response.data.stars)
       })
-  },
-  loadClusters: (context, payload) => {
-    payload = payload || {}
-
-    const count = Math.floor(Math.random() * (30 - 10)) + 10
-    const width = payload.width || 1000
-    const height = payload.height || 1000
-    const depth = payload.depth || 1000
-
-    let clusters = []
-
-    for (let i = 0; i < count; i++) {
-      clusters.push({
-        x: Math.floor(Math.random() * width),
-        y: Math.floor(Math.random() * height),
-        z: Math.floor(Math.random() * depth)
-      })
-    }
-
-    context.commit('setClusters', clusters)
   }
 }
 

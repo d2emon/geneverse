@@ -44,14 +44,19 @@ class Universe(Generated):
         self.height = height
         self.depth = depth
 
-        self.clusters = [Supercluster(
-            location=Location(
-                Supercluster,
+        self.cluster_ids = [random.randrange(1024) for _ in range(random.randint(10, 30))]
+        self.__clusters = None
+
+    @property
+    def clusters(self):
+        if not self.__clusters:
+            self.__clusters = [Supercluster(
+                item_id=cluster_id,
                 x=random.randrange(self.width),
                 y=random.randrange(self.height),
                 z=random.randrange(self.depth),
-            ),
-        ) for _ in range(random.randint(10, 30))]
+            ) for cluster_id in self.cluster_ids]
+        return self.__clusters
 
     def as_dict(self):
         return {
@@ -61,28 +66,39 @@ class Universe(Generated):
             'width': self.width,
             'height': self.height,
             'depth': self.depth,
-            # 'clusters': [cluster.as_dict() for cluster in self.clusters],
         }
 
 
-class Supercluster(Generated):
+class Supercluster(Generated, Location):
     names = ['Galactic Supercluster']
 
-    def __init__(self, id=None, name=None, width=None, height=None, depth=None, location=None):
-        Generated.__init__(self, id, name)
-        self.width = width or random.randrange(1, 16)
-        self.height = height or self.width
-        self.depth = depth or self.width
-        self.location = location
-        if self.location:
-            self.location.id = self.id
+    def __init__(self, item_id=None, name=None, x=None, y=None, z=None, width=None, height=None, depth=None):
+        super().__init__(
+            item_id=item_id,
+            name=name,
+        )
 
-        self.galaxies = [Location(
-            Galaxy,
-            x=random.randrange(self.width),
-            y=random.randrange(self.height),
-            z=random.randrange(self.depth),
-        ) for _ in range(random.randint(10, 30))]
+        self.width = width or 16
+        self.height = height or 16
+        self.depth = depth or 16
+
+        self.x = x or random.randrange(self.width)
+        self.y = y or random.randrange(self.height)
+        self.z = z or random.randrange(self.depth)
+
+        self.galaxy_ids = [random.randrange(1024) for _ in range(random.randint(10, 30))]
+        self.__galaxies = None
+
+    @property
+    def galaxies(self):
+        if not self.__galaxies:
+            self.__galaxies = [Galaxy(
+                item_id=galaxy_id,
+                x=random.randrange(self.width),
+                y=random.randrange(self.height),
+                z=random.randrange(self.depth),
+            ) for galaxy_id in self.galaxy_ids]
+        return self.__galaxies
 
     def as_dict(self):
         return {
@@ -90,7 +106,7 @@ class Supercluster(Generated):
             'name': self.name,
             'size': format(self.width / 10),
             'depth': self.depth,
-            'location': self.location.as_dict(),
+            'location': self.location,
             # 'galaxies': [galaxy.as_dict() for galaxy in self.galaxies],
         }
 
@@ -120,12 +136,23 @@ class GalaxyArm(Generated):
     """
 
 
-class Galaxy(Generated):
+class Galaxy(Generated, Location):
     names = ['Galaxy']
 
-    def __init__(self, id=None, name=None, radius=8):
-        Generated.__init__(self, id, name)
+    def __init__(self, item_id=None, name=None, x=None, y=None, z=None, radius=8):
+        super().__init__(
+            item_id=item_id,
+            name=name,
+        )
+
         self.radius = radius
+
+        self.x = x or random.randrange(self.radius)
+        self.y = y or random.randrange(self.radius)
+        self.z = z or random.randrange(self.radius)
+
+        self.galaxy_ids = [random.randrange(1024) for _ in range(random.randint(10, 30))]
+        self.__galaxies = None
 
         self.center = GalaxyCenter(random.randrange(1024))
         self.arms = [GalaxyArm(random.randrange(1024)) for i in range(random.randint(2, 6))]
@@ -135,6 +162,7 @@ class Galaxy(Generated):
             'id': self.id,
             'name': self.name,
             'radius': self.radius,
+            'location': self.location,
             'center': self.center.as_dict(),
             'arms': [arm.as_dict() for arm in self.arms],
         }

@@ -5,7 +5,7 @@ from flask import send_file
 from app import app
 
 from genimage import draw_image
-from spaceimage import Universe, SpaceWall, SuperCluster
+from spaceimage import Universe, SpaceWall, SuperCluster, Galaxy
 
 
 @app.route('/space/img-<int:size>.png')
@@ -64,3 +64,17 @@ def get_cluster_img(size, scale=16, seed=1):
         size=size,
     )
     return send_file(draw_image(scale, scale, cluster), mimetype='image/jpeg')
+
+
+@app.route('/space/galaxy-img-<int:size>.png')
+@app.route('/space/galaxy-img-<int:size>s<int:seed>.png')
+def get_galaxy_img(size, scale=16, seed=1):
+    random.seed(seed)
+
+    galaxy = Galaxy(
+        x=0,
+        y=0,
+        z=0,
+        size=size,
+    )
+    return send_file(draw_image(scale, scale, galaxy), mimetype='image/jpeg')

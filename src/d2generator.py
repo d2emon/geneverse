@@ -16,17 +16,15 @@ class Generated:
 
 
 class Location:
-    def __init__(self, item, x, y, z, location_id=None):
-        self.id = location_id or random.randrange(1024)
-        self.item = item
+    def __init__(self, x=None, y=None, z=None):
         self.x = x
         self.y = y
         self.z = z
 
-    def as_dict(self):
+    @property
+    def location(self):
         return {
             'x': self.x,
             'y': self.y,
             'z': self.z,
-            'id': self.id,
         }
