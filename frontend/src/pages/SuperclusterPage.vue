@@ -3,21 +3,21 @@
     <v-card dark class="space">
       <v-card-title primary-title>
         <div class="space-card-title">
-          <h3 class="headline mb-0" v-text="universe.name" />
+          <h3 class="headline mb-0" v-text="cluster.name" />
         </div>
-        <div v-text="universe.description" />
-        <div>{{JSON.stringify(universe)}}</div>
+        <div v-text="cluster.description" />
+        <div>{{JSON.stringify(cluster)}}</div>
       </v-card-title>
 
       <v-card-text>
-        <div class="universes" :style="`background-image: url(http://localhost:5000/space/img-512s${universe.id}.png?${Math.random()});`">
+        <div class="universes" :style="`background-image: url(http://localhost:5000/space/img-512s${cluster.id}.png?${Math.random()});`">
           <Universe
-            :x="universe.x * 64"
-            :y="universe.y * 64"
+            :x="cluster.x * 64"
+            :y="cluster.y * 64"
             :size="64"
-            :id="universe.id"
-            :universe="universe"
-            :clusters="clusters"
+            :id="cluster.id"
+            :universe="cluster"
+            :clusters="galaxies"
           />
         </div>
       </v-card-text>
@@ -34,20 +34,18 @@
 import Universe from '../components/Universe'
 
 export default {
-  name: "SuperclusterPage",
+  name: 'SuperclusterPage',
   components: {
     Universe
   },
   computed: {
-    universe () { return this.$store.state.stars.universe },
-    // stars () { return this.$store.state.stars.stars },
-    clusters () { return this.$store.state.stars.clusters }
+    cluster () { return this.$store.state.stars.cluster },
+    galaxies () { return this.$store.state.stars.galaxies }
   },
   mounted () {
-    this.$store.dispatch('stars/loadUniverse', {
+    this.$store.dispatch('stars/loadCluster', {
       id: this.$route.params.id
     })
-    // this.$store.dispatch('stars/loadClusters')
   }
 }
 </script>

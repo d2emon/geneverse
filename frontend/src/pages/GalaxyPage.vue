@@ -4,7 +4,7 @@
 
 <script>
     export default {
-        name: "GalaxyPage"
+        name: 'GalaxyPage'
     }
 </script>
 
