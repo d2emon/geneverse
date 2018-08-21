@@ -50,7 +50,7 @@ const actions = {
     axios.get(`${apiUrl}/cluster-${payload.id}`)
       .then(response => {
         context.commit('setCluster', response.data.cluster)
-        context.commit('setGalaxiess', response.data.galaxies)
+        context.commit('setGalaxies', response.data.galaxies)
       })
   },
   loadStars: (context, payload) => {

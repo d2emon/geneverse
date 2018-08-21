@@ -10,14 +10,15 @@
       </v-card-title>
 
       <v-card-text>
-        <div class="universes" :style="`background-image: url(http://localhost:5000/space/img-512s${cluster.id}.png?${Math.random()});`">
-          <Universe
-            :x="cluster.x * 64"
-            :y="cluster.y * 64"
-            :size="64"
+        <div class="universes">
+          <ClusterMap
+            v-if="cluster.location"
+            :x="cluster.location.x"
+            :y="cluster.location.y"
+            :size="cluster.size"
             :id="cluster.id"
-            :universe="cluster"
-            :clusters="galaxies"
+            :cluster="cluster"
+            :galaxies="galaxies"
           />
         </div>
       </v-card-text>
@@ -32,11 +33,13 @@
 
 <script>
 import Universe from '../components/Universe'
+import ClusterMap from '../components/ClusterMap'
 
 export default {
   name: 'SuperclusterPage',
   components: {
-    Universe
+    Universe,
+    ClusterMap
   },
   computed: {
     cluster () { return this.$store.state.stars.cluster },
