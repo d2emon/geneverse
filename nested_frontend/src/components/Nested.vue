@@ -3,16 +3,11 @@
     <HelloWorld />
 
     <NestedNav />
-    <NestedThing :thing="{ display: 0, type: {}, children: [ {n: 100, name: 'Child'} ], id: 0, name: 'universe' }"/>
-    <NestedThing :thing="{ display: 0, type: {}, children: [ {n: 101, name: 'Child'}, {n: 102, name: 'Child'} ], id: 10, name: 'universe' }"/>
-    <NestedThing :thing="{ display: 0, type: {}, children: [], id: 1, name: 'universe1' }"/>
+    <NestedThing v-if="instance" :thing="instance" />
     <NestedDebug />
 
     <h3>nestedscript.js</h3>
 
-    <div>
-      LaunchNest(SeedObject.toLowerCase());
-    </div>
   </div>
 </template>
 
@@ -31,10 +26,12 @@ export default {
     NestedThing
   },
   computed: {
-    selected () { return this.$store.state.styles.selected }
+    selected () { return this.$store.state.styles.selected },
+    instances () { return this.$store.state.nested.instances },
+    instance () { return this.$store.state.nested.instances[0] }
   },
   data: () => ({
-    SeedObject: 'universe', //This can be set to anything else, like "firefighter" or "donut box".
+    seedObject: 'universe', // This can be set to anything else, like "firefighter" or "donut box".
     Offline: 0
   }),
   mounted () {
@@ -42,22 +39,15 @@ export default {
 
     // CleanThings();
 
-    // //CheckMissingThings();
-    // //alert("There are "+ThingsN+" thing archetypes.");
+    // // CheckMissingThings();
+    // // alert("There are "+ThingsN+" thing archetypes.");
 
-    // document.getElementById("debug").innerHTML="";
     this.$store.commit('debug/debug', '<div id="div0" class="thing"></div>')
+    this.$store.dispatch('nested/launchNest', this.seedObject.toLowerCase())
 
-    /*
-function LaunchNest(what)
-{
-	if (!Things[what]) what="error";
-	var Seed=Make(what);
-	Seed.Grow(0);
-	Seed.List();
-}
-
-     */
+    console.log(this.instances)
+    console.log(this.instances[0])
+    console.log(this.instance)
   }
 }
 </script>

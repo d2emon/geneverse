@@ -8,10 +8,10 @@
 
 <script>
 export default {
-name: 'NestedDebug',
-computed: {
-  debug () { return this.$store.state.debug.debug }
-}
+  name: 'NestedDebug',
+  computed: {
+    debug () { return this.$store.state.debug.debug }
+  }
 }
 </script>
 

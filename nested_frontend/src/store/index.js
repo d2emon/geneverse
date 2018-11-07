@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import styles from './modules/styles'
 import debug from './modules/debug'
+import nested from './modules/nested'
 
 Vue.use(Vuex)
 
@@ -11,6 +12,7 @@ export default new Vuex.Store({
   modules: {
     styles,
     debug,
+    nested
   },
   strict: debugMode
 })
