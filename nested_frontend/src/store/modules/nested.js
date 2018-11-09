@@ -17,14 +17,15 @@ const getters = {}
 const actions = {
   launchNest ({ state, dispatch, commit }, thingId) {
     const thing = state.things[thingId] || state.things['error']
-    dispatch('grow', new Instance(thing))
+    const instance = new Instance(thing)
+    commit('setName', instance)
+    dispatch('grow', instance)
   },
 
   grow ({ commit, state }, instance) {
     if (instance.grown) return
 
-    commit('setName', instance)
-
+    console.log(instance, instance.type)
     instance.type.contains.forEach(toMake => {
       if (typeof (toMake) !== 'string') toMake = choose(toMake)
       toMake = toMake.split(',')
@@ -57,7 +58,7 @@ const actions = {
         makeAmount
       })
     })
-    instance.grown = true
+    // instance.grown = true
 
     commit('setInstance', instance)
   }
