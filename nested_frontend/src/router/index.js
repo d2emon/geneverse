@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Nested from '@/components/Nested'
-import Doll from '@/components/Doll'
+import DollView from '@/views/DollView'
 
 Vue.use(Router)
 
@@ -15,7 +15,7 @@ export default new Router({
     {
       path: '/doll',
       name: 'Doll',
-      component: Doll
+      component: DollView
     }
   ]
 })
