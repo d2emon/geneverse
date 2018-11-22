@@ -2,72 +2,52 @@
   <v-card>
 		<div class="contentContainer">
 			<div id="armorContainer">
-				<v-btn-toggle id="gender">
-          <v-btn v-for="gender in Object.keys(genders)" :key="gender" class="genderSlct" :id="gender">{{genders[gender]}}</v-btn>
-				</v-btn-toggle>
-				<div id="slctLeft">
-          <v-btn-toggle  class="slctnLeft" v-model="clothGroup">
-            <v-btn v-for="cloth in Object.keys(cloths)" :key="cloth" class="selection" :id="cloth">{{cloths[cloth]}}</v-btn>
+        <v-toolbar>
+          <v-btn-toggle id="gender" mandatory>
+            <v-btn v-for="gender in Object.keys(genders)" :key="gender" class="genderSlct" :id="gender" @click="setGender(gender)">{{genders[gender]}}</v-btn>
           </v-btn-toggle>
-					<div class="slctContLeft">
-						<div :id="`${Object.keys(cloths)[clothGroup]}Bg`" class="slctBgs activeContLeft">
-              {{clothGroup}}::{{Object.keys(cloths)[clothGroup]}}
-              <div v-for="item in lists.scarfs" :key="item" :id="item" class="armBg" :style="`background-image: url('https://rollforfantasy.com/images/clothing/nmale/${item}.png');`"></div>
-						</div>
-					</div>
+          <v-divider vertical class="mx-2" />
+          <v-btn-toggle  class="slctnLeft" v-model="clothGroup" mandatory>
+            <v-btn v-for="item in Object.keys(cloths)" :key="item" class="selection" :id="item">{{cloths[item]}}</v-btn>
+          </v-btn-toggle>
+        </v-toolbar>
+
+				<div id="slctLeft">
+          <v-btn flat class="armBg" @click="selectCloth(clothGroup, '')">Remove</v-btn>
+          <v-btn flat v-for="item in lists[cloth]" :key="item" :id="item" class="armBg" @click="selectCloth(clothGroup, item)">
+            <img width="48 px" :src="`https://rollforfantasy.com/images/clothing/n${genderId}/${item}.png`" />
+          </v-btn>
 				</div>
-				<div id="armor">
-					<section class="armorPieces">
-								<div class="armPiece" id="scarfArm"></div>
-								<div class="armPiece" id="jacketArm"></div>
-								<div class="armPiece" id="gloveArm"></div>
-								<div class="armPiece" id="beltArm"></div>
-								<div class="armPiece" id="shirtArm"></div>
-								<div class="armPiece" id="shoesArm"></div>
-								<div class="armPiece" id="skirtArm"></div>
-								<div class="armPiece" id="pantsArm"></div>
-								<div class="armPiece" id="gndArm"></div>
-								<div class="armPiece" id="bshoesArm"></div>
-								<div class="armPiece" id="bskirtArm"></div>
-								<div class="armPiece" id="bshirtArm"></div>
-								<div class="armPiece" id="bjacketArm"></div>
-					</section>
-				</div>
-				<div id="saveButtons" style="width: 600px; margin: 0 auto; float: none;">
-								<div class="saveBtn">
-									<input type="button" value="Save 1" id="save1" name="save1" />
-									<input class="loadBtn" type="button" value="Load 1" id="load1" name="save1" />
-								</div>
-								<div class="saveBtn">
-									<input type="button" value="Save 2" id="save2" name="save2" />
-									<input class="loadBtn" type="button" value="Load 2" id="load2" name="save2" />
-								</div>
-								<div class="saveBtn">
-									<input type="button" value="Save 3" id="save3" name="save3" />
-									<input class="loadBtn" type="button" value="Load 3" id="load3" name="save3" />
-								</div>
-								<div class="saveBtn">
-									<input type="button" value="Save 4" id="save4" name="save4" />
-									<input class="loadBtn" type="button" value="Load 4" id="load4" name="save4" />
-								</div>
-				</div>
-				<div id="canvasCont" style="width: 600px; margin: 0 auto; float: none;">
-								<div class="armControl">
-									<input type="button" value="Clear All" id="clearAll" />
-								</div>
-								<canvas id="canvas" width="600" height="400"></canvas>
-								<div class="canvasControl">
-									<input type="button" value="Turn to image" id="toPic" />
-								</div>
-				</div>
+
+        <Doll
+          :scarf="outfit.scarfs"
+          :jacket="outfit.jackets"
+          :gloves="outfit.gloves"
+          :belt="outfit.belts"
+          :shirt="outfit.shirts"
+          :shoes="outfit.shoes"
+          :skirt="outfit.skirts"
+          :pants="outfit.pants"
+          :gender="genderId"
+        />
+
+				<v-toolbar id="saveButtons">
+					<v-btn class="armControl" id="clearAll" @click="clearAll">Clear All</v-btn>
+					<v-btn-toggle class="saveBtn ma-2" v-for="id in [1, 2, 3, 4]" :key="id">
+            <v-btn :id="`save${id}`" :name="`save${id}`" @click="save(id)">Save {{id}}</v-btn>
+            <v-btn class="loadBtn" :id="`load${id}`" :name="`save${id}`" @click="load(id)">Load {{id}}</v-btn>
+					</v-btn-toggle>
+				</v-toolbar>
 			</div>
 		</div>
   </v-card>
 </template>
 
 <script>
+import Doll from './Doll'
 export default {
   name: 'ContentContainer',
+  components: {Doll},
   computed: {
     scarfs: () => {
       const res = []
@@ -81,12 +61,7 @@ export default {
     },
     shirts: () => {
       const res = []
-      for (let i = 0; i < 30; i++) res.push(`shirt${i + 1}`)
-      return res
-    },
-    shirts2: () => {
-      const res = []
-      for (let i = 30; i < 60; i++) res.push(`shirt${i + 1}`)
+      for (let i = 0; i < 60; i++) res.push(`shirt${i + 1}`)
       return res
     },
     pants: () => {
@@ -114,26 +89,8 @@ export default {
       for (let i = 0; i < 30; i++) res.push(`gloves${i + 1}`)
       return res
     },
-  },
-  data() {
-    return {
-      genders: {
-        male: 'Male',
-        female: 'Female'
-      },
-      cloths: {
-        jackets: 'Jackets',
-        shirts: 'Shirts',
-        shirts2: 'Shirts 2',
-        pants: 'Pants',
-        skirts: 'Skirts',
-        shoes: 'Shoes',
-        scarfs: 'Scarfs',
-        belts: 'Belts',
-        gloves: 'Gloves'
-      },
-      clothGroup: 0,
-      lists: {
+    lists () {
+      return {
         jackets: this.jackets,
         shirts: this.shirts,
         shirts2: this.shirts2,
@@ -144,6 +101,69 @@ export default {
         belts: this.belts,
         gloves: this.gloves,
       }
+    },
+    cloth () { return Object.keys(this.cloths)[this.clothGroup] }
+  },
+  data: () => ({
+    genders: {
+      male: 'Male',
+      female: 'Female'
+    },
+    cloths: {
+      jackets: 'Jackets',
+      shirts: 'Shirts',
+      pants: 'Pants',
+      skirts: 'Skirts',
+      shoes: 'Shoes',
+      scarfs: 'Scarfs',
+      belts: 'Belts',
+      gloves: 'Gloves'
+    },
+    outfit: {
+      scarfs: '',
+      jackets: '',
+      shirts: '',
+      pants: '',
+      belts: '',
+      gloves: '',
+      shoes: '',
+      skirts: ''
+    },
+    clothGroup: 0,
+    genderId: 'male'
+  }),
+  methods: {
+    setGender (genderId) {
+      this.genderId = genderId
+    },
+    clearAll () {
+      // this.genderId = ''
+      this.outfit.scarfs = ''
+      this.outfit.jackets = ''
+      this.outfit.shirts = ''
+      this.outfit.pants = ''
+      this.outfit.gloves = ''
+      this.outfit.shoes = ''
+      this.outfit.skirts = ''
+      this.outfit.belts = ''
+    },
+    selectCloth (clothGroup, item) {
+      this.outfit[this.cloth] = item
+      console.log(clothGroup, this.cloth, item, this.outfit)
+    },
+    save (slotId) {
+      console.log('save', slotId)
+      /*
+  		var nm = $(this).attr("name");
+	  	window.localStorage.setItem('outfitSaved' + nm, $("#armor").html());
+       */
+    },
+    load (slotId) {
+      console.log('load', slotId)
+      /*
+   		var nm = $(this).attr("name");
+  		$("#armor").html(window.localStorage["outfitSaved" + nm]);
+       */
     }
   }
 }
@@ -151,10 +171,27 @@ export default {
 
 <style scoped>
 .armBg, .armBgs{
+  /*
 	background-size: cover;
 	border: 1px solid #ff9900;
 	float: left;
-	height: 48px;
 	width: 48px;
+	*/
+	height: 50px;
+}
+.armBg img{
+	width: 48px;
+	/* max-height: 50px; */
+}
+
+.genderSlct p, .selection p{
+	color: #ff9900;
+}
+.slctdType p, .slctdGender p, .activeTitleLeft p{
+	color: #ffffff;
+}
+
+#slctLeft {
+  /* height: 300px; */
 }
 </style>
