@@ -29,19 +29,19 @@
       app
       :clipped-left="clipped"
     >
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-btn icon @click.stop="miniVariant = !miniVariant">
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+      <v-toolbar-side-icon @click.stop="switchDrawer"></v-toolbar-side-icon>
+      <v-btn icon @click.stop="switchMini">
+        <v-icon v-html="chevron"></v-icon>
       </v-btn>
-      <v-btn icon @click.stop="clipped = !clipped">
+      <v-btn icon @click.stop="switchClipped">
         <v-icon>web</v-icon>
       </v-btn>
-      <v-btn icon @click.stop="fixed = !fixed">
+      <v-btn icon @click.stop="switchFixed">
         <v-icon>remove</v-icon>
       </v-btn>
       <v-toolbar-title><a href="/">{{title}}</a></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn icon @click.stop="rightDrawer = !rightDrawer">
+      <v-btn icon @click.stop="switchRightDrawer">
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar>
@@ -56,7 +56,7 @@
       app
     >
       <v-list>
-        <v-list-tile @click="right = !right">
+        <v-list-tile @click="switchRight">
           <v-list-tile-action>
             <v-icon>compare_arrows</v-icon>
           </v-list-tile-action>
@@ -76,20 +76,23 @@ import './style/styles.css'
 
 export default {
   computed: {
-    items () { return this.$store.state.menu.items }
+    items () { return this.$store.state.menu.items },
+    title () { return this.$store.state.menu.title },
+    clipped () { return this.$store.state.menu.clipped },
+    fixed () { return this.$store.state.menu.fixed },
+    miniVariant () { return this.$store.state.menu.miniVariant },
+    drawer () { return this.$store.state.menu.drawer },
+    rightDrawer () { return this.$store.state.menu.rightDrawer },
+    right () { return this.$store.state.menu.right },
+    chevron () { return this.miniVariant ? 'chevron_right' : 'chevron_left' }
   },
-  data () {
-    console.log('Ha')
-    console.log(this.$store.state)
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Geneverse'
-    }
+  methods: {
+    switchClipped () { this.$store.commit('menu/switchClipped') },
+    switchFixed () { this.$store.commit('menu/switchFixed') },
+    switchMini () { this.$store.commit('menu/switchMini') },
+    switchDrawer () { this.$store.commit('menu/switchDrawer') },
+    switchRightDrawer () { this.$store.commit('menu/switchRightDrawer') },
+    switchRight () { this.$store.commit('menu/switchRight') }
   },
   name: 'App'
 }

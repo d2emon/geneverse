@@ -1,3 +1,5 @@
+import Instance from "../nested/Instance";
+
 const state = {
   items: [
     {
@@ -25,7 +27,14 @@ const state = {
       title: 'Doll',
       to: '/doll'
     }
-  ]
+  ],
+  clipped: false,
+  drawer: false,
+  fixed: false,
+  miniVariant: false,
+  right: true,
+  rightDrawer: false,
+  title: 'Geneverse'
 }
 
 // getters
@@ -38,6 +47,12 @@ const actions = {
 
 // mutations
 const mutations = {
+  switchClipped (state) { state.clipped = !state.clipped },
+  switchFixed (state) { state.fixed = !state.fixed },
+  switchMini (state) { state.miniVariant = !state.miniVariant },
+  switchDrawer (state) { state.drawer = !state.drawer },
+  switchRightDrawer (state) { state.rightDrawer = !state.rightDrawer },
+  switchRight (state) { state.right = !state.right }
 }
 
 export default {
