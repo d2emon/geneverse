@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import Instance from './Instance'
-import things from './nestedscript'
-import { choose, rand } from "./utils";
+import Instance from '../nested/Instance'
+import things from '../nested/nestedscript'
+import { choose, rand } from "../nested/utils";
 
 const state = {
   things,

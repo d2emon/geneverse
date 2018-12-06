@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Generated from '@/components/Generated'
+import Nested from '@/components/nested/Nested'
 import {
   Space,
   Challenges,
   MultiversePage,
   UniversePage,
-  SuperclusterPage
+  SuperclusterPage,
+  DollPage
 } from '@/pages/'
 
 Vue.use(Router)
@@ -16,6 +18,16 @@ export default new Router({
     {
       path: '/',
       redirect: '/generate/multiverse'
+    },
+    {
+      path: '/nested',
+      name: 'Nested',
+      component: Nested
+    },
+    {
+      path: '/doll',
+      name: 'Doll',
+      component: DollPage
     },
     {
       path: '/generate/:generator_id',

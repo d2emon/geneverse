@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import ContentContainer from '../components/ContentContainer'
+import ContentContainer from '../components/nested/ContentContainer'
 
 export default {
-  name: 'DollView',
+  name: 'DollPage',
   components: {
     ContentContainer,
   }
