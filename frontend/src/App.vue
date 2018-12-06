@@ -75,28 +75,16 @@ import './style/nestedstyle.css'
 import './style/styles.css'
 
 export default {
+  computed: {
+    items () { return this.$store.state.menu.items }
+  },
   data () {
+    console.log('Ha')
+    console.log(this.$store.state)
     return {
       clipped: false,
       drawer: false,
       fixed: false,
-      items: [
-        {
-          icon: 'format_list_bulleted',
-          title: 'Nested',
-          to: '/generate/multiverse'
-        },
-        {
-          icon: 'work',
-          title: 'Challenges',
-          to: '/challenges'
-        },
-        {
-          icon: 'star',
-          title: 'Space',
-          to: '/space'
-        }
-      ],
       miniVariant: false,
       right: true,
       rightDrawer: false,

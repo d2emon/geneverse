@@ -4,11 +4,13 @@ import Challenges from './Challenges'
 import MultiversePage from './MultiversePage'
 import UniversePage from './UniversePage'
 import SuperclusterPage from './SuperclusterPage'
+import DollPage from './DollPage'
 
 export {
   Space,
   Challenges,
   MultiversePage,
   UniversePage,
-  SuperclusterPage
+  SuperclusterPage,
+  DollPage
 }
