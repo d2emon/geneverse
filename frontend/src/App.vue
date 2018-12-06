@@ -71,6 +71,9 @@
 </template>
 
 <script>
+import './style/nestedstyle.css'
+import './style/styles.css'
+
 export default {
   data () {
     return {
