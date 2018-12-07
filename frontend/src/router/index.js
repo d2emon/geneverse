@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Generated from '@/components/Generated'
-import Nested from '@/components/nested/Nested'
 import {
   Space,
   Challenges,
   MultiversePage,
   UniversePage,
   SuperclusterPage,
+  Nested,
   DollPage
 } from '@/pages/'
 

@@ -1,10 +1,7 @@
 <template>
   <div id="header" class="nav">
-    <a href="http://orteil.dashnet.org/">←</a>
-    Nested
-    <span id="version"></span>
+    <h1>Nested</h1>
     <span id="madeby"> © <a href="http://orteil.dashnet.org/">Orteil</a>, 2011-2013 - hosted by <a href="http://dashnet.org/">DashNet</a></span>
-    <span id="news"></span>
     <div id="styles">
       <a v-for="(style, id) in styles" :key="id" @click="setStyle(id)" :style="`background-color:${style.color};`">-</a>
     </div>

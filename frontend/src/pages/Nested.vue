@@ -1,6 +1,6 @@
 <template>
-  <div :class="selected">
-    <HelloWorld />
+  <div :class="selected + ' nested'">
+    <!-- HelloWorld / -->
 
     <NestedNav />
     <NestedThing v-if="instance" :thing="instance" />
@@ -12,15 +12,13 @@
 </template>
 
 <script>
-import HelloWorld from './HelloWorld'
-import NestedNav from './NestedNav'
-import NestedDebug from './NestedDebug'
-import NestedThing from './NestedThing'
+import NestedNav from '../components/nested/NestedNav'
+import NestedDebug from '../components/nested/NestedDebug'
+import NestedThing from '../components/nested/NestedThing'
 
 export default {
   name: 'Nested',
   components: {
-    HelloWorld,
     NestedNav,
     NestedDebug,
     NestedThing
@@ -45,13 +43,17 @@ export default {
     this.$store.commit('debug/debug', '<div id="div0" class="thing"></div>')
     this.$store.dispatch('nested/launchNest', this.seedObject.toLowerCase())
 
+    /*
     console.log(this.instances)
     console.log(this.instances[0])
     console.log(this.instance)
+    */
   }
 }
 </script>
 
 <style scoped>
-
+.nested {
+  margin-top: 50px;
+}
 </style>

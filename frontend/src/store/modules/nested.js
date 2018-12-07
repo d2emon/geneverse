@@ -25,7 +25,7 @@ const actions = {
   grow ({ commit, state }, instance) {
     if (instance.grown) return
 
-    console.log(instance, instance.type)
+    // console.log(instance, instance.type)
     instance.type.contains.forEach(toMake => {
       if (typeof (toMake) !== 'string') toMake = choose(toMake)
       toMake = toMake.split(',')

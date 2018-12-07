@@ -12,7 +12,7 @@ body
 
 #header
 {
-	position:absolute;
+	/* position:absolute; */
 	right:0px;
 	top:0px;
 	width:100%;
@@ -46,16 +46,6 @@ body
 .nav a:active
 {color:#999;background:none;}
 
-
-#news
-{
-	color:#fff;
-	line-height:100%;
-	font-size:12px;
-	margin:8px 0px;
-}
-#news a {color:#99f;}
-#donate{font-size:11px;}
 
 #debug
 {
@@ -111,7 +101,7 @@ a:active
 
 #styles
 {
-	position:absolute;
+	/* position:absolute; */
 	right:0px;
 	top:0px;
 	margin:0px;
