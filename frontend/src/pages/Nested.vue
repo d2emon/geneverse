@@ -34,11 +34,10 @@ export default {
   }),
   mounted () {
     this.$store.commit('debug/debug', 'Building...')
+    this.$store.dispatch('nested/cleanThings')
 
-    // CleanThings();
-
-    // // CheckMissingThings();
-    // // alert("There are "+ThingsN+" thing archetypes.");
+    // CheckMissingThings();
+    // alert("There are "+ThingsN+" thing archetypes.");
 
     this.$store.commit('debug/debug', '<div id="div0" class="thing"></div>')
     this.$store.dispatch('nested/launchNest', this.seedObject.toLowerCase())

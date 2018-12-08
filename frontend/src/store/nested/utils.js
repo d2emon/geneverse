@@ -58,36 +58,6 @@ function CheckMissingThings () {
   alert(str)
 }
 
-function CleanThings () {
-  for (var iT in Things) {
-    thisT = Things[iT]
-
-    toConcat = []
-    for (var i in thisT.contains) {
-      if (typeof (thisT.contains[i]) === 'string') {
-        if (thisT.contains[i].charAt(0) == '.') {
-          if (Things[thisT.contains[i].substring(1)] != undefined) {
-            toConcat = toConcat.concat(Things[thisT.contains[i].substring(1)].contains)
-          }
-          thisT.contains[i] = ''
-        }
-      }
-    }
-
-    if (toConcat.length > 0) {
-      for (var i in toConcat) {
-        thisT.contains.push(toConcat[i])
-      }
-    }
-
-    newContains = []
-    for (var i in thisT.contains) {
-      if (thisT.contains[i] != '') newContains.push(thisT.contains[i])
-    }
-    thisT.contains = newContains
-  }
-}
-
 function Title (what) {
   // Changes a string like "the cat is on the table" to "the Cat Is on the Table"
   what = what.split(' ')

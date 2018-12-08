@@ -61,6 +61,30 @@ const actions = {
     // instance.grown = true
 
     commit('setInstance', instance)
+  },
+
+  cleanThings ({ commit, state }) {
+    Object.keys(state.things).forEach(itemId => {
+      const thisT = state.things[itemId]
+      let contains = []
+      thisT.contains.forEach(i => {
+        if (typeof (i) === 'string') {
+          if (i.charAt(0) === '.') {
+            const id = i.substring(1)
+            if (id && state.things[id]) {
+              contains = contains.concat(state.things[id].contains)
+            } else {
+              console.log(`${id} not found`)
+            }
+          }
+        }
+      })
+
+      commit('setContains', {
+        itemId,
+        contains
+      })
+    })
   }
 }
 
@@ -85,6 +109,12 @@ const mutations = {
       }
     }
     instance.grown = true
+  },
+
+  setContains(state, { itemId, contains }) {
+    const thisT = state.things[itemId]
+    contains.forEach(i => thisT.contains.push(i))
+    thisT.contains = thisT.contains.filter(i => i !== '')
   }
 }
 
