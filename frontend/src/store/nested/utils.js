@@ -1,6 +1,9 @@
 // Returns an element from an array at random.
 export const choose = arr => arr[Math.floor(Math.random() * arr.length)]
 
+// just put the first letter in uppercase yo
+export const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1)
+
 export const weightedChoose = (arr, weight) => {
   // Returns an element from an array at random according to a weight.
   // A weight of 2 means the first element will be picked roughly twice as often as the second; a weight of 0.5 means

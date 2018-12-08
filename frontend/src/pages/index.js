@@ -6,6 +6,7 @@ import UniversePage from './UniversePage'
 import SuperclusterPage from './SuperclusterPage'
 import Nested from './Nested'
 import DollPage from './DollPage'
+import VideoGame from './VideoGame'
 
 export {
   Space,
@@ -14,5 +15,6 @@ export {
   UniversePage,
   SuperclusterPage,
   Nested,
-  DollPage
+  DollPage,
+  VideoGame
 }

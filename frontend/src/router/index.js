@@ -8,7 +8,8 @@ import {
   UniversePage,
   SuperclusterPage,
   Nested,
-  DollPage
+  DollPage,
+  VideoGame
 } from '@/pages/'
 
 Vue.use(Router)
@@ -28,6 +29,11 @@ export default new Router({
       path: '/doll',
       name: 'Doll',
       component: DollPage
+    },
+    {
+      path: '/video-game',
+      name: 'VideoGame',
+      component: VideoGame
     },
     {
       path: '/generate/:generator_id',
