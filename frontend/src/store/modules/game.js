@@ -1,11 +1,10 @@
-import { insane, Genres } from '../nested/genres'
+import genres, { all } from '../genres'
 import { choose, capitalize } from '../nested/utils'
 
 const chars = 'abcdefghijkmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 let seed = '.'
 for (let i = 0; i < 10; i++) {
   seed += choose(chars)
-  console.log(seed)
 }
 
 const state = {
@@ -20,13 +19,9 @@ const getters = {}
 // actions
 const actions = {
   generate ({ state, commit }, sanity) {
-    const genre = sanity ? choose(Genres) : insane
-    const name = choose(genre.name)
-    const action = choose(genre.actions)
-    const thing = choose(genre.things)
-    const goal = choose(genre.goals)
-
-    commit('setGame', `${name} where you ${action} ${thing} ${goal}.`)
+    const genre = sanity ? choose(genres) : all
+    const {name, action, thing, goal} = genre.generate()
+    commit('setGame', `${name}, где вы ${action} ${thing} ${goal}.`)
   }
 }
 
