@@ -18,23 +18,8 @@ class Instance {
   }
 
   generateName () {
-    this.name = this.type.namegen
-    /*
-  if (typeof (this.name) !== 'string') {
-    var str = ''
-    if (typeof (this.name[0]) === 'string') str += Choose(this.name)
-    else {
-      for (var i in this.name) {
-        str += Choose(this.name[i])
-      }
-    }
-    this.name = str
-  }
-
-  nameParts = this.name.split('|')
-  this.name = nameParts[0]
-
-  if (this.name == '*PERSON*' || this.name == '*MAN*' || this.name == '*WOMAN*') {
+    function personName () {
+      /*
     // Generates a first name + last name, compiled from the 100 most popular names in the USA. Yes, every person in the universe is an American.
     if (this.name == '*PERSON*') var gender = Choose([0, 1])
     else if (this.name == '*MAN*') var gender = 1
@@ -48,7 +33,12 @@ class Instance {
     str += WeightedChoose(['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Miller', 'Davis', 'Garcia', 'Rodriguez', 'Wilson', 'Martinez', 'Anderson', 'Taylor', 'Thomas', 'Hernandez', 'Moore', 'Martin', 'Jackson', 'Thompson', 'White', 'Lopez', 'Lee', 'Gonzalez', 'Harris', 'Clark', 'Lewis', 'Robinson', 'Walker', 'Perez', 'Hall', 'Young', 'Allen', 'Sanchez', 'Wright', 'King', 'Scott', 'Green', 'Baker', 'Adams', 'Nelson', 'Hill', 'Ramirez', 'Campbell', 'Mitchell', 'Roberts', 'Carter', 'Phillips', 'Evans', 'Turner', 'Torres', 'Parker', 'Collins', 'Edwards', 'Stewart', 'Flores', 'Morris', 'Nguyen', 'Murphy', 'Rivera', 'Cook', 'Rogers', 'Morgan', 'Peterson', 'Cooper', 'Reed', 'Bailey', 'Bell', 'Gomez', 'Kelly', 'Howard', 'Ward', 'Cox', 'Diaz', 'Richardson', 'Wood', 'Watson', 'Brooks', 'Bennett', 'Gray', 'James', 'Reyes', 'Cruz', 'Hughes', 'Price', 'Myers', 'Long', 'Foster', 'Sanders', 'Ross', 'Morales', 'Powell', 'Sullivan', 'Russell', 'Ortiz', 'Jenkins', 'Gutierrez', 'Perry', 'Butler', 'Barnes', 'Fisher', 'Henderson', 'Coleman', 'Simmons', 'Patterson', 'Jordan', 'Reynolds', 'Hamilton', 'Graham', 'Kim', 'Gonzales', 'Alexander', 'Ramos', 'Wallace', 'Griffin', 'West', 'Cole', 'Hayes', 'Chavez', 'Gibson', 'Bryant', 'Ellis', 'Stevens', 'Murray', 'Ford', 'Marshall', 'Owens', 'Mcdonald', 'Harrison', 'Ruiz', 'Kennedy', 'Wells', 'Alvarez', 'Woods', 'Mendoza', 'Castillo', 'Olson', 'Webb', 'Washington', 'Tucker', 'Freeman', 'Burns', 'Henry', 'Vasquez', 'Snyder', 'Simpson', 'Crawford', 'Jimenez', 'Porter', 'Mason', 'Shaw', 'Gordon', 'Wagner', 'Hunter', 'Romero', 'Hicks', 'Dixon', 'Hunt', 'Palmer', 'Robertson', 'Black', 'Holmes', 'Stone', 'Meyer', 'Boyd', 'Mills', 'Warren', 'Fox', 'Rose', 'Rice', 'Moreno', 'Schmidt', 'Patel', 'Ferguson', 'Nichols', 'Herrera', 'Medina', 'Ryan', 'Fernandez', 'Weaver', 'Daniels', 'Stephens', 'Gardner', 'Payne', 'Kelley', 'Dunn', 'Pierce', 'Arnold', 'Tran', 'Spencer', 'Peters', 'Hawkins', 'Grant', 'Hansen', 'Castro', 'Hoffman', 'Hart', 'Elliott', 'Cunningham', 'Knight', 'Bradley'], 2)
     if (gender == 1 && Rand(0, 2000) == 1) str = Choose(['Elvis Presley', 'Gabe Newell'])// 4chan made me do it
     this.name = str
-  } else if (this.name == '*MEDIEVAL PERSON*' || this.name == '*MEDIEVAL MAN*' || this.name == '*MEDIEVAL WOMAN*') {
+       */
+      return 'GENERATE'
+    }
+
+    function medievalPersonName () {
+      /*
     // Generates a medieval first name + last name, mostly taken from http://www.infernaldreams.com/names/Europe/Medieval/England.htm
     if (this.name == '*MEDIEVAL PERSON*') var gender = Choose([0, 1])
     else if (this.name == '*MEDIEVAL MAN*') var gender = 1
@@ -60,7 +50,12 @@ class Instance {
     str += Choose(['Strong', 'Tall', 'Grand', 'Bold', 'Big', 'Small', 'Fine', 'Good', 'Glad', 'Green', 'Blue', 'Red', 'Black', 'White', 'Pale', 'Gray', 'Gold', 'Silver', 'Dark', 'Light', 'Brave', 'Sly'])
     str += Choose(['ington', 'son', 'house', 'door', 'castle', 'forest', 'tree', 'leaf', 'wind', 'rain', 'snow', 'rock', 'stone', 'river', 'sea', 'ship', 'smith', 'craft', 'cook', 'worth', 'might', 'wolf', 'bear', 'sheep', 'pig', 'fox', 'hunt', 'dragon'])
     this.name = str
-  } else if (this.name == '*ANCIENT PERSON*' || this.name == '*ANCIENT MAN*' || this.name == '*ANCIENT WOMAN*') {
+       */
+      return 'GENERATE'
+    }
+
+    function ancientPersonName () {
+      /*
     // Generates a primitive name
     if (this.name == '*ANCIENT PERSON*') var gender = Choose([0, 1])
     else if (this.name == '*ANCIENT MAN*') var gender = 1
@@ -71,7 +66,12 @@ class Instance {
     str += Choose(['Thought', 'Eyes', 'Legs', 'Hands', 'Nose', 'Sorrow', 'Scream', 'Whisper', 'Rage', 'Stream', 'River', 'Sky', 'Light', 'Spark', 'Moon', 'Sun', 'Star', 'Forest', 'Cloud', 'Tree', 'Rock', 'Beast', 'Rabbit', 'Wolf', 'Auroch', 'Mammoth', 'Lion', 'Spear', 'Flame', 'Cave', 'Ocean', 'Snail', 'Slug', 'Bear', 'Shark', 'Toad', 'Day', 'Night', 'Friend', 'Snake', 'Ears', 'Spirit', 'Track', 'Pebble', 'Boulder', 'Mountain', 'Volcano', 'Storm', 'Rain', 'Snow'])
     if (gender == 1 && Rand(0, 250) == 1) str = 'Dave'
     this.name = str
-  } else if (this.name == '*FUTURE PERSON*' || this.name == '*FUTURE MAN*' || this.name == '*FUTURE WOMAN*') {
+       */
+      return 'GENERATE'
+    }
+
+    function futurePersonName () {
+      /*
     // Generates a futuristic first name + last name
     if (this.name == '*FUTURE PERSON*') var gender = Choose([0, 1])
     else if (this.name == '*FUTURE MAN*') var gender = 1
@@ -83,8 +83,12 @@ class Instance {
     str += Choose(['Zar', 'Star', 'Solar', 'Jaro', 'Mera', 'Gar', 'Dar', 'Bar', 'Mar', 'Mor', 'Dor', 'Kar', 'Kra', 'Sbur', 'Bostro', 'Astro', 'Cosmo', 'Poly', 'Beeble', 'Pro', 'Nano', 'Shimmer', 'Glimmer', 'Wander', 'Lea', 'Magna'])
     str += Choose(['bion', 'bius', 'micus', 'bicus', 'dion', 'dius', 'billion', 'million', 'bistor', 'bostrud', 'wund', 'brox', 'biotis', 'saurus', 'boticus', 'meld', 'sweep', 'block', 'dine', 'zine', 'nople', 'neon', 'ba', 'zor', 'zar', 'klor'])
     this.name = str
-  } else if (this.name == '*MEMORY*')	// Memories and thoughts are a little tricky because they have to be gender-neutral (you can't go up levels to figure out if the person is male or female).
-  {
+       */
+      return 'GENERATE'
+    }
+
+    function memoryText () {
+      /*
     var str = ''
     str += WeightedChoose([
       Choose(['Biking', 'Hiking', 'Swimming', 'Flying kites', 'Playing', 'Playing baseball', 'Stargazing', 'Playing soccer', 'Playing basketball', 'Playing chess', 'Playing checkers', 'Playing video-games', 'Watching TV', 'Cooking']) + ' with my ' + Choose(['mother', 'father', 'parents', 'grand-father', 'grand-mother', 'grand-parents', 'uncle', 'aunt', 'cousin', 'sister', 'brother']) + Choose(['', ' when I was ' + Choose(['a child', 'young', Rand(7, 21)])]) + '.',
@@ -94,7 +98,12 @@ class Instance {
       'That one unforgettable ' + Choose(['book', 'movie', 'video game', 'trip', 'kiss', 'person I met', 'party']) + '.'
     ], 1.5)
     this.name = str
-  } else if (this.name == '*SADTHOUGHT*') {
+       */
+      return 'GENERATE'
+    }
+
+    function sadThoughtText () {
+      /*
     var str = ''
     str += WeightedChoose([
       Choose(['This place is crowded.', "I don't want to live here my whole life.", "I don't want to spend the rest of my life here.", 'I want to meet different people.', "I'm so alone.", "I don't want to be alone.", 'When did I get so lonely?', "I'm scared.", 'I feel so insignificant.', 'Does it matter, really?', 'This is absurd.', 'I hate this place.', 'I hate the people here.', 'Nobody understands me.', 'I wish the voices would stop.', "I'm in debt.", "I shouldn't spend so much.", "I don't really like my friends.", 'I regret doing that thing I did.', 'I hope they never find out.', 'What if I get caught?', 'This is killing me.', 'What will happen to me when I die?', 'This is all sick.', "What's the point?", "I secretly know the meaning of life but I won't tell anyone.", "I know why we're here.", 'What if this was real?', 'Some people need to check their privilege...', "This isn't what I wanted.", 'I... I just want ' + Choose(['a friend', 'friends', 'someone to hug', 'a family', 'someone who understands me', 'to have kids']) + '.', "Is this how it's going to end?", "Oh, that's going on my blog."]),
@@ -106,7 +115,12 @@ class Instance {
       Choose(['This will not stand.', "Dammit I'm mad.", 'Yes, I am mad.', "I won't let this happen.", 'No. Never. Not if I have a word in it.', 'Over my dead body.', 'Do they have any idea how angry I am?', 'I am absolutely furious.', 'This upsets me.', 'Well, I am upset.', 'On we march.', 'This is not over.', 'I can see them, beyond the stars.', "I can sense them. They're coming.", 'Something is coming this way.', 'Something is about to go horribly wrong.', 'It was written.', 'It is coming.', 'We must fight on.', "I've seen things.", "Oh no. I'm thinking weird stuff again.", "Do you really think I can't see you?", "I don't look at the world the way I used to.", "Can't you hear them?", "It's always there.", "It won't go away.", "There are things that I just can't explain.", 'Who where?', "They don't think it is like this. But it is.", 'The world looks too intense for me.', 'I never asked for this.', "No! I don't want that!", "What if we're all living in a giant computer simulation?", 'This place would look good on fire!', "This is the end, isn't it?", 'The end.'])
     ], 1.4)
     this.name = str
-  } else if (this.name == '*HAPPYTHOUGHT*') {
+       */
+      return 'GENERATE'
+    }
+
+    function happyThoughtText () {
+      /*
     var str = ''
     str += WeightedChoose([
       Choose(['What a nice day!', "It's sunny today.", "It's a sunny day out.", "It's such a nice day.", "It's such a great day to be alive!", 'This is a happy kind of day.', 'I feel great.', "Ooh, I'm feeling fine.", "I'm feeling awesome.", 'Hey, this is great!', "I'm so glad I came here.", 'I regret nothing!', 'Regrets are pointless.', 'I have no regrets.', 'This is what I wanted!', "Everything's going just fine.", "I can't wait!", 'Things are going smoothly.', "I'm just happy to be here.", 'Well, this is ' + Choose(['unexpected', 'awkward', 'fun', 'just funny', 'strange', 'interesting', 'odd', 'peculiar', 'weird']) + '.', 'I know the meaning of life!', "I didn't expect this!", "I'm glad someone understands me.", "I'm glad someone likes me for who I am.", 'I love my friends!', 'Life is good!', 'I could picture myself spending the rest of my life here.', 'I should meet new friends!', 'I feel loved.', 'I feel almighty!', 'I matter.', 'This place is nice.', "Everybody's great in some way!", 'I hope ' + Choose(['they', 'she', 'he']) + "'ll like me!", 'I wonder what happens next!', "It's all going to be alright.", "It'll all be alright in the end. I just know it.", 'This is actually okay.', 'I love the whole world!', 'The world is a big place!', 'The world is amazing!', 'So it has come to this.', 'Well this is an interesting development.', "Let's see what happens next.", 'Oh hey. I found me.', 'I NEED to blog about this.']),
@@ -116,7 +130,12 @@ class Instance {
       Choose([Choose(['I really, really like', "I can't get enough of", "I'm going to get more of", 'I wonder what they put in']) + ' ' + Choose(['this hamburger', 'this steak', 'this salad', 'this pasta', 'this sandwich', 'this pizza', 'this meal', 'this beer', 'this soda']) + '.', Choose(['Haha, I love that show!', 'That show is confusing!', 'That show is hilarious.', "That's a silly show, but there's nothing on TV anyway.", 'Oooh, my parents used to watch that show!', "There's nothing on TV!", "That movie's plot is hilariously bad.", "I've never seen that movie before!"])])
     ], 1.4)
     this.name = str
-  } else if (this.name == '*MEDIEVAL MEMORY*') {
+       */
+      return 'GENERATE'
+    }
+
+    function medievalMemoryText () {
+      /*
     var str = ''
     str += WeightedChoose([
       Choose(['Tending the fields', 'Tending the animals', 'Harvesting the crops', 'Learning to cook', 'Learning magic tricks', 'Learning alchemy', 'Learning how to yield a sword', 'Learning how to defend myself', 'Learning how to shoot a bow', 'Learning about the gods above', 'Learning about the spirits that inhabit every thing', 'Learning proper manners', 'Looking at the skies', 'Swimming in the rivers', 'Exploring the woods', 'Wandering the wild expanses', 'Getting lost in the woods', 'Travelling to the city', 'Running from wild beasts', 'Hunting wild beasts', 'Taking part in the great hunt', 'Tracking beasts', 'Sparring']) + ' with my ' + Choose(['mother', 'father', 'parents', 'grand-father', 'grand-mother', 'grand-parents', 'uncle', 'aunt', 'cousin', 'sister', 'brother', 'caretaker', 'master']) + Choose(['', ' when I was ' + Choose(['a child', 'young', Rand(6, 16)])]) + '.',
@@ -125,13 +144,23 @@ class Instance {
       'The day I ' + Choose(['wed my partner', 'became a parent', 'lost my father', 'lost my mother', 'explored the world with ' + Choose(['my partner', 'my family', 'my companions', 'my master']), 'learned ' + Choose(['I', 'my son', 'my daughter', 'my sister', 'my brother', 'my father', 'my mother']) + ' was ill', 'fell victim to disease', 'learned we were at war', 'learned the war was over', 'took part in the war', 'helped strike down a dragon', 'had to leave our town due to contagious diseases', 'was forced to move to a new town', 'was forced to become a beggar', 'visited our castle', 'saw a display of magic at the castle', 'broke my ' + Choose(['leg', 'ankle', 'elbow', 'knee', 'nose']), 'lost ' + Choose(['my dog', 'my cat', 'my cattle', 'a valuable trinket', 'a magic artifact', 'my way in the forest'])]) + '.'
     ], 1.5)
     this.name = str
-  } else if (this.name == '*MEDIEVAL THOUGHT*') {
+       */
+      return 'GENERATE'
+    }
+
+    function medievalThoughtText () {
+      /*
     var str = ''
     str += WeightedChoose([
       Choose(['Today was a fine day.', 'Many things happened on this day.', 'What an eventful week this has been.', "It's been a good year so far.", 'So much to do, so little time.', 'I was born too soon.', "I'm still young. I'll manage.", 'I would still be ' + Choose(['an adventurer', 'a bandit', 'a traveller', 'a travelling merchant', 'a hunter', 'a courrier']) + ' if not for that ' + Choose(['witch', 'ambush years ago', 'dragon', 'new king', 'stupid accident', 'unfortunate wound']) + '.', 'What a surprising world we live in.', "Hopefully next year's crops will be fruitful.", 'What hides yonder?', 'What lies yonder, I wonder.', 'So many things out of my comprehension.', 'I want to see more of this world.', 'I am sworn to carry this burden.', "I'll " + Choose(['ready my spells', 'grab my sword', 'grab my axe', 'grab my shield', 'pack my things']) + ' and go on an adventure.', 'I will ' + Choose(['compose a sonnet', 'tell the tale', 'write a saga', 'compose a song']) + ' of ' + Choose(['witches', 'princesses', 'adventure', 'fate', 'distant kingdoms', 'unicorns', 'knights', 'bards', 'swords', 'love']) + ' and ' + Choose(['wizards', 'princes', 'dragons', 'magic', 'paladins', 'warlocks', 'dungeons', 'destruction', 'monsters', 'friendship']) + '!', 'I want to travel and see ' + Choose(['the unicorns', 'the dinosaurs', 'a dragon', 'the steam monsters', 'the goblin kingdoms', 'the dwarves in the mountains', 'pixies', 'fairies', 'catpeople', 'sharkpeople', 'dogpeople', 'the troll pits', 'the wizard kingdom', 'the footfaces', 'the cephalites', 'the gembabies']) + '!', 'What strange and terrifying creatures could live in the distant lands?', "I've heard so many stories about the things that live in the farlands.", 'Thank our star, I feel fine now.', Choose(['She', 'He', 'They']) + ' ' + Choose(['will regret it', 'will regret saying that', 'will regret doing that', 'must pay, somehow', "will get what's coming", 'will get what is deserved', 'will see how right I was', 'will not hold me back any longer', 'will regret laughing at me']) + '.', Choose(['Our star will guide us throughout.', 'I trust our star to guide us in the right direction.', 'I trust our star to point us to the right choices.']), 'I need to ' + Choose(['find', 'see', 'consult']) + ' ' + Choose(['a physician', 'a witch', 'a wizard', 'an apothecary', 'an exorcist', 'a priest']) + '.', Choose(['What is that smoke on the horizon?', 'That new moon keeps getting bigger.', 'Will the court wizards keep us safe?', 'The Entities are due soon.', "All of our cattle is getting sick. What's happening?", "I don't want to take part in another sacrifice.", "Let's hope that sacrifice was worth it.", 'I hate those dark rituals.', 'I hope the liches will leave us alone this year.', 'I keep finding these weird stones.', 'Some must fight, so that all may be free.'])])
     ], 1.1)
     this.name = str
-  } else if (this.name == '*ANCIENT MEMORY*') {
+       */
+      return 'GENERATE'
+    }
+
+    function ancientMemoryText () {
+      /*
     var str = ''
     str += WeightedChoose([
       Choose(['Scouting for wild beasts', 'Tending the fire', 'Chopping wood', 'Learning the secrets of fire', 'Learning the shamanic ways', 'Scouting the wilderness for resources', 'Searching for fresh water', 'Taking part in the great hunt', Choose(['Hunting wild', 'Tracking', 'Running from wild', 'Ambushing', 'Making pelts from', 'Skinning', 'Slicing the meat off']) + ' ' + Choose(['mammoths', 'saber-toothed cats', 'mountain lions', 'wooly rhinoceroses', 'wolves', 'aurochs', 'rabbits']), 'Bringing our catch back to the settlement', 'Harvesting wild berries', 'Harvesting wild grain', 'Fetching water', 'Learning how to throw a spear', 'Learning how to use a harpoon', 'Learning how to sculpt the stone', 'Learning about the spirits', 'Hiding from wild beasts', 'Staring at birds in the sky', 'Looking at the stars at night', 'Looking at the skies', 'Swimming in the rivers', 'Exploring the woods', 'Wandering the wild lands', 'Getting lost in the woods']) + ' with my ' + Choose(['mother', 'father', 'family', 'tribe', 'sister', 'brother']) + Choose(['', ' when I was ' + Choose(['a child', 'younger'])]) + '.',
@@ -140,13 +169,23 @@ class Instance {
       'The day I ' + Choose(['had my son', 'had my daughter', 'lost my father', 'lost my mother', 'became the last of my tribe and had to find a new tribe to take me in', 'became accepted into a new tribe', 'explored the wilderness with ' + Choose(['my mate', 'my friend', 'my tribe']), 'realized ' + Choose(['I', 'my son', 'my daughter', 'my father', 'my mother']) + ' was sick', 'fell sick', 'encountered members of another tribe', 'had a skirmish with another tribe', 'helped strike down a wild beast', 'almost starved', 'found a new way to cut rocks', 'broke my ' + Choose(['leg', 'ankle', 'elbow', 'knee', 'nose']), 'got lost in the forest']) + '.'
     ], 1.5)
     this.name = str
-  } else if (this.name == '*ANCIENT THOUGHT*') {
+       */
+      return 'GENERATE'
+    }
+
+    function ancientThoughtText () {
+      /*
     var str = ''
     str += WeightedChoose([
       Choose(['Today. Nice day.', 'Many things, today.', 'Good year so far. Not many dead children.', "I sure hope wolves don't eat my baby again.", 'Family comes back from hunt soon. Right?', 'Busy. Always busy.', 'I was born too soon.', 'I am young still. So much to learn!', 'I must stay home because of wound. Total baloney.', 'Spoiled meat and no fire is utter baloney.', 'Beasts are getting scarce. Absolute baloney.', 'The spirits must hate me. Only explanation.', 'Oh, my aching head.', "No. I don't want.", 'This displeases me.', 'Sun setting soon. Must ready the fire.', "We mustn't do that mistake with the fire again.", 'We live in surprising world.', 'Many more hunts to come.', 'What lies beyond hills?', 'Does sun sleep behind mountains?', 'I do not comprehend many things. But I will try.', 'This world. I want to see more of it.', 'I must ' + Choose(['sharpen spears for next hunt', 'prepare for next hunt', 'tend to my children now', 'get ready for big hunt', 'get tools ready for tomorrow']) + '.', 'I am curious. About distant things.', "I don't feel so sick anymore.", "I won't eat raw rabbit again.", Choose(['She', 'He', 'They']) + ' ' + Choose(['will regret it', 'will regret saying that', 'will regret doing that', 'must pay', "will get what's coming", 'will get what is deserved', 'will see how right I was', 'will not hold me back any longer', 'will regret laughing at me']) + '.', Choose(['Our shaman will guide us throughout.', 'I trust our shaman to guide us in the right direction.', 'I trust our shaman to point us to the right choices.', 'Where has our shaman gone now?', 'I must consult our shaman.']), Choose(['What is smoke on horizon?', 'Moon... getting bigger.', 'Will our shaman keep us safe?', 'The Old Things come back soon.', 'All the beasts, they are getting sick. What is happening?', 'I do not want to take part in another sacrifice.', 'Let us hope sacrifice was worth it.', 'I do not like those dark rituals.', 'I hope the Old Things will leave us alone this year.', 'I keep finding these strange stones.', 'I saw the lights. But nobody believes me.', 'Oh boy. Shamanic ritual soon. We eat funny mushrooms.', 'Have ritual. Smoke plants. All get naked. Good times.', 'I shake fist at you, spirits!']), 'I have great idea! ' + Choose(['Round stone. Rolls fast, make transportation!', 'Shiny rocks. Melt on fire, make weapons!', 'Hungry wolves. Make friends, hunt for us!', 'Wild seeds. Plant in ground, harvest later!', 'Babies. Eat the babies. Free meat!', 'Tickle auroch udder, drink free udderjuice!', 'Smash rocks found on the beach. Eat insides.'])])
     ], 1.1)
     this.name = str
-  } else if (this.name == '*FUTURE MEMORY*') {
+       */
+      return 'GENERATE'
+    }
+
+    function futureMemoryText () {
+      /*
     var str = ''
     str += WeightedChoose([
       Choose(['Spraying the clearpath', 'Clearing the tendrils', 'Shedding our nanomolts', 'Ionizing the biomass', 'Collecting stardust', 'Equipping my first synchotron', 'Brainalyzing each other', 'Learning how to use a transponder', 'Reversing polarities', 'Stepping into that astrodeck', 'My first time in microgravity', 'Browsing the stars', 'Synthesizing new organisms', 'That night we spent synthesizing every exotic food we could think of', 'Synthesizing new outfits for hours', 'Getting our lungs removed', 'Riding the claytide', 'Searching the moon for clams', 'Learning old-timey cooking', 'Visualizing old videoverses', 'Experiencing that exciting new videoverse', 'Losing our headsets and getting lost', 'Earning my lifekey', 'Inadvertantly spawning starkids']) + ' with my ' + Choose(['biocontributor', 'biocontributors', 'distant biocontributor', 'biosibling', 'biomate', 'biopartner', 'nanobro', 'nanofamily']) + Choose(['', '', '', ' when I was ' + Choose(['a kid', 'younger', Rand(30, 120)])]) + '.',
@@ -156,13 +195,23 @@ class Instance {
       'That one unforgettable ' + Choose(['videoverse', 'videomemory', 'mindsecret', 'cosmotrip', 'kiss', 'person I met', 'lifeform I met', 'party']) + '.'
     ], 1.5)
     this.name = str
-  } else if (this.name == '*FUTURE THOUGHT*') {
+       */
+      return 'GENERATE'
+    }
+
+    function futureThoughtText () {
+      /*
     var str = ''
     str += WeightedChoose([
       Choose(["That's nice... that's really nice.", 'All of this stuff is so nice.', 'So nice, wow.', 'I need a couple decades on an exotic planet to cool off.', "Oh boy, they've come up with a new food pill flavor!", 'Which food pills will I be ingesting today?', 'Who where?', 'Those are nice limbs. I bet they cost, uh, a lot, though.', "I think I'll need more nanocredits.", "We've come a long way.", 'What will we discover tomorrow?', 'This system is getting cramped.', 'I wonder - can we ever reverse entropy?', "Meatspace's getting stale for me.", "I'm still at least " + Rand(5, 90) + '% meat!', "I think I'll go visit some biorelatives.", 'Ugh. My biocontributors are visiting again.', "One day I'll just upload myself.", Choose(['Needs', 'What this planet needs is', 'What we need as a species is', 'What I need is']) + ' ' + Choose(['more clones', 'more clams', 'more magnets', 'more nano', 'more nanostuff', 'more food pill flavors', 'more planets', 'more revived extinct species']) + '.', 'These last few centuries have been a little boring.', "I'll say, I'm a little bit bored.", "I don't really give a clam's hinge.", "Everything's so nano.", "That's totally nano.", "I wonder, where's my nanobro right now?", "I hope we don't get assimilated.", "I'm synthesizing " + Choose(['dinosaurs', 'trilobites', 'businessmen', 'birds', 'cavemen', 'clones', 'forbidden food', 'more nanogoo', 'moonclams', 'my own clone', 'a synthesizing machine', 'nanocredits']) + ' and nobody can stop me!', 'I think I lost my ' + Choose(['wall-vibrating device', 'transponder', 'synchotron', 'pocket biano', 'blitar', 'praxophone', 'moonclam', 'ID key']) + '.', 'Time for ' + Choose(['a new brainlobe', 'my nanomolting', 'a new arm', 'a new leg', 'a new pelvis', 'a new face', 'a new nanomate', 'my yearly checkup', 'some sprowsing', 'a good old videoverse']) + '!', Choose(["That videoverse's plot is barely believable.", 'That videoverse has some nicely-written characters.', 'I think this videoverse is too large for me.', "I'm getting lost in this videoverse.", "I can't view this videoverse anymore. Way too scary.", "I can't stop crying at that videoverse..."])])
     ], 1.5)
     this.name = str
-  } else if (this.name == '*PAINTING*') {
+       */
+      return 'GENERATE'
+    }
+
+    function paintingDescription () {
+      /*
     // Paintings ! Most of these end up sounding rather disturbing, I wonder why ?
     var str = ''
     var objs = ['apple', 'pear', 'peach', 'coconut', 'banana', 'fruit bowl', 'teapot', 'teacup', 'spoon', 'knife', 'fork', 'lemon', 'plate of pasta', 'baby', 'girl', 'boy', 'person', 'young man', 'young woman', 'man', 'woman', 'gentleman', 'lady', 'old person', 'businessman', 'salesman', 'ballerina', 'princess', 'prince', 'wizard', 'king', 'queen', 'witch', 'dragon', 'knight', 'singer', 'comedian', 'magician', 'artist', 'cook', 'clown', 'mime', 'dictator', 'president', 'flower pot', 'monster', 'creature', 'ice cream cone', 'cookie', 'fridge', 'oven', 'bunny', 'penguin', 'llama', 'horse', 'beetle', 'spider', 'bird', 'duck', 'mouse', 'bat', 'monkey', 'whale', 'fish', 'bear', 'shark', 'cat', 'dog', 'wolf', 'frog', 'snake', 'dolphin', 'chicken', 'brain', 'skeleton', 'skull', 'eyeball', 'rose', 'hat', 'robot', 'android', 'ghost', 'dinosaur', 'flower', 'tree', 'mushroom', 'worm', 'snowflake', 'clock', 'violin', 'tuba', 'saxophone', 'harp', 'piano', 'cosmic abomination', 'video game character', 'pizza slice', 'sphere', 'cube', 'ovoid', 'torus', 'square', 'triangle', 'line', 'dot', 'pyramid', 'abstract blob', 'hand', 'foot', 'beak', 'mouth', 'eye', 'tentacle', 'god', 'ancestor', 'unicorn', 'vampire', 'midget', 'giant', 'mountain', 'caveman', 'feather', 'bubble', 'detective', 'cop', 'spinning top', 'sponge', 'doll', 'train', 'manbox', 'person dressed as an animal', 'animal dressed as a person', 'moustache', 'fetus', 'egg', 'phone', 'television', 'computer', 'humanoid', 'anthill', 'beehive', 'octopus', 'couple', 'pair of shoes', 'mirror']
@@ -184,7 +233,12 @@ class Instance {
     str = str.split('$obj').join(Choose(objs))
 
     this.name = str
-  } else if (this.name == '*NOTE*') {
+       */
+      return 'GENERATE'
+    }
+
+    function noteDescription () {
+      /*
     // Notes found hidden in people's pockets, etc. Can contain recipes, laundry bills, or creepy observations.
     var str = ''
     str += Choose([
@@ -194,7 +248,12 @@ class Instance {
       Choose(['Recipe :<br>-' + Choose(['toast', 'bagel', 'breadstick', 'garlic bread', 'pita', 'taco shell']) + '<br>-' + Choose(['eggs', 'ground beef', 'fries', 'ice cream', 'mashed potatoes']) + '<br>-' + Choose(['chocolate syrup', 'whipped cream', 'cheese', 'mayonaise', 'vinegar', 'tabasco', 'cough syrup', 'soy sauce'])])
     ])
     this.name = '"' + str + '"'
-  } else if (this.name == '*BOOK*') {
+       */
+      return 'GENERATE'
+    }
+
+    function bookDescription () {
+      /*
     // This is probably my favorite name generator.
     var str = ''
     str += Choose([
@@ -207,7 +266,12 @@ class Instance {
     ])
     if (Rand(0, 10) == 0) str += ', ' + Choose(['Part', 'Tome', 'Volume']) + ' ' + Choose(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'])
     this.name = Title(str)
-  } else if (this.name == '*CHAR*') {
+       */
+      return 'GENERATE'
+    }
+
+    function charDescription () {
+      /*
     var str = ''
     str = "aaaabbccddeeeeffgghhhiijkkllmmnnooppqqrrrssstttuuvwwxyz.,;!?:()-'"
     if (Rand(0, 20) == 0) str += '0123456789*$/#&'
@@ -215,18 +279,85 @@ class Instance {
     str = Choose(str)
     if (Rand(0, 30) == 0) str = str.toUpperCase()
     this.name = str
-  } else if (this.name == '*MONUMENT*') {
+       */
+      return 'GENERATE'
+    }
+
+    function monumentDescription () {
+      /*
     var str = ''
     str += Choose([
       Choose([Choose([WeightedChoose(['old', 'new', 'ancient', 'historic', 'royal', 'imperial', 'sunken', 'painted', 'crooked', 'slanted', 'high', 'rising', 'underground', 'immersed', 'twisted', 'shaky', 'lucky', 'glorious', 'flying'], 2), WeightedChoose(['great', 'big', 'large', 'giant', 'huge', 'grand', 'gigantic', 'colossal', 'tremendous', 'humongous'], 0.5)]) + ' ']) + Choose(['', '', '', Choose(['stone', 'gold', 'silver', 'copper', 'bronze', 'metal', 'white', 'black', 'blue', 'green', 'yellow', 'red', 'grey', 'crimson', 'azure', 'viridian']) + ' ']) + WeightedChoose(['tower', Choose(['', 'smiling ', 'proud ', 'wise ', 'horse ', 'freedom ', 'watching ', 'crying ', 'singing ']) + 'statue', 'bridge', 'park', 'towers', 'palace', 'statues', 'gardens', 'parks', 'cathedral', 'ruins', 'wall', 'church', 'maze', 'castle', 'radio tower', 'arena', 'keep', 'colossus', 'space needle', 'house', 'villa', 'manor', 'dungeon', 'opera', 'pyramid', 'cave', 'ark', 'wheel'], 5)
     ])
     str = 'The ' + str
     this.name = Title(str)
-  }
+       */
+      return 'GENERATE'
+    }
 
-  if (nameParts[1] != undefined) this.name = this.name + nameParts[1]
+    const name = this.type.namegen
+    console.log(name)
 
-     */
+    if (typeof(name) !== 'string') {
+      this.name = ''
+      if (typeof(name[0]) === 'string') {
+        console.log(name[0], name)
+        this.name = choose(name)
+        console.log(this.name)
+      } else {
+        name.forEach(part => {
+          this.name += choose(part)
+        })
+        console.log(this.name)
+      }
+    } else {
+      this.name = name
+    }
+    console.log(this.name)
+
+    let nameParts = this.name.split('|')
+    this.name = nameParts[0]
+
+    if (this.name === '*PERSON*' || this.name === '*MAN*' || this.name === '*WOMAN*') {
+      this.name = personName()
+    } else if (this.name === '*MEDIEVAL PERSON*' || this.name === '*MEDIEVAL MAN*' || this.name === '*MEDIEVAL WOMAN*') {
+      this.name = medievalPersonName()
+    } else if (this.name === '*ANCIENT PERSON*' || this.name === '*ANCIENT MAN*' || this.name === '*ANCIENT WOMAN*') {
+      this.name = ancientPersonName()
+    } else if (this.name === '*FUTURE PERSON*' || this.name === '*FUTURE MAN*' || this.name === '*FUTURE WOMAN*') {
+      this.name = futurePersonName()
+    } else if (this.name === '*MEMORY*') {
+      // Memories and thoughts are a little tricky because they have to be gender-neutral (you can't go up levels to figure out if the person is male or female).
+      this.name = memoryText()
+    } else if (this.name === '*SADTHOUGHT*') {
+      this.name = sadThoughtText()
+    } else if (this.name === '*HAPPYTHOUGHT*') {
+      this.name = happyThoughtText()
+    } else if (this.name === '*MEDIEVAL MEMORY*') {
+      this.name = medievalMemoryText()
+    } else if (this.name === '*MEDIEVAL THOUGHT*') {
+      this.name = medievalThoughtText()
+    } else if (this.name === '*ANCIENT MEMORY*') {
+      this.name = ancientMemoryText()
+    } else if (this.name === '*ANCIENT THOUGHT*') {
+      this.name = ancientThoughtText()
+    } else if (this.name === '*FUTURE MEMORY*') {
+      this.name = futureMemoryText()
+    } else if (this.name === '*FUTURE THOUGHT*') {
+      this.name = futureThoughtText()
+    } else if (this.name === '*PAINTING*') {
+      this.name = paintingDescription()
+    } else if (this.name === '*NOTE*') {
+      this.name = noteDescription()
+    } else if (this.name === '*BOOK*') {
+      this.name = bookDescription()
+    } else if (this.name === '*CHAR*') {
+      this.name = charDescription()
+    } else if (this.name === '*MONUMENT*') {
+      this.name = monumentDescription()
+    }
+
+    if (nameParts[1] !== undefined) this.name += nameParts[1]
   }
 
   addStyle () {
