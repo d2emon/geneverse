@@ -17,13 +17,14 @@ class Instance {
     instances.push(this)
   }
 
-  generateName () {
+  generateName (name) {
     function personName () {
+      // Generates a first name + last name, compiled from the 100 most popular names in the USA. Yes, every person in the universe is an American.
+      let gender
+      if (name === '*PERSON*') gender = choose([0, 1])
+      else if (name === '*MAN*') gender = 1
+      else if (name === '*WOMAN*') gender = 0
       /*
-    // Generates a first name + last name, compiled from the 100 most popular names in the USA. Yes, every person in the universe is an American.
-    if (this.name == '*PERSON*') var gender = Choose([0, 1])
-    else if (this.name == '*MAN*') var gender = 1
-    else if (this.name == '*WOMAN*') var gender = 0
     var str = ''
     // http://names.mongabay.com/male_names.htm
     if (gender == 0) str += WeightedChoose(['Mary', 'Patricia', 'Linda', 'Barbara', 'Elizabeth', 'Jennifer', 'Maria', 'Susan', 'Margaret', 'Dorothy', 'Lisa', 'Nancy', 'Karen', 'Betty', 'Helen', 'Sandra', 'Donna', 'Carol', 'Ruth', 'Sharon', 'Michelle', 'Laura', 'Sarah', 'Kimberly', 'Deborah', 'Jessica', 'Shirley', 'Cynthia', 'Angela', 'Melissa', 'Brenda', 'Amy', 'Anna', 'Rebecca', 'Virginia', 'Kathleen', 'Pamela', 'Martha', 'Debra', 'Amanda', 'Stephanie', 'Carolyn', 'Christine', 'Marie', 'Janet', 'Catherine', 'Frances', 'Ann', 'Joyce', 'Diane', 'Alice', 'Julie', 'Heather', 'Teresa', 'Doris', 'Gloria', 'Evelyn', 'Jean', 'Cheryl', 'Mildred', 'Katherine', 'Joan', 'Ashley', 'Judith', 'Rose', 'Janice', 'Kelly', 'Nicole', 'Judy', 'Christina', 'Kathy', 'Theresa', 'Beverly', 'Denise', 'Tammy', 'Irene', 'Jane', 'Lori', 'Rachel', 'Marilyn', 'Andrea', 'Kathryn', 'Louise', 'Sara', 'Anne', 'Jacqueline', 'Wanda', 'Bonnie', 'Julia', 'Ruby', 'Lois', 'Tina', 'Phyllis', 'Norma', 'Paula', 'Diana', 'Annie', 'Lillian', 'Emily', 'Robin'], 1.2)
@@ -34,15 +35,16 @@ class Instance {
     if (gender == 1 && Rand(0, 2000) == 1) str = Choose(['Elvis Presley', 'Gabe Newell'])// 4chan made me do it
     this.name = str
        */
-      return 'GENERATE'
+      return 'GENERATE' + gender
     }
 
-    function medievalPersonName () {
+    function medievalPersonName (name) {
+      // Generates a medieval first name + last name, mostly taken from http://www.infernaldreams.com/names/Europe/Medieval/England.htm
+      let gender
+      if (name === '*MEDIEVAL PERSON*') gender = choose([0, 1])
+      else if (name === '*MEDIEVAL MAN*') gender = 1
+      else if (name === '*MEDIEVAL WOMAN*') gender = 0
       /*
-    // Generates a medieval first name + last name, mostly taken from http://www.infernaldreams.com/names/Europe/Medieval/England.htm
-    if (this.name == '*MEDIEVAL PERSON*') var gender = Choose([0, 1])
-    else if (this.name == '*MEDIEVAL MAN*') var gender = 1
-    else if (this.name == '*MEDIEVAL WOMAN*') var gender = 0
     var str = ''
     if (gender == 0) str += Choose(['Millicent', 'Alinor', 'Eleanor', 'Agnes', 'Alice', 'Avice', 'Beatrice', 'Cecily', 'Emma', 'Isabella', 'Joan', 'Juliana', 'Margery', 'Matilda', 'Roh', 'Morgan', 'Elizabeth', 'Kethleen'])
     else if (gender == 1) str += Choose(['Adam', 'Geoffrey', 'Gilbert', 'Henry', 'Hugh', 'John', 'Nicholas', 'Peter', 'Ralf', 'Richard', 'Robert', 'Roger', 'Simon', 'Thomas', 'Walter', 'William', 'Robin', 'Albin', 'Bayard', 'Erwin'])
@@ -51,15 +53,16 @@ class Instance {
     str += Choose(['ington', 'son', 'house', 'door', 'castle', 'forest', 'tree', 'leaf', 'wind', 'rain', 'snow', 'rock', 'stone', 'river', 'sea', 'ship', 'smith', 'craft', 'cook', 'worth', 'might', 'wolf', 'bear', 'sheep', 'pig', 'fox', 'hunt', 'dragon'])
     this.name = str
        */
-      return 'GENERATE'
+      return 'GENERATE' + gender
     }
 
-    function ancientPersonName () {
+    function ancientPersonName (name) {
+      // Generates a primitive name
+      let gender
+      if (name === '*ANCIENT PERSON*') gender = choose([0, 1])
+      else if (name === '*ANCIENT MAN*') gender = 1
+      else if (name === '*ANCIENT WOMAN*') gender = 0
       /*
-    // Generates a primitive name
-    if (this.name == '*ANCIENT PERSON*') var gender = Choose([0, 1])
-    else if (this.name == '*ANCIENT MAN*') var gender = 1
-    else if (this.name == '*ANCIENT WOMAN*') var gender = 0
     var str = ''
     str = Choose(['Passing', 'Walking', 'Running', 'Sitting', 'Kneeling', 'Timid', 'Dreaming', 'Swift', 'Deadly', 'Wise', 'Old', 'Young', 'Ugly', 'Bright', 'Broken', 'Fine', 'Soulful', 'Loud', 'Mad', 'Crazed', 'Unending', 'Lone', 'Sure', 'Steady', 'Hungry', 'Crafty', 'Thirsty', 'Rising', 'Falling', 'Huge', 'Magnificent', 'Deep', 'Aching', 'Mourning', 'Sweet', 'Kind', 'Comforting', 'Misshapen', 'Smiling', 'Sneaking', 'Trusted', 'Shifty', 'Furious', 'Lustful'])
     str += ' '
@@ -67,15 +70,16 @@ class Instance {
     if (gender == 1 && Rand(0, 250) == 1) str = 'Dave'
     this.name = str
        */
-      return 'GENERATE'
+      return 'GENERATE' + gender
     }
 
-    function futurePersonName () {
+    function futurePersonName (name) {
+      // Generates a futuristic first name + last name
+      let gender
+      if (name === '*FUTURE PERSON*') gender = choose([0, 1])
+      else if (name === '*FUTURE MAN*') gender = 1
+      else if (name === '*FUTURE WOMAN*') gender = 0
       /*
-    // Generates a futuristic first name + last name
-    if (this.name == '*FUTURE PERSON*') var gender = Choose([0, 1])
-    else if (this.name == '*FUTURE MAN*') var gender = 1
-    else if (this.name == '*FUTURE WOMAN*') var gender = 0
     var str = ''
     if (gender == 0) str += Choose(['Alice', 'Trillian', 'Zeria', 'Zinda', 'Myriad', 'Shosset', 'Tary', 'Wayt', 'Cassidy', 'Millanda', 'Replika', 'Simia', 'Mirrix', 'Bariona', 'Sossis', 'Kroassent', 'Five', 'Seven', 'Fourteen'])
     else if (gender == 1) str += Choose(['Bob', 'Zaphod', 'Zorvax', 'Zerebius', 'Borbon', 'Bradbury', 'Isaac', 'Werber', 'Omni', 'Robion', 'Shossur', 'Alistor', 'Clonos', 'Sorbel', 'Boodin', 'Bagget', 'Three', 'Twelve', 'Twenty'])
@@ -84,7 +88,7 @@ class Instance {
     str += Choose(['bion', 'bius', 'micus', 'bicus', 'dion', 'dius', 'billion', 'million', 'bistor', 'bostrud', 'wund', 'brox', 'biotis', 'saurus', 'boticus', 'meld', 'sweep', 'block', 'dine', 'zine', 'nople', 'neon', 'ba', 'zor', 'zar', 'klor'])
     this.name = str
        */
-      return 'GENERATE'
+      return 'GENERATE' + gender
     }
 
     function memoryText () {
@@ -295,66 +299,61 @@ class Instance {
       return 'GENERATE'
     }
 
-    const name = this.type.namegen
-    console.log(name)
+    const instanceName = this.type.namegen
 
-    if (typeof(name) !== 'string') {
+    if (typeof(instanceName) !== 'string') {
       this.name = ''
-      if (typeof(name[0]) === 'string') {
-        console.log(name[0], name)
-        this.name = choose(name)
-        console.log(this.name)
+      if (typeof(instanceName[0]) === 'string') {
+        this.name = choose(instanceName)
       } else {
-        name.forEach(part => {
+        instanceName.forEach(part => {
           this.name += choose(part)
         })
-        console.log(this.name)
       }
     } else {
-      this.name = name
+      this.name = instanceName
     }
-    console.log(this.name)
 
     let nameParts = this.name.split('|')
     this.name = nameParts[0]
 
     if (this.name === '*PERSON*' || this.name === '*MAN*' || this.name === '*WOMAN*') {
-      this.name = personName()
+      this.name = personName(this.name)
     } else if (this.name === '*MEDIEVAL PERSON*' || this.name === '*MEDIEVAL MAN*' || this.name === '*MEDIEVAL WOMAN*') {
-      this.name = medievalPersonName()
+      this.name = medievalPersonName(this.name)
     } else if (this.name === '*ANCIENT PERSON*' || this.name === '*ANCIENT MAN*' || this.name === '*ANCIENT WOMAN*') {
-      this.name = ancientPersonName()
+      this.name = ancientPersonName(this.name)
     } else if (this.name === '*FUTURE PERSON*' || this.name === '*FUTURE MAN*' || this.name === '*FUTURE WOMAN*') {
-      this.name = futurePersonName()
+      this.name = futurePersonName(this.name)
     } else if (this.name === '*MEMORY*') {
       // Memories and thoughts are a little tricky because they have to be gender-neutral (you can't go up levels to figure out if the person is male or female).
-      this.name = memoryText()
+      this.name = memoryText(this.name)
     } else if (this.name === '*SADTHOUGHT*') {
-      this.name = sadThoughtText()
+      this.name = sadThoughtText(this.name)
     } else if (this.name === '*HAPPYTHOUGHT*') {
-      this.name = happyThoughtText()
+      this.name = happyThoughtText(this.name)
     } else if (this.name === '*MEDIEVAL MEMORY*') {
-      this.name = medievalMemoryText()
+      this.name = medievalMemoryText(this.name)
     } else if (this.name === '*MEDIEVAL THOUGHT*') {
-      this.name = medievalThoughtText()
+      this.name = medievalThoughtText(this.name)
     } else if (this.name === '*ANCIENT MEMORY*') {
-      this.name = ancientMemoryText()
+      this.name = ancientMemoryText(this.name)
     } else if (this.name === '*ANCIENT THOUGHT*') {
-      this.name = ancientThoughtText()
+      this.name = ancientThoughtText(this.name)
     } else if (this.name === '*FUTURE MEMORY*') {
-      this.name = futureMemoryText()
+      this.name = futureMemoryText(this.name)
     } else if (this.name === '*FUTURE THOUGHT*') {
-      this.name = futureThoughtText()
+      this.name = futureThoughtText(this.name)
     } else if (this.name === '*PAINTING*') {
-      this.name = paintingDescription()
+      this.name = paintingDescription(this.name)
     } else if (this.name === '*NOTE*') {
-      this.name = noteDescription()
+      this.name = noteDescription(this.name)
     } else if (this.name === '*BOOK*') {
-      this.name = bookDescription()
+      this.name = bookDescription(this.name)
     } else if (this.name === '*CHAR*') {
-      this.name = charDescription()
+      this.name = charDescription(this.name)
     } else if (this.name === '*MONUMENT*') {
-      this.name = monumentDescription()
+      this.name = monumentDescription(this.name)
     }
 
     if (nameParts[1] !== undefined) this.name += nameParts[1]
