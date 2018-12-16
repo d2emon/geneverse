@@ -57,9 +57,11 @@ function CheckMissingThings () {
   }
   alert(str)
 }
+*/
 
-function Title (what) {
+export const title = (what) => {
   // Changes a string like "the cat is on the table" to "the Cat Is on the Table"
+  /*
   what = what.split(' ')
   var toReturn = ''
   for (var i in what) {
@@ -67,8 +69,11 @@ function Title (what) {
     toReturn += ' ' + what[i]
   }
   return toReturn.substring(1)
+   */
+  return what
 }
 
+/*
 function Toggle (what) {
   if (Instances[what].display == 0) {
     for (var i in Instances[what].children) {

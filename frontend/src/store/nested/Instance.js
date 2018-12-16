@@ -1,4 +1,4 @@
-import { choose, weightedChoose, rand } from './utils'
+import { choose, weightedChoose, rand, title } from './utils'
 import { things } from "./Thing"
 
 const instances = []
@@ -1029,16 +1029,103 @@ class Instance {
     }
 
     function noteDescription () {
-      let res = ''
-      /*
-    // Notes found hidden in people's pockets, etc. Can contain recipes, laundry bills, or creepy observations.
-    str += Choose([
-      Choose(["I'm sorry.", 'I regret everything.', 'I regret nothing!', "Please don't judge me.", 'I wish things went otherwise.', "I didn't know what to say.", 'Thanks for the dinner.' + Choose(['', ' It was great.', ' I enjoyed it.']), 'I have this ' + Choose(['neat', 'cool', 'awesome', 'stupid']) + ' idea for ' + Choose(['a book', 'a joke', 'a story', 'a film']) + '. It involves ' + Choose(['pirates', 'ninjas', 'dinosaurs', 'unicorns', 'robots', 'cyborgs', 'scientists', 'superheroes', 'maths']) + ', ' + Choose(['surgeons', 'penguins', 'dolphins', 'cheese', 'dragons', 'ghosts', 'kittens', 'sarcasm', 'astronomers', 'banana peels']) + ' and ' + Choose(['spaceships', 'vegetarians', 'babies', 'art', 'time travel', 'abortions', 'philosophy', 'computers', 'punctuation', 'magnets', 'geometry', 'language']) + '.', 'Socks and sandals. Because I can.', "I like shorts. They're comfy and easy to wear.", 'Ski masks are in right now.', 'Recipe for happiness :<br>1)?', "How to be happy :<br>-eat well<br>-sleep early<br>-don't ask questions", "Hey.<br>I'll show you something neat :<br>add?seed=*** to the url<br>and replace *** by whatever you want,<br>like person or bookshelf or ocean.", 'You will find the strangest things in the oddest places.', "I'd love to learn a foreign language. But they don't seem to exist...", 'Alright, how comes everybody in the universe has an american name?']),
-      Choose(['I know who you are.', 'I see you.', 'Stop looking through my stuff!', 'So, I was right after all? You were sifting through my stuff?', "They don't know where I hid it.", 'Hi!', 'Hello there!', 'Pay attention.', "I'm proud of you.", "Don't look behind you.", "It's on its way to find you now.", "Let's not get too meta.", 'we are all nested<br>we are all viewed<br>we are all viewing<br>nested<br>nesters<br>nestees<br>all is one', 'Well? Did you?', 'OH MY GOD<br>WHAT IF SOMEONE IS LOOKING AT ALL THIS RIGHT NOW', 'I found myself in a website once.', 'But for real though. Nothing is of any significance to anything. There is no overarching story. There is no grand scheme of things. There is only here and now.', 'Tell you what. None of this is randomly generated. All this data is actually being transferred from the real world.', 'Every time you refresh, a new universe is being born just for you. Think about it before you close the page.', 'Did you know? A team of 781 persons worked on this game for 11 years, painstakingly adding in every single thing they could think of.', 'aint no universe like a nested universe', 'this party gettin started or what', 'it aint stopping oh god', 'There is no Nested; only shark.', 'Nothing makes sense, and nothing ever will.', "There's no real point to anything, and that's okay.", 'Hands off, you plebeian!', 'Everything is fine. Everything is fine. Everything is fine. There is nothing to worry about. Nothing at all.', "I have a secret for you. Wait no, I don't.", "Tell me a secret. Wait. I don't care.", '(The note is ' + Choose(['burnt', 'partly-burnt', 'washed-off', 'bleached', 'covered in scribblings', 'covered in strange symbols', 'covered in intricate patterns', 'covered in densely-written instructions']) + ' and indecipherable.)', 'This universe is so. Very. Large.', Choose(['A', 'B', 'C', 'D', 'E', 'F', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']) + Rand(0, 9) + '' + Rand(0, 9) + '' + Rand(0, 9) + '' + Rand(0, 9) + '']),
-      Choose(['Laundry service : $' + Rand(10, 50) + '.' + Rand(0, 9) + '0']),
-      Choose(['Recipe :<br>-' + Choose(['toast', 'bagel', 'breadstick', 'garlic bread', 'pita', 'taco shell']) + '<br>-' + Choose(['eggs', 'ground beef', 'fries', 'ice cream', 'mashed potatoes']) + '<br>-' + Choose(['chocolate syrup', 'whipped cream', 'cheese', 'mayonaise', 'vinegar', 'tabasco', 'cough syrup', 'soy sauce'])])
-    ])
-       */
+      // Notes found hidden in people's pockets, etc. Can contain recipes, laundry bills, or creepy observations.
+      const res = choose([
+        choose([
+          "I'm sorry.", 'I regret everything.', 'I regret nothing!', "Please don't judge me.",
+          'I wish things went otherwise.', "I didn't know what to say.",
+          'Thanks for the dinner.' + choose(['', ' It was great.', ' I enjoyed it.']),
+          'I have this ' +
+            choose(['neat', 'cool', 'awesome', 'stupid']) +
+            ' idea for ' +
+            choose(['a book', 'a joke', 'a story', 'a film']) +
+            '. It involves ' +
+            choose([
+              'pirates', 'ninjas', 'dinosaurs', 'unicorns', 'robots', 'cyborgs', 'scientists', 'superheroes', 'maths'
+            ]) +
+            ', ' +
+            choose([
+              'surgeons', 'penguins', 'dolphins', 'cheese', 'dragons', 'ghosts', 'kittens', 'sarcasm', 'astronomers',
+              'banana peels'
+            ]) +
+            ' and ' +
+            choose([
+              'spaceships', 'vegetarians', 'babies', 'art', 'time travel', 'abortions', 'philosophy', 'computers',
+              'punctuation', 'magnets', 'geometry', 'language'
+            ]) +
+            '.',
+          'Socks and sandals. Because I can.', "I like shorts. They're comfy and easy to wear.",
+          'Ski masks are in right now.',
+          'Recipe for happiness :<br>1)?',
+          "How to be happy :<br>-eat well<br>-sleep early<br>-don't ask questions",
+          "Hey.<br>I'll show you something neat :<br>add?seed=*** to the url<br>" +
+            'and replace *** by whatever you want,<br>like person or bookshelf or ocean.',
+          'You will find the strangest things in the oddest places.',
+          "I'd love to learn a foreign language. But they don't seem to exist...",
+          'Alright, how comes everybody in the universe has an american name?'
+        ]),
+        choose([
+          'I know who you are.', 'I see you.', 'Stop looking through my stuff!',
+          'So, I was right after all? You were sifting through my stuff?', "They don't know where I hid it.", 'Hi!',
+          'Hello there!', 'Pay attention.', "I'm proud of you.", "Don't look behind you.",
+          "It's on its way to find you now.", "Let's not get too meta.",
+          'we are all nested<br>we are all viewed<br>we are all viewing<br>nested<br>nesters<br>nestees<br>all is one',
+          'Well? Did you?', 'OH MY GOD<br>WHAT IF SOMEONE IS LOOKING AT ALL THIS RIGHT NOW',
+          'I found myself in a website once.',
+          'But for real though. Nothing is of any significance to anything. There is no overarching story. ' +
+            'There is no grand scheme of things. There is only here and now.',
+          'Tell you what. None of this is randomly generated. All this data is actually being transferred from the ' +
+            'real world.',
+          'Every time you refresh, a new universe is being born just for you. Think about it before you close the ' +
+            'page.',
+          'Did you know? A team of 781 persons worked on this game for 11 years, painstakingly adding in every ' +
+            'single thing they could think of.',
+          'aint no universe like a nested universe', 'this party gettin started or what', 'it aint stopping oh god',
+          'There is no Nested; only shark.', 'Nothing makes sense, and nothing ever will.',
+          "There's no real point to anything, and that's okay.", 'Hands off, you plebeian!',
+          'Everything is fine. Everything is fine. Everything is fine. There is nothing to worry about. ' +
+            'Nothing at all.',
+          "I have a secret for you. Wait no, I don't.", "Tell me a secret. Wait. I don't care.",
+          '(The note is ' +
+            choose([
+              'burnt', 'partly-burnt', 'washed-off', 'bleached', 'covered in scribblings',
+              'covered in strange symbols', 'covered in intricate patterns',
+              'covered in densely-written instructions'
+            ]) +
+            ' and indecipherable.)',
+          'This universe is so. Very. Large.',
+          choose([
+            'A', 'B', 'C', 'D', 'E', 'F', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+            'Y', 'Z'
+          ]) +
+            rand(0, 9) +
+            '' +
+            rand(0, 9) +
+            '' +
+            rand(0, 9) +
+            '' +
+            rand(0, 9) +
+            ''
+        ]),
+        choose([
+          'Laundry service : $' +
+            rand(10, 50) +
+            '.' +
+            rand(0, 9) +
+            '0'
+        ]),
+        choose([
+          'Recipe :<br>-' +
+            choose(['toast', 'bagel', 'breadstick', 'garlic bread', 'pita', 'taco shell']) +
+            '<br>-' +
+            choose(['eggs', 'ground beef', 'fries', 'ice cream', 'mashed potatoes']) +
+            '<br>-' +
+            choose([
+              'chocolate syrup', 'whipped cream', 'cheese', 'mayonaise', 'vinegar', 'tabasco', 'cough syrup',
+              'soy sauce'
+            ])
+        ])
+      ])
       return `"${res}"`
     }
 
@@ -1258,41 +1345,67 @@ class Instance {
             'scientist', 'doctor', 'car salesman', 'baker', 'butcher', 'cop', 'minister'
           ])
       ])
-      if (rand(0, 10) === 0)
+      if (rand(0, 10) === 0) {
         res += ', ' +
           choose(['Part', 'Tome', 'Volume']) +
           ' ' +
           choose(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'])
-      /*
-      this.name = Title(str)
-       */
-      return res
+      }
+      return title(res)
     }
 
     function charDescription () {
-
-      let res = ''
-      /*
-    str = "aaaabbccddeeeeffgghhhiijkkllmmnnooppqqrrrssstttuuvwwxyz.,;!?:()-'"
-    if (Rand(0, 20) == 0) str += '0123456789*$/#&'
-    str = str.split('')
-    str = Choose(str)
-    if (Rand(0, 30) == 0) str = str.toUpperCase()
-       */
+      let res = "aaaabbccddeeeeffgghhhiijkkllmmnnooppqqrrrssstttuuvwwxyz.,;!?:()-'"
+      if (rand(0, 20) === 0) res += '0123456789*$/#&'
+      res = res.split('')
+      res = choose(res)
+      if (rand(0, 30) === 0) res = res.toUpperCase()
       return res
     }
 
     function monumentDescription () {
-
-      let res = ''
-      /*
-    str += Choose([
-      Choose([Choose([WeightedChoose(['old', 'new', 'ancient', 'historic', 'royal', 'imperial', 'sunken', 'painted', 'crooked', 'slanted', 'high', 'rising', 'underground', 'immersed', 'twisted', 'shaky', 'lucky', 'glorious', 'flying'], 2), WeightedChoose(['great', 'big', 'large', 'giant', 'huge', 'grand', 'gigantic', 'colossal', 'tremendous', 'humongous'], 0.5)]) + ' ']) + Choose(['', '', '', Choose(['stone', 'gold', 'silver', 'copper', 'bronze', 'metal', 'white', 'black', 'blue', 'green', 'yellow', 'red', 'grey', 'crimson', 'azure', 'viridian']) + ' ']) + WeightedChoose(['tower', Choose(['', 'smiling ', 'proud ', 'wise ', 'horse ', 'freedom ', 'watching ', 'crying ', 'singing ']) + 'statue', 'bridge', 'park', 'towers', 'palace', 'statues', 'gardens', 'parks', 'cathedral', 'ruins', 'wall', 'church', 'maze', 'castle', 'radio tower', 'arena', 'keep', 'colossus', 'space needle', 'house', 'villa', 'manor', 'dungeon', 'opera', 'pyramid', 'cave', 'ark', 'wheel'], 5)
-    ])
-    str = 'The ' + str
-    this.name = Title(str)
-       */
-      return res
+      let res = choose([
+        choose([
+          choose([
+            weightedChoose(
+              [
+                'old', 'new', 'ancient', 'historic', 'royal', 'imperial', 'sunken', 'painted', 'crooked', 'slanted',
+                'high', 'rising', 'underground', 'immersed', 'twisted', 'shaky', 'lucky', 'glorious', 'flying'
+              ],
+              2
+            ),
+            weightedChoose(
+              [
+                'great', 'big', 'large', 'giant', 'huge', 'grand', 'gigantic', 'colossal', 'tremendous', 'humongous'
+              ],
+              0.5
+            )
+          ]) +
+            ' '
+        ]) +
+          choose([
+            '', '', '',
+            choose([
+              'stone', 'gold', 'silver', 'copper', 'bronze', 'metal', 'white', 'black', 'blue', 'green', 'yellow',
+              'red', 'grey', 'crimson', 'azure', 'viridian'
+            ]) +
+              ' '
+          ]) +
+            weightedChoose(
+              [
+                'tower',
+                choose([
+                  '', 'smiling ', 'proud ', 'wise ', 'horse ', 'freedom ', 'watching ', 'crying ', 'singing '
+                ]) +
+                  'statue',
+                'bridge', 'park', 'towers', 'palace', 'statues', 'gardens', 'parks', 'cathedral', 'ruins', 'wall',
+                'church', 'maze', 'castle', 'radio tower', 'arena', 'keep', 'colossus', 'space needle', 'house',
+                'villa', 'manor', 'dungeon', 'opera', 'pyramid', 'cave', 'ark', 'wheel'
+              ],
+              5
+            )
+      ])
+      return title(`The ${res}`)
     }
 
     const instanceName = this.type.namegen
