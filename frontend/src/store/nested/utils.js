@@ -61,16 +61,12 @@ function CheckMissingThings () {
 
 export const title = (what) => {
   // Changes a string like "the cat is on the table" to "the Cat Is on the Table"
-  /*
-  what = what.split(' ')
-  var toReturn = ''
-  for (var i in what) {
-    if (what[i] != 'of' && what[i] != 'in' && what[i] != 'on' && what[i] != 'and' && what[i] != 'the' && what[i] != 'an' && what[i] != 'a' && what[i] != 'with' && what[i] != 'to' && what[i] != 'for') what[i] = what[i].substring(0, 1).toUpperCase() + what[i].substring(1)
-    toReturn += ' ' + what[i]
-  }
-  return toReturn.substring(1)
-   */
-  return what
+  const words = what.split(' ')
+  const ignore = ['of', 'in', 'on', 'and', 'the', 'an', 'a', 'with', 'to', 'for']
+  return words.reduce((res, word) => {
+    if (ignore.indexOf(word) >= 0) return res
+    return res + ' ' + word.substring(0, 1).toUpperCase() + word.substring(1)
+  }, '').substring(1)
 }
 
 /*

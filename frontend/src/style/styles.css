@@ -27,9 +27,7 @@
 .style-6 .thing a {color:#fff;}
 .style-6 .thing a:active {background:#fff;color:#000;}
 
-/*
 .style-7 {background:url(UniverseBG.jpg);}
-*/
 .style-7 .thing {border-color:#fff;border-width:1px;background:transparent;color:#fff;box-shadow:0px 0px 8px #428,0px 0px 4px #fff inset;}
 .style-7 .thing a {color:#fff;background:rgba(0,0,0,0.5);}
 .style-7 .thing a:hover, .thing a:hover .arrow {background:#fff;color:#000;}
