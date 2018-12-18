@@ -194,6 +194,24 @@ export const happyThoughtText = () => {
       ]
     )
   ].join(' ')
+  const likeFood = [
+    choose(
+      ['I really, really like', "I can't get enough of", "I'm going to get more of", 'I wonder what they put in']
+    ),
+    choose(
+      [
+        'this hamburger', 'this steak', 'this salad', 'this pasta', 'this sandwich', 'this pizza', 'this meal',
+        'this beer', 'this soda'
+      ]
+    )
+  ].join(' ')
+  const likeShow = choose(
+    [
+      'Haha, I love that show!', 'That show is confusing!', 'That show is hilarious.',
+      "That's a silly show, but there's nothing on TV anyway.", 'Oooh, my parents used to watch that show!',
+      "There's nothing on TV!", "That movie's plot is hilariously bad.", "I've never seen that movie before!"
+    ]
+  )
 
   const thought1 = choose(
     [
@@ -237,23 +255,8 @@ export const happyThoughtText = () => {
   )
   const thought5 = choose(
     [
-      choose(
-        [
-          'I really, really like', "I can't get enough of", "I'm going to get more of", 'I wonder what they put in'
-        ]
-      ) + ' ' + choose(
-        [
-          'this hamburger', 'this steak', 'this salad', 'this pasta', 'this sandwich', 'this pizza', 'this meal',
-          'this beer', 'this soda'
-        ]
-      ) + '.',
-      choose(
-        [
-          'Haha, I love that show!', 'That show is confusing!', 'That show is hilarious.',
-          "That's a silly show, but there's nothing on TV anyway.", 'Oooh, my parents used to watch that show!',
-          "There's nothing on TV!", "That movie's plot is hilariously bad.", "I've never seen that movie before!"
-        ]
-      )
+      `${likeFood}.`,
+      likeShow
     ]
   )
 
@@ -270,187 +273,205 @@ export const happyThoughtText = () => {
 }
 
 export const medievalThoughtText = () => {
-  return weightedChoose(
+  const profession = choose(
+    ['an adventurer', 'a bandit', 'a traveller', 'a travelling merchant', 'a hunter', 'a courrier']
+  )
+  const encounter = choose(
+    ['witch', 'ambush years ago', 'dragon', 'new king', 'stupid accident', 'unfortunate wound']
+  )
+  const prepare = choose(['ready my spells', 'grab my sword', 'grab my axe', 'grab my shield', 'pack my things'])
+  const tale = choose(['compose a sonnet', 'tell the tale', 'write a saga', 'compose a song'])
+  const plot = [
+    choose(
+      [
+        'witches', 'princesses', 'adventure', 'fate', 'distant kingdoms', 'unicorns', 'knights', 'bards', 'swords',
+        'love'
+       ]
+    ),
+    choose(
+      [
+        'wizards', 'princes', 'dragons', 'magic', 'paladins', 'warlocks', 'dungeons', 'destruction', 'monsters',
+        'friendship'
+      ]
+    )
+  ].join(' and ')
+  const travel = choose(
     [
-          choose([
-            'Today was a fine day.', 'Many things happened on this day.', 'What an eventful week this has been.',
-            "It's been a good year so far.", 'So much to do, so little time.', 'I was born too soon.',
-            "I'm still young. I'll manage.",
-            'I would still be ' +
-              choose([
-                'an adventurer', 'a bandit', 'a traveller', 'a travelling merchant', 'a hunter', 'a courrier'
-              ]) +
-              ' if not for that ' +
-              choose([
-                'witch', 'ambush years ago', 'dragon', 'new king', 'stupid accident', 'unfortunate wound'
-              ]) +
-              '.',
-            'What a surprising world we live in.', "Hopefully next year's crops will be fruitful.",
-            'What hides yonder?', 'What lies yonder, I wonder.', 'So many things out of my comprehension.',
-            'I want to see more of this world.', 'I am sworn to carry this burden.',
-            "I'll " +
-              choose(['ready my spells', 'grab my sword', 'grab my axe', 'grab my shield', 'pack my things']) +
-              ' and go on an adventure.',
-            'I will ' +
-              choose(['compose a sonnet', 'tell the tale', 'write a saga', 'compose a song']) +
-              ' of ' +
-              choose([
-                'witches', 'princesses', 'adventure', 'fate', 'distant kingdoms', 'unicorns', 'knights', 'bards',
-                'swords', 'love'
-              ]) +
-              ' and ' +
-              choose([
-                'wizards', 'princes', 'dragons', 'magic', 'paladins', 'warlocks', 'dungeons', 'destruction',
-                'monsters', 'friendship'
-              ]) +
-              '!',
-            'I want to travel and see ' +
-              choose([
-                'the unicorns', 'the dinosaurs', 'a dragon', 'the steam monsters', 'the goblin kingdoms',
-                'the dwarves in the mountains', 'pixies', 'fairies', 'catpeople', 'sharkpeople', 'dogpeople',
-                'the troll pits', 'the wizard kingdom', 'the footfaces', 'the cephalites', 'the gembabies'
-              ]) +
-              '!',
-            'What strange and terrifying creatures could live in the distant lands?',
-            "I've heard so many stories about the things that live in the farlands.",
-            'Thank our star, I feel fine now.',
-            choose(['She', 'He', 'They']) +
-              ' ' +
-              choose([
-                'will regret it', 'will regret saying that', 'will regret doing that', 'must pay, somehow',
-                "will get what's coming", 'will get what is deserved', 'will see how right I was',
-                'will not hold me back any longer', 'will regret laughing at me'
-              ]) +
-              '.',
-            choose([
-              'Our star will guide us throughout.', 'I trust our star to guide us in the right direction.',
-              'I trust our star to point us to the right choices.'
-            ]),
-            'I need to ' +
-              choose(['find', 'see', 'consult']) +
-              ' ' +
-              choose(['a physician', 'a witch', 'a wizard', 'an apothecary', 'an exorcist', 'a priest']) +
-              '.',
-            choose([
-              'What is that smoke on the horizon?', 'That new moon keeps getting bigger.',
-              'Will the court wizards keep us safe?', 'The Entities are due soon.',
-              "All of our cattle is getting sick. What's happening?",
-              "I don't want to take part in another sacrifice.", "Let's hope that sacrifice was worth it.",
-              'I hate those dark rituals.', 'I hope the liches will leave us alone this year.',
-              'I keep finding these weird stones.', 'Some must fight, so that all may be free.'
-            ])
-          ])
-    ],
+      'the unicorns', 'the dinosaurs', 'a dragon', 'the steam monsters', 'the goblin kingdoms',
+      'the dwarves in the mountains', 'pixies', 'fairies', 'catpeople', 'sharkpeople', 'dogpeople', 'the troll pits',
+      'the wizard kingdom', 'the footfaces', 'the cephalites', 'the gembabies'
+    ]
+  )
+  const regret = [
+    choose(['She', 'He', 'They']),
+    choose(
+      [
+        'will regret it', 'will regret saying that', 'will regret doing that', 'must pay, somehow',
+        "will get what's coming", 'will get what is deserved', 'will see how right I was',
+        'will not hold me back any longer', 'will regret laughing at me'
+      ]
+    )
+  ].join(' ')
+  const star = choose(
+    [
+      'Our star will guide us throughout.', 'I trust our star to guide us in the right direction.',
+      'I trust our star to point us to the right choices.'
+    ]
+  )
+  const doctor = [
+    choose(['find', 'see', 'consult']),
+    choose(['a physician', 'a witch', 'a wizard', 'an apothecary', 'an exorcist', 'a priest'])
+  ].join(' ')
+  const future = choose(
+    [
+      'What is that smoke on the horizon?', 'That new moon keeps getting bigger.',
+      'Will the court wizards keep us safe?', 'The Entities are due soon.',
+      "All of our cattle is getting sick. What's happening?", "I don't want to take part in another sacrifice.",
+      "Let's hope that sacrifice was worth it.", 'I hate those dark rituals.',
+      'I hope the liches will leave us alone this year.', 'I keep finding these weird stones.',
+      'Some must fight, so that all may be free.'
+    ]
+  )
+
+  const thought = choose(
+    [
+      'Today was a fine day.', 'Many things happened on this day.', 'What an eventful week this has been.',
+      "It's been a good year so far.", 'So much to do, so little time.', 'I was born too soon.',
+      "I'm still young. I'll manage.", `I would still be ${profession} if not for that ${encounter}.`,
+      'What a surprising world we live in.', "Hopefully next year's crops will be fruitful.", 'What hides yonder?',
+      'What lies yonder, I wonder.', 'So many things out of my comprehension.', 'I want to see more of this world.',
+      'I am sworn to carry this burden.', `I'll ${prepare} and go on an adventure.`, `I will ${tale} of ${plot}!`,
+      `I want to travel and see ${travel}!`, 'What strange and terrifying creatures could live in the distant lands?',
+      "I've heard so many stories about the things that live in the farlands.", 'Thank our star, I feel fine now.',
+      `${regret}.`, star, `I need to ${doctor}.`, future
+    ]
+  )
+  return weightedChoose(
+    [thought],
     1.1
   )
 }
 
 export const ancientThoughtText = () => {
-  return weightedChoose(
+  const must = choose(
     [
-          choose([
-            'Today. Nice day.', 'Many things, today.', 'Good year so far. Not many dead children.',
-            "I sure hope wolves don't eat my baby again.", 'Family comes back from hunt soon. Right?',
-            'Busy. Always busy.', 'I was born too soon.', 'I am young still. So much to learn!',
-            'I must stay home because of wound. Total baloney.', 'Spoiled meat and no fire is utter baloney.',
-            'Beasts are getting scarce. Absolute baloney.', 'The spirits must hate me. Only explanation.',
-            'Oh, my aching head.', "No. I don't want.", 'This displeases me.',
-            'Sun setting soon. Must ready the fire.', "We mustn't do that mistake with the fire again.",
-            'We live in surprising world.', 'Many more hunts to come.', 'What lies beyond hills?',
-            'Does sun sleep behind mountains?', 'I do not comprehend many things. But I will try.',
-            'This world. I want to see more of it.',
-            'I must ' +
-              choose([
-                'sharpen spears for next hunt', 'prepare for next hunt', 'tend to my children now',
-                'get ready for big hunt', 'get tools ready for tomorrow'
-              ]) +
-              '.',
-            'I am curious. About distant things.', "I don't feel so sick anymore.", "I won't eat raw rabbit again.",
-            choose(['She', 'He', 'They']) +
-              ' ' +
-              choose([
-                'will regret it', 'will regret saying that', 'will regret doing that', 'must pay',
-                "will get what's coming", 'will get what is deserved', 'will see how right I was',
-                'will not hold me back any longer', 'will regret laughing at me'
-              ]) +
-              '.',
-            choose([
-              'Our shaman will guide us throughout.', 'I trust our shaman to guide us in the right direction.',
-              'I trust our shaman to point us to the right choices.', 'Where has our shaman gone now?',
-              'I must consult our shaman.'
-            ]),
-            choose([
-              'What is smoke on horizon?', 'Moon... getting bigger.', 'Will our shaman keep us safe?',
-              'The Old Things come back soon.', 'All the beasts, they are getting sick. What is happening?',
-              'I do not want to take part in another sacrifice.', 'Let us hope sacrifice was worth it.',
-              'I do not like those dark rituals.', 'I hope the Old Things will leave us alone this year.',
-              'I keep finding these strange stones.', 'I saw the lights. But nobody believes me.',
-              'Oh boy. Shamanic ritual soon. We eat funny mushrooms.',
-              'Have ritual. Smoke plants. All get naked. Good times.', 'I shake fist at you, spirits!'
-            ]),
-            'I have great idea! ' +
-              choose([
-                'Round stone. Rolls fast, make transportation!', 'Shiny rocks. Melt on fire, make weapons!',
-                'Hungry wolves. Make friends, hunt for us!', 'Wild seeds. Plant in ground, harvest later!',
-                'Babies. Eat the babies. Free meat!', 'Tickle auroch udder, drink free udderjuice!',
-                'Smash rocks found on the beach. Eat insides.'
-              ])
-          ])
-    ],
+      'sharpen spears for next hunt', 'prepare for next hunt', 'tend to my children now', 'get ready for big hunt',
+      'get tools ready for tomorrow'
+    ]
+  )
+  const regret = [
+    choose(['She', 'He', 'They']),
+    choose(
+      [
+        'will regret it', 'will regret saying that', 'will regret doing that', 'must pay', "will get what's coming",
+        'will get what is deserved', 'will see how right I was', 'will not hold me back any longer',
+        'will regret laughing at me'
+      ]
+    )
+  ].join(' ')
+  const shaman = choose(
+    [
+      'Our shaman will guide us throughout.', 'I trust our shaman to guide us in the right direction.',
+      'I trust our shaman to point us to the right choices.', 'Where has our shaman gone now?',
+      'I must consult our shaman.'
+    ]
+  )
+  const future = choose(
+    [
+      'What is smoke on horizon?', 'Moon... getting bigger.', 'Will our shaman keep us safe?',
+      'The Old Things come back soon.', 'All the beasts, they are getting sick. What is happening?',
+      'I do not want to take part in another sacrifice.', 'Let us hope sacrifice was worth it.',
+      'I do not like those dark rituals.', 'I hope the Old Things will leave us alone this year.',
+      'I keep finding these strange stones.', 'I saw the lights. But nobody believes me.',
+      'Oh boy. Shamanic ritual soon. We eat funny mushrooms.',
+      'Have ritual. Smoke plants. All get naked. Good times.', 'I shake fist at you, spirits!'
+    ]
+  )
+  const idea = choose(
+    [
+      'Round stone. Rolls fast, make transportation!', 'Shiny rocks. Melt on fire, make weapons!',
+      'Hungry wolves. Make friends, hunt for us!', 'Wild seeds. Plant in ground, harvest later!',
+      'Babies. Eat the babies. Free meat!', 'Tickle auroch udder, drink free udderjuice!',
+      'Smash rocks found on the beach. Eat insides.'
+    ]
+  )
+
+  const thought = choose(
+    [
+      'Today. Nice day.', 'Many things, today.', 'Good year so far. Not many dead children.',
+      "I sure hope wolves don't eat my baby again.", 'Family comes back from hunt soon. Right?', 'Busy. Always busy.',
+      'I was born too soon.', 'I am young still. So much to learn!',
+      'I must stay home because of wound. Total baloney.', 'Spoiled meat and no fire is utter baloney.',
+      'Beasts are getting scarce. Absolute baloney.', 'The spirits must hate me. Only explanation.',
+      'Oh, my aching head.', "No. I don't want.", 'This displeases me.', 'Sun setting soon. Must ready the fire.',
+      "We mustn't do that mistake with the fire again.", 'We live in surprising world.', 'Many more hunts to come.',
+      'What lies beyond hills?', 'Does sun sleep behind mountains?',
+      'I do not comprehend many things. But I will try.', 'This world. I want to see more of it.', `I must ${must}.`,
+      'I am curious. About distant things.', "I don't feel so sick anymore.", "I won't eat raw rabbit again.",
+      `${regret}.`, shaman, future, `I have great idea! ${idea}`
+    ]
+  )
+  return weightedChoose(
+    [thought],
     1.1
   )
 }
 
 export const futureThoughtText = () => {
-  return weightedChoose(
+  const need = [
+    choose(['Needs', 'What this planet needs is', 'What we need as a species is', 'What I need is']),
+    choose(
+      [
+        'more clones', 'more clams', 'more magnets', 'more nano', 'more nanostuff', 'more food pill flavors',
+        'more planets', 'more revived extinct species'
+      ]
+    )
+  ].join(' ')
+  const sintez = choose(
     [
-          choose([
-            "That's nice... that's really nice.", 'All of this stuff is so nice.', 'So nice, wow.',
-            'I need a couple decades on an exotic planet to cool off.',
-            "Oh boy, they've come up with a new food pill flavor!", 'Which food pills will I be ingesting today?',
-            'Who where?', 'Those are nice limbs. I bet they cost, uh, a lot, though.',
-            "I think I'll need more nanocredits.", "We've come a long way.", 'What will we discover tomorrow?',
-            'This system is getting cramped.', 'I wonder - can we ever reverse entropy?',
-            "Meatspace's getting stale for me.", "I'm still at least " + rand(5, 90) + '% meat!',
-            "I think I'll go visit some biorelatives.", 'Ugh. My biocontributors are visiting again.',
-            "One day I'll just upload myself.",
-            choose([
-              'Needs', 'What this planet needs is', 'What we need as a species is', 'What I need is'
-            ]) +
-              ' ' +
-              choose([
-                'more clones', 'more clams', 'more magnets', 'more nano', 'more nanostuff', 'more food pill flavors',
-                'more planets', 'more revived extinct species'
-              ]) +
-              '.',
-            'These last few centuries have been a little boring.', "I'll say, I'm a little bit bored.",
-            "I don't really give a clam's hinge.", "Everything's so nano.", "That's totally nano.",
-            "I wonder, where's my nanobro right now?", "I hope we don't get assimilated.",
-            "I'm synthesizing " +
-              choose([
-                'dinosaurs', 'trilobites', 'businessmen', 'birds', 'cavemen', 'clones', 'forbidden food',
-                'more nanogoo', 'moonclams', 'my own clone', 'a synthesizing machine', 'nanocredits'
-              ]) +
-              ' and nobody can stop me!',
-            'I think I lost my ' +
-              choose([
-                'wall-vibrating device', 'transponder', 'synchotron', 'pocket biano', 'blitar', 'praxophone',
-                'moonclam', 'ID key'
-              ]) +
-              '.',
-            'Time for ' +
-              choose([
-                'a new brainlobe', 'my nanomolting', 'a new arm', 'a new leg', 'a new pelvis', 'a new face',
-                'a new nanomate', 'my yearly checkup', 'some sprowsing', 'a good old videoverse'
-              ]) +
-              '!',
-            choose([
-              "That videoverse's plot is barely believable.", 'That videoverse has some nicely-written characters.',
-              'I think this videoverse is too large for me.', "I'm getting lost in this videoverse.",
-              "I can't view this videoverse anymore. Way too scary.", "I can't stop crying at that videoverse..."
-            ])
-          ])
-    ],
+      'dinosaurs', 'trilobites', 'businessmen', 'birds', 'cavemen', 'clones', 'forbidden food', 'more nanogoo',
+      'moonclams', 'my own clone', 'a synthesizing machine', 'nanocredits'
+    ]
+  )
+  const loose = choose(
+    [
+      'wall-vibrating device', 'transponder', 'synchotron', 'pocket biano', 'blitar', 'praxophone', 'moonclam',
+      'ID key'
+    ]
+  )
+  const part = choose(
+    [
+      'a new brainlobe', 'my nanomolting', 'a new arm', 'a new leg', 'a new pelvis', 'a new face', 'a new nanomate',
+      'my yearly checkup', 'some sprowsing', 'a good old videoverse'
+    ]
+  )
+  const videoverse = choose(
+    [
+      "That videoverse's plot is barely believable.", 'That videoverse has some nicely-written characters.',
+      'I think this videoverse is too large for me.', "I'm getting lost in this videoverse.",
+      "I can't view this videoverse anymore. Way too scary.", "I can't stop crying at that videoverse..."
+    ]
+  )
+
+  const thought = choose(
+    [
+      "That's nice... that's really nice.", 'All of this stuff is so nice.', 'So nice, wow.',
+      'I need a couple decades on an exotic planet to cool off.',
+      "Oh boy, they've come up with a new food pill flavor!", 'Which food pills will I be ingesting today?',
+      'Who where?', 'Those are nice limbs. I bet they cost, uh, a lot, though.', "I think I'll need more nanocredits.",
+      "We've come a long way.", 'What will we discover tomorrow?', 'This system is getting cramped.',
+      'I wonder - can we ever reverse entropy?', "Meatspace's getting stale for me.",
+      `I'm still at least ${rand(5, 90)}% meat!`, "I think I'll go visit some biorelatives.",
+      'Ugh. My biocontributors are visiting again.', "One day I'll just upload myself.", `${need}.`,
+      'These last few centuries have been a little boring.', "I'll say, I'm a little bit bored.",
+      "I don't really give a clam's hinge.", "Everything's so nano.", "That's totally nano.",
+      "I wonder, where's my nanobro right now?", "I hope we don't get assimilated.",
+      `I'm synthesizing ${sintez} and nobody can stop me!`, `I think I lost my ${loose}.`, `Time for ${part}!`,
+      videoverse
+    ]
+  )
+  return weightedChoose(
+    [thought],
     1.5
   )
 }
