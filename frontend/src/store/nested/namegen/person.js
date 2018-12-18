@@ -146,7 +146,7 @@ export const ancientPersonName = (template) => {
   return `${firstname} ${lastname}`
 }
 
-export const futurePersonName = (name) => {
+export const futurePersonName = (template) => {
   // Generates a futuristic first name + last name
   let gender
   if (template === '*FUTURE PERSON*') gender = choose([0, 1])
