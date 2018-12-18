@@ -48,9 +48,9 @@ export const memoryText = () => {
     rand(7, 21)
   ]
 
-  const play = () => choose(['piano', 'drums', 'guitar', 'saxophone', 'cards'])
+  const play = choose(['piano', 'drums', 'guitar', 'saxophone', 'cards'])
   const subjects = [
-    'drive', 'cook', 'love', 'kiss', 'read', 'forgive', 'make friends', 'speak another language', `play ${play()}`
+    'drive', 'cook', 'love', 'kiss', 'read', 'forgive', 'make friends', 'speak another language', `play ${play}`
   ]
   const graduates = ['graduated high school', 'graduated college', 'got my license']
   const jobs = {
@@ -234,7 +234,7 @@ export const futureMemoryText = () => {
   ]
   const ages = ['a kid', 'younger', rand(30, 120)]
 
-  const play = () => choose(['biano', 'prums', 'blitar', 'praxophone', 'videocards'])
+  const play = choose(['biano', 'prums', 'blitar', 'praxophone', 'videocards'])
   const subjects = [
     'sprowse a ship', 'cook the old-timey way', 'love', 'kiss', 'forgive', 'forget', 'make friends on the nanoverse',
     'speak my hundredth language', `play ${play}`
