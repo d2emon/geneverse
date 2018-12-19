@@ -6,8 +6,9 @@
       :alt="`archetype : ${thing.type.name}`"
       :title="`archetype : ${thing.type.name}`"
     >
-      <span class="arrow" :id="`arrow${thing.n}`">{{arrowText}}</span> {{thing.name}}
+      <span class="arrow" :id="`arrow${thing.n}`"><!-- v-icon>{{arrowIcon}}</v-icon -->{{arrowText}}</span> {{thing.name}}
     </a>
+    <v-btn icon :to="`/nested-item/${thing.type.name}`"><v-icon>visibility</v-icon></v-btn>
     <div
       v-if="thing.children && thing.children.length"
       :id="`container${thing.n}`"
@@ -26,6 +27,9 @@
 </template>
 
 <script>
+const iconOpen = 'check_box_outline_blank'
+const iconClosed = 'indeterminate_check_box'
+
 export default {
   name: 'NestedThing',
   props: [
@@ -34,6 +38,7 @@ export default {
   data: () => ({
     display: false,
     displayContainer: false,
+    arrowIcon: iconClosed,
     arrowText: '+'
   }),
   methods: {
@@ -46,10 +51,12 @@ export default {
         })
         this.display = true
         this.displayContainer = true
+        this.arrowIcon = iconOpen
         this.arrowText = '-'
       } else {
         this.display = false
         this.displayContainer = false
+        this.arrowIcon = iconClosed
         this.arrowText = '+'
       }
     }

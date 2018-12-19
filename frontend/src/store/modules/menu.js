@@ -2,7 +2,7 @@ const state = {
   items: [
     {
       icon: 'format_list_bulleted',
-      title: 'Nested',
+      title: 'Multiverse',
       to: '/generate/multiverse'
     },
     {
@@ -19,6 +19,11 @@ const state = {
       icon: 'list',
       title: 'Nested',
       to: '/nested'
+    },
+    {
+      icon: 'list',
+      title: 'Nested Item',
+      to: '/nested-item/multiverse'
     },
     {
       icon: 'account_box',

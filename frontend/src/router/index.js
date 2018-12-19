@@ -8,6 +8,7 @@ import {
   UniversePage,
   SuperclusterPage,
   Nested,
+  NestedItem,
   DollPage,
   VideoGame
 } from '@/pages/'
@@ -24,6 +25,11 @@ export default new Router({
       path: '/nested',
       name: 'Nested',
       component: Nested
+    },
+    {
+      path: '/nested-item/:item',
+      name: 'NestedItem',
+      component: NestedItem
     },
     {
       path: '/doll',
@@ -47,15 +53,16 @@ export default new Router({
     },
     {
       path: '/space',
-      name: 'Space',
+      // name: 'Space',
       component: Space,
       children: [
         {
           path: '',
+          name: 'Space',
           redirect: '/space/multiverse'
         },
         {
-          path: 'multiverse',
+          path: 'multiverse/:id?',
           name: 'Multiverse',
           component: MultiversePage
         },
