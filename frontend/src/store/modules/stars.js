@@ -3,6 +3,12 @@ import axios from 'axios'
 const apiUrl = 'http://localhost:5000/api/v1.0'
 // const api = process.env.API_BASE_URL
 
+function fromApi (thing, payload) {
+  payload = payload || {}
+  const url = payload.id ? `${apiUrl}/${thing}-${payload.id}` : `${apiUrl}/${thing}`
+  return axios.get(payload.data ? `${url}?${payload.data}` : url)
+}
+
 const state = {
   multiverse: {},
   universe: {},
@@ -30,24 +36,22 @@ const mutations = {
 }
 
 const actions = {
-  loadMultiverse: (context) => {
-    axios.get(`${apiUrl}/multiverse`)
+  loadMultiverse: (context, payload) => {
+    fromApi('multiverse', payload)
       .then(response => {
         context.commit('setMultiverse', response.data.multiverse)
         context.commit('setUniverses', response.data.universes)
       })
   },
   loadUniverse: (context, payload) => {
-    payload = payload || {}
-    axios.get(`${apiUrl}/universe-${payload.id}`)
+    fromApi('universe', payload)
       .then(response => {
         context.commit('setUniverse', response.data.universe)
         context.commit('setClusters', response.data.clusters)
       })
   },
   loadCluster: (context, payload) => {
-    payload = payload || {}
-    axios.get(`${apiUrl}/cluster-${payload.id}`)
+    fromApi('cluster', payload)
       .then(response => {
         context.commit('setCluster', response.data.cluster)
         context.commit('setGalaxies', response.data.galaxies)
@@ -61,7 +65,9 @@ const actions = {
     const height = payload.height || 2000
     const depth = payload.depth || 2000
 
-    axios.get(`${apiUrl}/stars?count=${count}&width=${width}&height=${height}&depth=${depth}`)
+    fromApi('stars', {
+      data: `count=${count}&width=${width}&height=${height}&depth=${depth}`
+    })
       .then(response => {
         context.commit('setStars', response.data.stars)
       })

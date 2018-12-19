@@ -22,8 +22,10 @@ export default {
     universes () { return this.$store.state.stars.universes }
   },
   mounted () {
-    this.$store.dispatch('stars/loadMultiverse')
-    this.$store.dispatch('stars/loadUniverses')
+    this.$store.dispatch('stars/loadMultiverse', {
+      id: this.$route.params.id
+    })
+    // this.$store.dispatch('stars/loadUniverses')
   }
 }
 </script>

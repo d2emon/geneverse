@@ -8,9 +8,9 @@
   </v-card-text>
 
   <v-list one-line>
-    <template v-for="universe in universes">
+    <template v-for="(universe, id) in universes">
       <v-list-tile
-        :key="universe.id"
+        :key="`${id}-${universe.id}`"
         :to="'/space/universe/' + universe.id"
         :title="JSON.stringify(universe)"
       >
