@@ -14,7 +14,7 @@ import ContentContainer from '../components/nested/ContentContainer'
 export default {
   name: 'DollPage',
   components: {
-    ContentContainer,
+    ContentContainer
   }
 }
 </script>

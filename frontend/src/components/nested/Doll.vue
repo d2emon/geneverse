@@ -44,15 +44,15 @@ export default {
       context.clearRect(0, 0, canvas.width, canvas.height)
       // $("#canvas").css({"display": "inline"});
       /*
-		$($(".armPiece").get().reverse()).each(function(){
-			imgTop = $(this).css("margin-top").replace('px','');
-			imgLeft = $(this).css("margin-left").replace('px','');
-			imgWd = $(this).css("width").replace('px','');
-			imgHt = $(this).css("height").replace('px','');
-			var img = new Image();
-			img.src = $(this).css("background-image").replace('url(\"','').replace('\")','');
-			context.drawImage(img, imgLeft, imgTop, imgWd, imgHt);
-		});
+      $($(".armPiece").get().reverse()).each(function(){
+        imgTop = $(this).css("margin-top").replace('px','');
+        imgLeft = $(this).css("margin-left").replace('px','');
+        imgWd = $(this).css("width").replace('px','');
+        imgHt = $(this).css("height").replace('px','');
+        var img = new Image();
+        img.src = $(this).css("background-image").replace('url(\"','').replace('\")','');
+        context.drawImage(img, imgLeft, imgTop, imgWd, imgHt);
+      });
        */
     }
   }

@@ -76,7 +76,7 @@ export const memoryText = () => {
   const part = choose(['leg', 'ankle', 'elbow', 'knee', 'nose'])
   const loose = weightedChoose(
     [
-        'dog', 'cat', 'bunny', 'hamster', 'gerbil', 'bird', 'goldfish', 'ferret', 'rat', 'iguana', 'pet spider'
+      'dog', 'cat', 'bunny', 'hamster', 'gerbil', 'bird', 'goldfish', 'ferret', 'rat', 'iguana', 'pet spider'
     ],
     1.5
   )
@@ -154,7 +154,7 @@ export const medievalMemoryText = () => {
       memoryActivity(activities, partners, ages),
       memoryStudy('mastered', subjects, graduates, jobs, 'found my calling'),
       memorySchoolActivity(schoolActivities, schoolPartners, schools),
-      memoryDay(events),
+      memoryDay(events)
     ],
     1.5
   )

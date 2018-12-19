@@ -33,8 +33,8 @@ export default {
     'galaxies'
   ],
   computed: {
-    style () { return `height:${this.size * 200}px;width:${this.size * 200}px;background-image: url(http://localhost:5000/space/img-${this.size * 200}s${this.id}.png?${Math.random()});` },
-    // image () { return `http://localhost:5000/space/galaxy-img-${Math.round(this.galaxy.radius * 10)}s${this.galaxy.id}.png?${Math.random()}` },
+    style () { return `height:${this.size * 200}px;width:${this.size * 200}px;background-image: url(http://localhost:5000/space/img-${this.size * 200}s${this.id}.png?${Math.random()});` }
+    // image () { return `http://localhost:5000/space/galaxy-img-${Math.round(this.galaxy.radius * 10)}s${this.galaxy.id}.png?${Math.random()}` }
     // link () { return `/space/galaxy/${this.galaxy.id}` }
   },
   data: () => ({

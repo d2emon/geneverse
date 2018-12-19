@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Instance from '../nested/Instance'
 import things from '../nested/nestedscript'
-import { choose, rand } from "../nested/utils";
+import { choose, rand } from '../nested/utils'
 
 const state = {
   things,
@@ -111,7 +111,7 @@ const mutations = {
     instance.grown = true
   },
 
-  setContains(state, { itemId, contains }) {
+  setContains (state, { itemId, contains }) {
     const thisT = state.things[itemId]
     contains.forEach(i => thisT.contains.push(i))
     thisT.contains = thisT.contains.filter(i => i !== '')

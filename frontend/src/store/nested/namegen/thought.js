@@ -110,7 +110,8 @@ export const sadThoughtText = () => {
       "I'm tired. I've been doing this all day.", "Don't listen to what they say. It's just not true.",
       'Too many rumors going on.', "It's not what it looks like, I swear!", 'Uh... I can explain.',
       "Well, I'm glad nobody can read my mind.", "My friends aren't real.", "I'm the only real person here."
-  ])
+    ]
+  )
   const thought3 = `${need}.`
   const thought4 = choose(
     [`My ${itchyPart} is itchy.`, `My ${hurt}.`, `I should see a doctor for my ${illPart}.`]
@@ -286,7 +287,7 @@ export const medievalThoughtText = () => {
       [
         'witches', 'princesses', 'adventure', 'fate', 'distant kingdoms', 'unicorns', 'knights', 'bards', 'swords',
         'love'
-       ]
+      ]
     ),
     choose(
       [

@@ -99,7 +99,7 @@ export default {
         shoes: this.shoes,
         scarfs: this.scarfs,
         belts: this.belts,
-        gloves: this.gloves,
+        gloves: this.gloves
       }
     },
     cloth () { return Object.keys(this.cloths)[this.clothGroup] }
@@ -154,15 +154,15 @@ export default {
     save (slotId) {
       console.log('save', slotId)
       /*
-  		var nm = $(this).attr("name");
-	  	window.localStorage.setItem('outfitSaved' + nm, $("#armor").html());
+      var nm = $(this).attr("name");
+      window.localStorage.setItem('outfitSaved' + nm, $("#armor").html());
        */
     },
     load (slotId) {
       console.log('load', slotId)
       /*
-   		var nm = $(this).attr("name");
-  		$("#armor").html(window.localStorage["outfitSaved" + nm]);
+      var nm = $(this).attr("name");
+      $("#armor").html(window.localStorage["outfitSaved" + nm]);
        */
     }
   }

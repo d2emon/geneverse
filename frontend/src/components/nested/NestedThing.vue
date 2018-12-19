@@ -34,7 +34,7 @@ export default {
   data: () => ({
     display: false,
     displayContainer: false,
-    arrowText: '+',
+    arrowText: '+'
   }),
   methods: {
     toggle (thingId) {
@@ -56,12 +56,12 @@ export default {
   }
 }
 /*
-	var addStyle="";
-	//special-case pictures
-	if (this.name=="sharkverse") addStyle="background-image:url('nestedSharkverse.png');";
-	else if (this.name=="baconverse") addStyle="background-image:url('nestedBaconverse.png');";
-	else if (this.name=="doughnutverse") addStyle="background-image:url('nestedDoughnutverse.png');";
-	else if (this.name=="lasagnaverse") addStyle="background-image:url('nestedLasagnaverse.png');";
+  var addStyle="";
+  //special-case pictures
+  if (this.name=="sharkverse") addStyle="background-image:url('nestedSharkverse.png');";
+  else if (this.name=="baconverse") addStyle="background-image:url('nestedBaconverse.png');";
+  else if (this.name=="doughnutverse") addStyle="background-image:url('nestedDoughnutverse.png');";
+  else if (this.name=="lasagnaverse") addStyle="background-image:url('nestedLasagnaverse.png');";
  */
 </script>
 

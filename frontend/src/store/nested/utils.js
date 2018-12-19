@@ -49,7 +49,7 @@ function CheckMissingThings () {
     thisContent = thisContent[0]
     if (!Things[thisContent] && thisContent != '') allMissing.push(thisContent)
   }
-  //	allMissing=allMissing.filter(function(elem,pos) {return allMissing.indexOf(elem)==pos;});//remove duplicates
+  // allMissing=allMissing.filter(function(elem,pos) {return allMissing.indexOf(elem)==pos;});//remove duplicates
 
   var str = "Things that are linked to, but don't exist :\n"
   for (var i in allMissing) {

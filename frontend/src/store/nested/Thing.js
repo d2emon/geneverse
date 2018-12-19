@@ -1,5 +1,5 @@
-export const things = {}
-let thingId = 0
+// export const things = {}
+// let thingId = 0
 
 class Thing {
   constructor (name, contains, namegen) {
@@ -7,8 +7,8 @@ class Thing {
     this.contains = contains
     this.namegen = namegen || this.name
 
-    things[name] = this
-    thingId++
+    // things[name] = this
+    // thingId++
   }
 }
 

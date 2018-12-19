@@ -13,10 +13,10 @@
 
 <script>
 export default {
-  name: "VideoGame",
+  name: 'VideoGame',
   computed: {
-    str () { return this.$store.state.game.game; },
-    log () { return this.$store.state.game.log; }
+    str () { return this.$store.state.game.game },
+    log () { return this.$store.state.game.log }
   },
   data: () => ({
     seed: '.',
@@ -25,7 +25,7 @@ export default {
   }),
   methods: {
     seedinput (seedValue) {
-      if (seedValue && seedValue.charAt(0) != '.') {
+      if (seedValue && seedValue.charAt(0) !== '.') {
         this.seed = seedValue
       } else {
         seedValue = this.seed

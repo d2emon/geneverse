@@ -1,5 +1,3 @@
-import Instance from "../nested/Instance";
-
 const state = {
   items: [
     {

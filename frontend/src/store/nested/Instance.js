@@ -1,4 +1,4 @@
-import { choose, weightedChoose, rand, title } from './utils'
+import { choose } from './utils'
 import { personName, medievalPersonName, ancientPersonName, futurePersonName } from './namegen/person'
 import { memoryText, medievalMemoryText, ancientMemoryText, futureMemoryText } from './namegen/memory'
 import { sadThoughtText, happyThoughtText, medievalThoughtText, ancientThoughtText, futureThoughtText } from './namegen/thought'
