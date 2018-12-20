@@ -8,6 +8,7 @@ import Nested from './Nested'
 import NestedItem from './NestedItem'
 import DollPage from './DollPage'
 import VideoGame from './VideoGame'
+import NameGen from './NameGen'
 
 export {
   Space,
@@ -18,5 +19,6 @@ export {
   Nested,
   NestedItem,
   DollPage,
-  VideoGame
+  VideoGame,
+  NameGen
 }

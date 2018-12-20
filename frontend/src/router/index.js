@@ -10,7 +10,8 @@ import {
   Nested,
   NestedItem,
   DollPage,
-  VideoGame
+  VideoGame,
+  NameGen
 } from '@/pages/'
 
 Vue.use(Router)
@@ -40,6 +41,11 @@ export default new Router({
       path: '/video-game',
       name: 'VideoGame',
       component: VideoGame
+    },
+    {
+      path: '/name-gen',
+      name: 'NameGen',
+      component: NameGen
     },
     {
       path: '/generate/:generator_id',
